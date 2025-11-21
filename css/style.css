@@ -12,25 +12,54 @@
 /*    PERFORMANCE OPTIMIZATION - CLS Fix    */
 /* ========================================= */
 
-/* Preloader - Fix CLS */
+/* Preloader - Improved */
 #preloader {
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 99999;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#status {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23bf303a" stroke-width="4" stroke-dasharray="60 40" animation="spin 1s linear infinite"><animate attributeName="stroke-dashoffset" from="0" to="-100" dur="1s" repeatCount="indefinite"/></circle></svg>') center no-repeat;
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.preloader-logo {
+    width: 240px;
+    max-width: 70vw;
+    height: auto;
+    margin-bottom: 40px;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+.preloader-spinner {
+    width: 70px;
+    height: 70px;
+    border: 4px solid rgba(20, 29, 64, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--color-accent);
+    animation: spinnerRotate 0.8s linear infinite;
+}
+
+@keyframes logoPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spinnerRotate {
+    to { transform: rotate(360deg); }
 }
 
 /* Images - Fix CLS with aspect ratio */
@@ -2518,7 +2547,7 @@ header {
     text-align: center;
   }
   .trending .trend-item .trend-image .trend-meta .entry-author {
-       margin-bottom: 15px;
+             margin-bottom: 15px;
   }
 }
 .entry-author img {
@@ -3544,771 +3573,234 @@ section.blog .grid {
   }
 }
 
-/* ========================================= */
-/*     NTC Custom Styles - Logo & Sections  */
-/* ========================================= */
+/* ========================================
+   Estilos Migrados de HTML (Index & Tours)
+   ======================================== */
 
-/* Logo responsive styles */
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
+/* Corrección para Iconos de Línea faltantes en Menú Móvil */
+.slicknav_btn.slicknav_collapsed:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0c9"; /* fa-bars */
+    color: #141d40;
+    font-size: 1.5rem;
 }
 
-.navbar-brand img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: clamp(48px, 8vw, 76px);
-  object-fit: contain;
-  transition: var(--transition-base);
+.slicknav_btn.slicknav_open:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00d"; /* fa-times */
+    color: #141d40;
+    font-size: 1.5rem;
 }
 
-.header_menu.fixed-top .navbar-brand img {
-  max-height: clamp(42px, 7vw, 64px);
+/* Corrección para Icono de Volver Arriba */
+#back-to-top a:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f062"; /* fa-arrow-up */
+    font-size: 18px;
 }
 
-@media (max-width: 480px) {
-  .navbar-brand img {
-    max-height: 48px;
-  }
-  
-  .header_menu.fixed-top .navbar-brand img {
-    max-height: 42px;
-  }
+/* --- ESTILOS DE PESTAÑAS (TABS) PARA TOURS --- */
+.tabs-navbar1 {
+    background: #fff;
+    z-index: 999;
+    width: 100%;
+    border-bottom: 1px solid #eee;
 }
 
-/* Mobile navigation toggle visibility */
-
-/* About section background */
-.about-bg-section {
-  background-image: url(../images/shape4.png);
-  background-position: center;
-  background-repeat: no-repeat;
+/* Comportamiento Sticky (Pegajoso) */
+.sticky1, .tab-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0; /* Pegar arriba */
 }
 
-/* Section shape decorative */
-.section-shape-top {
-  background-image: url(../images/shape8.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+#tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+    margin-bottom: 0;
+    flex-wrap: wrap;
 }
 
-/* Testimonial background */
-.testimonial-bg {
-  background-image: url(../images/bg/bg1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+#tabs li {
+    margin-bottom: -1px;
 }
 
-/* Footer background */
-.footer-main {
-  /* background-image: url(../images/background_pattern.png); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: #0f1530;
-  position: relative;
+#tabs li a {
+    color: #505467 !important; /* Forzar visibilidad para inactivos */
+    font-weight: 600;
+    padding: 15px 25px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: transparent !important;
+    font-size: 16px;
+    display: block;
 }
 
-/* Active menu item color for home-thh */
-.home-thh .main_header_area .navbar.navbar-default .nav.navbar-nav li.active a,
-.home-thh .main_header_area .navbar.navbar-default .nav.navbar-nav li:hover a {
-  color: var(--color-accent);
+#tabs li a:hover {
+    color: #bf303a !important;
 }
 
-/* ========================================= */
-/*     Mobile Navigation Menu (SlickNav)    */
-/* ========================================= */
-
-/* Mobile menu container */
-
-/* Scrollbar styling for mobile menu */
-
-/* Menu list items */
-
-/* Menu links */
-
-/* Submenu styling */
-
-/* Arrow for parent items */
-
-/* Row styling */
-
-/* Responsive adjustments */
-
-/* Special positioning for magazine layout */
-
-/* Special positioning for home-eight layout */
-
-/* ========================================= */
-/*      Responsive Icons - Contact Section */
-/* ========================================= */
-
-/* Base styles for info items */
-.info-item {
-  display: flex;
-  flex-direction: column;
-  min-height: 280px;
-  transition: all 0.3s ease;
-}
-
-.info-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Desktop - Large screens */
-@media (min-width: 1200px) {
-  .info-icon {
-    height: 80px !important;
-  }
-  .info-icon i {
-    font-size: 3.5rem !important;
-  }
-  .info-item {
-    min-height: 300px;
-  }
-}
-
-/* Tablet - Medium screens (768px to 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .info-icon {
-    height: 70px !important;
-  }
-  .info-icon i {
-    font-size: 3rem !important;
-  }
-  .info-item {
-    min-height: 280px;
-  }
-}
-
-/* Mobile - Small screens (below 768px) */
-@media (max-width: 767px) {
-  .info-icon {
-    height: 65px !important;
-  }
-  .info-icon i {
-    font-size: 2.5rem !important;
-  }
-  .info-item {
-    min-height: 260px;
-  }
-}
-
-/* Extra small phones */
-@media (max-width: 576px) {
-  .info-icon {
-    height: 60px !important;
-  }
-  .info-icon i {
-    font-size: 2rem !important;
-  }
-  .info-item {
-    min-height: 240px;
-  }
-  
-  .contact-info-content .col-lg-4 {
-    margin-bottom: 1rem;
-  }
+/* Estado Activo */
+#tabs li.active a {
+    color: #bf303a !important; /* Rojo para activo */
+    border: none;
+    border-bottom: 3px solid #bf303a !important;
+    background: transparent !important;
 }
 
 /* ========================================= */
-/*    Custom Background Colors - Tour Page */
+/*          Offers Section Styles           */
 /* ========================================= */
-.bg-light-primary {
-  background-color: #e3f2fd !important;
-  border-left: 4px solid #2a7fbd;
-}
-
-.bg-light-success {
-  background-color: #e8f5e9 !important;
-  border-left: 4px solid #5cb85c;
-}
-
-.desc-box.h-100 {
-  min-height: 100%;
-}
-
-/* Ensure equal height boxes in tour details */
-.tour-details .row.mb-4 .col-lg-6 {
-  display: flex;
-}
-
-.tour-details .row.mb-4 .col-lg-6 .desc-box {
-  flex: 1;
-}
-
-/* ========================================= */
-/*    ELEGANT OFFER CARDS - TRAVEL AGENCY   */
-/* ========================================= */
-
 .offers-main {
-  background: linear-gradient(135deg, #f5f7fb 0%, #ffffff 100%);
-  padding: 4rem 0;
+    background-color: var(--color-surface);
+    padding-top: 0;
+    padding-bottom: 6rem;
 }
 
 .offer-card {
-  background: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(20, 29, 64, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(191, 48, 58, 0.05);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .offer-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(20, 29, 64, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
-/* Offer Card Image */
 .offer-card-image {
-  position: relative;
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+    position: relative;
+    height: 250px;
+    overflow: hidden;
 }
 
 .offer-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .offer-card:hover .offer-card-image img {
-  transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .offer-card-badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: linear-gradient(135deg, #bf303a 0%, #a82a30 100%);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(191, 48, 58, 0.4);
-  backdrop-filter: blur(10px);
-  text-transform: uppercase;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(191, 48, 58, 0.3);
 }
 
-/* Offer Card Content */
 .offer-card-content {
-  padding: 2rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .offer-card-title {
-  color: #141d40;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-  font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
 }
 
 .offer-card-subtitle {
-  color: #bf303a;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .offer-card-description {
-  color: #667085;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+    font-family: var(--font-body);
+    color: var(--color-neutral);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
-/* Offer Highlight */
 .offer-card-highlight {
-  background: linear-gradient(135deg, rgba(191, 48, 58, 0.08) 0%, rgba(42, 127, 189, 0.08) 100%);
-  border-left: 4px solid #bf303a;
-  padding: 1rem;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+    background: rgba(20, 29, 64, 0.03);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--color-primary);
 }
 
 .offer-label {
-  color: #505467;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.9rem;
 }
 
 .offer-price {
-  color: #bf303a;
-  font-size: 1.2rem;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--color-accent);
+    font-size: 1.1rem;
 }
 
-/* Feature Items */
 .offer-card-features {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+    margin-bottom: 2rem;
 }
 
 .feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #505467;
-  font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--color-neutral);
+    font-size: 0.9rem;
 }
 
 .feature-item i {
-  color: #5cb85c;
-  font-size: 1rem;
-  min-width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(92, 184, 92, 0.1);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+    color: var(--color-success);
+    margin-right: 10px;
+    font-size: 0.8rem;
+    background: rgba(92, 184, 92, 0.1);
+    padding: 5px;
+    border-radius: 50%;
 }
 
-/* Offer Card Button */
 .offer-card-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #bf303a 0%, #a82a30 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.3px;
-  margin-top: auto;
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: var(--font-heading);
 }
 
 .offer-card-btn:hover {
-  background: linear-gradient(135deg, #a82a30 0%, #8f2228 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(191, 48, 58, 0.35);
-  color: white;
-}
-
-.offer-card-btn:active {
-  transform: translateY(0);
-}
-
-/* Responsive Design */
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-  .offer-card-image {
-    height: 220px;
-  }
-
-  .offer-card-content {
-    padding: 1.75rem;
-  }
-
-  .offer-card-title {
-    font-size: 1.25rem;
-  }
-
-  .offer-card-description {
-    font-size: 0.9rem;
-  }
-}
-
-/* Tablets Landscape (768px - 900px) */
-@media (max-width: 900px) {
-  .offer-card-image {
-    height: 200px;
-  }
-
-  .offer-card-badge {
-    font-size: 0.7rem;
-    padding: 6px 12px;
-  }
-}
-
-/* Mobile (600px - 768px) */
-@media (max-width: 768px) {
-  .offers-main {
-    padding: 3rem 0;
-  }
-
-  .offer-card-image {
-    height: 200px;
-  }
-
-  .offer-card-content {
-    padding: 1.5rem;
-  }
-
-  .offer-card-title {
-    font-size: 1.15rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .offer-card-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .offer-card-description {
-    font-size: 0.85rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.5;
-  }
-
-  .offer-card-features {
-    gap: 0.6rem;
-    margin-bottom: 1rem;
-  }
-
-  .feature-item {
-    font-size: 0.85rem;
-    gap: 0.6rem;
-  }
-
-  .offer-card-btn {
-    padding: 10px 24px;
-    font-size: 0.9rem;
-  }
-
-  .offer-card-highlight {
-    padding: 0.85rem;
-    margin-bottom: 1.2rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .offer-price {
-    font-size: 1.1rem;
-  }
-}
-
-/* Small Mobile (375px - 600px) */
-@media (max-width: 600px) {
-  .offers-main {
-    padding: 2rem 0;
-  }
-
-  .offer-card {
-    border-radius: 12px;
-  }
-
-  .offer-card-image {
-    height: 180px;
-  }
-
-  .offer-card-content {
-    padding: 1.25rem;
-  }
-
-  .offer-card-title {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .offer-card-subtitle {
-    font-size: 0.8rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .offer-card-description {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .offer-card-highlight {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .offer-label {
-    font-size: 0.75rem;
-  }
-
-  .offer-price {
-    font-size: 0.95rem;
-  }
-
-  .offer-card-features {
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .feature-item {
-    font-size: 0.8rem;
-  }
-
-  .offer-card-btn {
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    margin-top: auto;
-  }
-
-  .offer-card-badge {
-    font-size: 0.65rem;
-    padding: 5px 10px;
-    top: 10px;
-    left: 10px;
-  }
-}
-
-/* Extra Small (320px - 375px) */
-@media (max-width: 375px) {
-  .offers-main {
-    padding: 1.5rem 0;
-  }
-
-  .offer-card {
-    border-radius: 10px;
-  }
-
-  .offer-card-image {
-    height: 160px;
-  }
-
-  .offer-card-content {
-    padding: 1rem;
-  }
-
-  .offer-card-title {
-    font-size: 0.95rem;
-  }
-
-  .offer-card-description {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-
-  .feature-item {
-    font-size: 0.75rem;
-  }
-
-  .offer-card-btn {
-    padding: 9px 18px;
-    font-size: 0.8rem;
-  }
-}
-/* Tour Actions & Contact Form Button Styles */
-.tour-actions {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.tour-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.tour-btn {
-  padding: 12px 24px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.tour-btn-primary {
-  background: linear-gradient(135deg, #BF303A 0%, #8B2228 100%);
-  color: white;
-  width: 100%;
-}
-
-.tour-btn-primary:hover {
-  background: linear-gradient(135deg, #8B2228 0%, #6B1920 100%);
-  box-shadow: 0 4px 12px rgba(191, 48, 58, 0.3);
-  transform: translateY(-2px);
-  color: white;
-}
-
-.tour-btn-primary:active {
-  transform: translateY(0);
-}
-
-.tour-btn-secondary {
-  background-color: white;
-  color: #141D40;
-  border: 2px solid #141D40;
-  width: 100%;
-}
-
-.tour-btn-secondary:hover {
-  background-color: #f8f9fa;
-  border-color: #BF303A;
-  color: #BF303A;
-  box-shadow: 0 4px 12px rgba(191, 48, 58, 0.2);
-  transform: translateY(-2px);
-}
-
-.tour-btn-secondary:active {
-  transform: translateY(0);
-}
-
-.tour-btn i {
-  margin-right: 6px;
-}
-
-/* Mobile Responsive - Buttons Stack Vertically */
-@media (max-width: 767px) {
-  .tour-buttons {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .tour-btn {
-    width: 100%;
-    padding: 11px 20px;
-    font-size: 0.95rem;
-  }
-  
-  .tour-actions {
-    padding-top: 1.25rem;
-    margin-top: 1.25rem;
-  }
-}
-
-/* Tablet Responsive - Buttons in Row */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .tour-buttons {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .tour-btn {
-    flex: 1;
-    min-width: 150px;
-  }
-}
-
-/* Desktop - Full Width Row with Proper Spacing */
-@media (min-width: 1025px) {
-  .tour-buttons {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-  
-  .tour-btn {
-    flex: 0 1 auto;
-    min-width: 180px;
-  }
-}
-
-/* ========================================= */
-/*    Flight Addon Box - Mobile Optimized    */
-/* ========================================= */
-
-.flight-addon-box {
-    transition: all 0.3s ease;
-    margin: 0 auto;
-}
-
-.flight-addon-box > div {
-    width: 100%;
-}
-
-.flight-addon-box .form-check-input {
-    cursor: pointer;
-    accent-color: #bf303a;
-    border: 2px solid #ced4da;
-    flex-shrink: 0;
-}
-
-.flight-addon-box .form-check-input:checked {
-    background-color: #bf303a;
-    border-color: #bf303a;
-}
-
-.flight-addon-box .form-check-label {
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Mobile Devices (Landscape phones and portrait tablets) */
-@media (max-width: 576px) {
-    .flight-addon-box {
-        max-width: 100% !important;
-        width: calc(100% - 2rem) !important;
-        padding: 1rem !important;
-    }
-    
-    .flight-addon-box .form-check-input {
-        width: 1.5rem !important;
-        height: 1.5rem !important;
-        min-width: 24px;
-        min-height: 24px;
-    }
-    
-    .flight-addon-box label span:first-child {
-        font-size: 1rem !important;
-    }
-    
-    .flight-addon-box label span:last-child {
-        font-size: 0.85rem !important;
-    }
-}
-
-/* Small Phones (Portrait) */
-@media (max-width: 375px) {
-    .flight-addon-box {
-        padding: 0.875rem !important;
-    }
-
-    .flight-addon-box label span:first-child {
-        font-size: 0.95rem !important;
-    }
-    
-    .flight-addon-box label span:last-child {
-        font-size: 0.8rem !important;
-    }
+    background: var(--color-accent);
+    color: #fff;
+    transform: translateY(-2px);
 }

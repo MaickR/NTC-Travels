@@ -5134,7 +5134,7 @@ Change the following styles to modify the appearance of the menu.
     width: 32px;
     height: 32px;
     margin: 0 auto;
-    /* background: url(../images/loading.gif) no-repeat; */
+    background: url(../images/loading.gif) no-repeat;
 }
 .lb-nav {
     position: absolute;
@@ -5160,7 +5160,7 @@ Change the following styles to modify the appearance of the menu.
     width: 34%;
     left: 0;
     float: left;
-    /* background: url(../images/prev.png) left 48% no-repeat; */
+    background: url(../images/prev.png) left 48% no-repeat;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity 0.6s;
@@ -5176,7 +5176,7 @@ Change the following styles to modify the appearance of the menu.
     width: 64%;
     right: 0;
     float: right;
-    /* background: url(../images/next.png) right 48% no-repeat; */
+    background: url(../images/next.png) right 48% no-repeat;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity 0.6s;
@@ -5232,7 +5232,7 @@ Change the following styles to modify the appearance of the menu.
     float: right;
     width: 30px;
     height: 30px;
-    /* background: url(../images/close.png) top right no-repeat; */
+    background: url(../images/close.png) top right no-repeat;
     text-align: right;
     outline: none;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
@@ -5518,7 +5518,7 @@ Change the following styles to modify the appearance of the menu.
     top: 10px;
     width: 35px;
     height: 35px;
-    /* background-image: url(../images/close.png); */
+    background-image: url(../images/close.png);
     background-repeat: no-repeat;
     background-position: -100px;
 }
@@ -5564,13 +5564,13 @@ Change the following styles to modify the appearance of the menu.
 .imgs-grid-modal .modal-inner .modal-control .arrow.left {
     background-position: 2px center;
     background-repeat: no-repeat;
-    /* background-image: url(../images/prev.png); */
+    background-image: url(../images/prev.png);
 }
 
 .imgs-grid-modal .modal-inner .modal-control .arrow.right {
     background-position: 2px center;
     background-repeat: no-repeat;
-    /* background-image: url(../images/next.png); */
+    background-image: url(../images/next.png);
 }
 
 .imgs-grid-modal .modal-inner .modal-image {

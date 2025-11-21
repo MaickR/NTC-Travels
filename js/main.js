@@ -12,14 +12,14 @@
     // ========================================
     $(document).ready(function() {
         // Cache jQuery objects
-        const $status = $('#status');
+        const $preloaderContent = $('.preloader-content');
         const $preloader = $('#preloader');
         const $body = $('body');
 
         // Preloader
-        $status.fadeOut();
-        $preloader.delay(200).fadeOut('slow');
-        $body.delay(200).css({ overflow: 'visible' });
+        $preloaderContent.fadeOut();
+        $preloader.delay(350).fadeOut('slow');
+        $body.delay(350).css({ overflow: 'visible' });
 
         // Initialize WOW.js for animations
         if (typeof WOW !== 'undefined') {
@@ -577,13 +577,439 @@
          return false;
      });
 
- })(jQuery);
+    // ========================================
+    // Funcionalidades Migradas (Index & Tours)
+    // ========================================
 
+    // ----------------------------------------
+    // Manejador de Campos Dinámicos del Formulario de Contacto
+    // ----------------------------------------
+    window.updateFormFields = function() {
+        const inquiryType = document.getElementById('ntc_inquiry_type');
+        if (!inquiryType) return; // Salir si no existe el elemento
 
- jQuery(window).on('resize load', () => {
+        const travelersGroup = document.getElementById('travelers_group');
+        const datesGroup = document.getElementById('dates_group');
+        const paymentGroup = document.getElementById('payment_group');
+        const travelStyleGroup = document.getElementById('travel_style_group');
+        const priorityGroup = document.getElementById('priority_group');
+        const tourDatesInfo = document.getElementById('tour_dates_info');
+
+        // Ocultar todos los grupos condicionales primero
+        if (travelersGroup) travelersGroup.style.display = 'none';
+        if (datesGroup) datesGroup.style.display = 'none';
+        if (paymentGroup) paymentGroup.style.display = 'none';
+        if (travelStyleGroup) travelStyleGroup.style.display = 'none';
+        if (priorityGroup) priorityGroup.style.display = 'none';
+        if (tourDatesInfo) tourDatesInfo.textContent = '';
+
+        // Mostrar campos basados en el tipo de consulta
+        const type = inquiryType.value;
+        if (type === 'booking_india') {
+            if (travelersGroup) travelersGroup.style.display = 'block';
+            if (datesGroup) datesGroup.style.display = 'block';
+            if (paymentGroup) paymentGroup.style.display = 'block';
+            if (travelStyleGroup) travelStyleGroup.style.display = 'block';
+            if (priorityGroup) priorityGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Confirmed Dates: April 22 - May 3, 2026';
+        } else if (type === 'question') {
+            if (datesGroup) datesGroup.style.display = 'block';
+            if (travelStyleGroup) travelStyleGroup.style.display = 'block';
+            if (priorityGroup) priorityGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Share your preferred month or let us know if your dates are flexible.';
+        } else if (type === 'other') {
+            if (travelStyleGroup) travelStyleGroup.style.display = 'block';
+        }
+    };
+
+    // ----------------------------------------
+    // Manejador de Envío del Formulario de Contacto (WhatsApp)
+    // ----------------------------------------
+    window.handleContactFormNTC = function(event) {
+        event.preventDefault();
+
+        // Obtener valores del formulario
+        const fullName = document.getElementById('ntc_fullname').value.trim();
+        const email = document.getElementById('ntc_email').value.trim();
+        const phone = document.getElementById('ntc_phone').value.trim();
+        const departureCity = document.getElementById('ntc_departure_city').value.trim();
+        const inquiryType = document.getElementById('ntc_inquiry_type').value;
+        const travelersCount = document.getElementById('ntc_travelers_count').value;
+        const travelDates = document.getElementById('ntc_travel_dates').value.trim();
+        const paymentOption = document.getElementById('ntc_payment_option') ? document.getElementById('ntc_payment_option').value : '';
+        const travelStyle = document.getElementById('ntc_travel_style').value;
+        const tripPriority = document.getElementById('ntc_primary_interest').value;
+        const comments = document.getElementById('ntc_comments').value.trim();
+
+        const travelStyleMap = {
+            'couple': 'Couple getaway',
+            'family': 'Family trip (kids included)',
+            'friends': 'Friends or small group',
+            'solo': 'Solo traveler',
+            'corporate': 'Corporate / incentive group'
+        };
+
+        const tripPriorityMap = {
+            'culture': 'Culture & local immersion',
+            'nature': 'Nature & outdoor adventure',
+            'photography': 'Photography & scenic viewpoints',
+            'luxury': 'Luxury & comfort upgrades',
+            'custom': 'Need help customizing the experience'
+        };
+
+        // Validar campos requeridos
+        if (!fullName || !email || !phone || !inquiryType) {
+            alert('Please complete all required fields (marked with *).');
+            return;
+        }
+
+        // Validar selecciones de reserva
+        if (inquiryType.startsWith('booking_')) {
+            if (!travelersCount) {
+                alert('Please select the number of travelers for your booking.');
+                return;
+            }
+            if (!departureCity) {
+                alert('Please share your home city or departure airport so we can coordinate logistics.');
+                return;
+            }
+            if (!travelStyle) {
+                alert('Please tell us who will be traveling so we can tailor the itinerary.');
+                return;
+            }
+        }
+
+        // Construir mensaje profesional para WhatsApp
+        let messageContent = `----------------------------------------
+NTC TRAVELS & DREAMS
+New Website Inquiry
+----------------------------------------
+
+`;
+
+        // DETALLES DEL CLIENTE
+        messageContent += `CLIENT DETAILS
+----------------------------------------
+Name: *${fullName}*
+Email: ${email}
+WhatsApp: ${phone}
+Departure: ${departureCity || 'Not provided'}
+
+`;
+
+        // TIPO DE CONSULTA
+        if (inquiryType === 'booking_india') {
+            const numericTravelers = /^\d+$/.test(travelersCount) ? parseInt(travelersCount, 10) : null;
+
+            messageContent += `BOOKING REQUEST: Incredible India (12 Days)
+----------------------------------------
+Price: $4,390 USD per person (All Inclusive)
+Route: Delhi - Jaipur - Agra - Varanasi - Rishikesh
+
+Travelers: *${travelersCount || 'Not specified'}*`;
+
+            if (numericTravelers) {
+                const price = 4390;
+                const baseTotal = price * numericTravelers;
+                messageContent += `
+Est. Total: *$${baseTotal} USD*`;
+            }
+
+            messageContent += `
+Note: Checking availability for $200 USD Early Bird Discount`;
+
+        } else if (inquiryType === 'question') {
+            messageContent += `GENERAL INQUIRY
+----------------------------------------
+Client has questions about tours`;
+
+        } else if (inquiryType === 'other') {
+            messageContent += `OTHER INQUIRY
+----------------------------------------`;
+        }
+
+        // CAMPOS COMUNES
+        if (inquiryType.startsWith('booking_')) {
+            if (travelStyle) {
+                const travelProfile = travelStyleMap[travelStyle] || travelStyle;
+                messageContent += `
+Profile: ${travelProfile}`;
+            }
+
+            if (tripPriority) {
+                const priorityFocus = tripPriorityMap[tripPriority] || tripPriority;
+                messageContent += `
+Priority: ${priorityFocus}`;
+            }
+
+            if (travelDates) {
+                messageContent += `
+Dates: *${travelDates}*`;
+            }
+
+            if (paymentOption) {
+                const paymentMap = {
+                    'full_payment': 'Full Payment (5% Discount)',
+                    '2_installments': '2 Installments (0% Interest)',
+                    '3_installments': '3 Installments (0% Interest)',
+                    '4_installments': '4 Monthly Installments (0% Interest)',
+                    'ask_options': 'Tell me available payment options'
+                };
+                messageContent += `
+Payment: ${paymentMap[paymentOption] || paymentOption}`;
+            }
+        }
+
+        // DETALLES ADICIONALES
+        if (comments) {
+            messageContent += `
+
+NOTES / QUESTIONS
+----------------------------------------
+${comments}`;
+        }
+
+        // PIE DE PÁGINA
+        messageContent += `
+
+----------------------------------------
+Sent from: www.ntctravels.com
+----------------------------------------`;
+
+        // Número de WhatsApp de NTC
+        const whatsappNumber = '14086090027';
+
+        // Crear URL de WhatsApp
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageContent)}`;
+
+        // Abrir WhatsApp
+        window.open(whatsappURL, '_blank');
+
+        // Mensaje de éxito
+        alert('Success! Your inquiry has been sent to NTC Travels & Dreams via WhatsApp.');
+
+        // Reiniciar formulario
+        document.getElementById('contactform_ntc').reset();
+        updateFormFields(); // Reiniciar visibilidad
+    };
+
+    // ----------------------------------------
+    // Manejador de CTA WhatsApp para Tours (Unificado)
+    // ----------------------------------------
+    window.handleCTAWhatsApp = function(event, tour) {
+        event.preventDefault();
+        let whatsappText = '';
+
+        if (tour === 'india') {
+            whatsappText = 'Hello NTC! I am interested in the Incredible India 12-Day Journey';
+            whatsappText += '\nPrice: $4,390 USD (All Inclusive)';
+            whatsappText += '\nDates: April 22 - May 3, 2026';
+            whatsappText += '\n\nI would like to know if the $200 USD Early Bird discount (before Dec 15) is still available.';
+        } else if (tour === 'mxgt') {
+            const helicopterCheckbox = document.getElementById('mxgt_cta_helicopter');
+            const helicopterAdded = helicopterCheckbox ? helicopterCheckbox.checked : false;
+
+            whatsappText = 'Hello NTC! I am interested in the Mexico (Chiapas) + Guatemala 12-Day Journey';
+            whatsappText += '\nBase Price: $1,980 USD per traveler';
+            whatsappText += '\nDates: Flexible (12-day itinerary)';
+
+            if (helicopterAdded) {
+                whatsappText += '\nAdd-on: HELICOPTER TOUR (+$600 USD per traveler)';
+                whatsappText += '\nDestination: El Mirador (from Flores; subject to availability)';
+            } else {
+                whatsappText += '\nAdd-on: No helicopter selected';
+            }
+        }
+
+        whatsappText += '\nPlease share availability, payment plans, and next steps.';
+        const encodedText = encodeURIComponent(whatsappText);
+        const whatsappUrl = 'https://wa.me/14086090027?text=' + encodedText;
+        window.open(whatsappUrl, '_blank');
+        return false;
+    };
+
+    // ----------------------------------------
+    // Manejador de WhatsApp para Tarjetas de Tours
+    // ----------------------------------------
+    window.handleCardWhatsApp = function(event, tour) {
+        event.preventDefault();
+
+        let whatsappText = '';
+        let tourName = '';
+        let basePrice = '';
+        let dates = '';
+
+        if (tour === 'india') {
+            tourName = 'Incredible India Journey - 12 Days';
+            basePrice = '$4,390 USD per person (All Inclusive)';
+            dates = 'April 22 - May 3, 2026';
+
+            whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Delhi - Jaipur - Agra - Varanasi - Rishikesh - Delhi`;
+            whatsappText += `\n\nI would like to know if the $200 USD Early Bird discount (before Dec 15) is still available.`;
+        }
+
+        whatsappText += `\n\nPlease help me confirm availability and send detailed itinerary.`;
+
+        // Codificar para URL de WhatsApp
+        const encodedText = encodeURIComponent(whatsappText);
+        const whatsappUrl = `https://wa.me/14086090027?text=${encodedText}`;
+
+        // Abrir WhatsApp
+        window.open(whatsappUrl, '_blank');
+        return false;
+    };
+
+    // ----------------------------------------
+    // Gestión de Navegación Activa y Scroll
+    // ----------------------------------------
+    function updateActiveNavItem() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav.navbar-nav a[href^="#"]');
+
+        let currentSection = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // Añadir compensación para el encabezado
+            const sectionHeight = section.offsetHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSection = '#' + section.getAttribute('id');
+            }
+        });
+
+        // Actualizar estado activo de enlaces de navegación
+        navLinks.forEach(link => {
+            if (link.parentElement) {
+                link.parentElement.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.parentElement.classList.add('active');
+                }
+            }
+        });
+    }
+
+    // ----------------------------------------
+    // Gestión de Diseño de Tarjetas Responsivas
+    // ----------------------------------------
+    function updateTrendBoxLayout() {
+        const trendBox = document.querySelector('.trend-box');
+        if (!trendBox) return;
+
+        const cardCount = document.querySelectorAll('.trend-box .col-lg-4').length;
+
+        // Añadir clase si hay más de 3 tarjetas
+        if (cardCount > 3) {
+            trendBox.classList.add('has-more-cards');
+        } else {
+            trendBox.classList.remove('has-more-cards');
+        }
+    }
+
+    // ----------------------------------------
+    // Inicialización de Eventos DOM
+    // ----------------------------------------
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar navegación activa y diseño
+        updateActiveNavItem();
+        updateTrendBoxLayout();
+
+        // Manejar clics en enlaces de navegación
+        document.querySelectorAll('.nav.navbar-nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Remover clase activa de todos los items
+                document.querySelectorAll('.nav.navbar-nav li').forEach(li => {
+                    li.classList.remove('active');
+                });
+
+                // Añadir clase activa al padre del item clickeado
+                if (this.parentElement.tagName === 'LI') {
+                    this.parentElement.classList.add('active');
+                }
+            });
+        });
+
+        // --- Lógica de Pestañas (Tabs) para Tours ---
+        const tabs = document.querySelectorAll('#tabs li');
+        if (tabs.length > 0) {
+            const sections = document.querySelectorAll('.single-content > div[id]');
+            const headerOffset = 100; // Compensación para encabezado sticky
+
+            // 1. Manejador de Clic con Scroll Suave
+            document.querySelectorAll('#tabs li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    // Actualizar estado activo inmediatamente
+                    tabs.forEach(li => li.classList.remove('active'));
+                    if (this.parentElement) this.parentElement.classList.add('active');
+
+                    // Scroll Suave
+                    const targetId = this.getAttribute('href');
+                    try {
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            const elementPosition = targetSection.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    } catch (err) {
+                        console.error("Error scrolling to section:", err);
+                    }
+                });
+            });
+
+            // 2. Scroll Spy (Espía de Scroll) para Pestañas
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollPosition = window.scrollY + headerOffset + 50; // Mirar un poco hacia adelante
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                // Si está al final de la página, activar la última pestaña
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    if (sections.length > 0) {
+                        current = sections[sections.length - 1].getAttribute('id');
+                    }
+                }
+
+                if (current) {
+                    tabs.forEach(li => {
+                        li.classList.remove('active');
+                        const link = li.querySelector('a');
+                        if (link && link.getAttribute('href') === '#' + current) {
+                            li.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    // Actualizar item de navegación activo al hacer scroll
+    window.addEventListener('scroll', function() {
+        updateActiveNavItem();
+    });
+
+    // Actualizar diseño al redimensionar ventana
+    window.addEventListener('resize', updateTrendBoxLayout);
+
+})(jQuery);
+
+jQuery(window).on('resize load', () => {
      resize_eb_slider();
  }).resize();
- /**
+/**
   * Resize slider
   */
  function resize_eb_slider() {
