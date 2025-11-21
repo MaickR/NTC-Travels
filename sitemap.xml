@@ -3,24 +3,40 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.ntctravels.com/</loc>
-    <lastmod>2025-10-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Main Tour Package: Chiapas + Petén + Antigua -->
+
+  <!-- Main Tour: Mexico & Guatemala -->
   <url>
     <loc>https://www.ntctravels.com/tour-mexico-guatemala.html</loc>
-    <lastmod>2025-10-16</lastmod>
+    <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- New Tour Package: Incredible India -->
+  <!-- Main Tour: Incredible India -->
   <url>
     <loc>https://www.ntctravels.com/tour-india.html</loc>
-    <lastmod>2025-10-27</lastmod>
+    <lastmod>2025-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Tour: Guayaquil -->
+  <url>
+    <loc>https://www.ntctravels.com/tour-guayaquil.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sub-page: Chiapas Day 1 -->
+  <url>
+    <loc>https://www.ntctravels.com/tour-chiapas-day1.html</loc>
+    <lastmod>2025-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

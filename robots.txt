@@ -1,14 +1,11 @@
 # NTC Travels & Dreams - robots.txt
-# Allows all bots to crawl the website
+# https://www.ntctravels.com
 
 User-agent: *
 Allow: /
-Disallow: /admin/
 Disallow: /private/
-Disallow: /node_modules/
-
-# Crawl delay
-Crawl-delay: 1
+Disallow: /tmp/
+Disallow: /junk/
 
 # Sitemap
 Sitemap: https://www.ntctravels.com/sitemap.xml
