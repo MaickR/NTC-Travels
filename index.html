@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
     <!-- Primary Meta Tags -->
-  <meta name="description" content="NTC Travels & Dreams delivers tailored travel planning for unforgettable journeys across Mexico, Guatemala, and beyond." />
-  <meta name="keywords" content="travel agency, tailor made tours, NTC Travels, Mexico Guatemala tour, vacations, Chiapas" />
+  <meta name="description" content="NTC Travels & Dreams delivers tailored travel planning for unforgettable journeys across Mexico, Guatemala, India, and beyond." />
+  <meta name="keywords" content="travel agency, tailor made tours, NTC Travels, Mexico Guatemala tour, India tour, vacations, Chiapas, Rajasthan" />
     <meta name="author" content="NTC Travels & Dreams" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#141d40" />
@@ -58,10 +58,10 @@
     <link href="css/plugin.css" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-    <!-- Line Icons -->
-    <link rel="stylesheet" href="fonts/line-icons.css" type="text/css" />
+    <!-- Line Icons removed as file is missing -->
+    <!-- <link rel="stylesheet" href="fonts/line-icons.css" type="text/css" /> -->
     
     <!-- Optimized Google Fonts with preload and display=swap -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" as="style" />
@@ -69,6 +69,32 @@
     
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* Fix for missing Line Icons in Mobile Menu */
+        .slicknav_btn.slicknav_collapsed:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0c9"; /* fa-bars */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        .slicknav_btn.slicknav_open:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d"; /* fa-times */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        
+        /* Fix for Back to Top Icon */
+        #back-to-top a:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f062"; /* fa-arrow-up */
+            font-size: 18px;
+        }
+    </style>
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="images/logo-NTC-bg.png" />
@@ -205,6 +231,21 @@
             </div>
             <div class="swiper-slide">
               <div class="slide-inner">
+                <div class="slide-image" style="background-image: url(images/india/india-1.jpg)"></div>
+                <div class="swiper-content">
+                  <div class="entry-meta mb-2">
+                    <h5 class="entry-category mb-0 white">Incredible India</h5>
+                  </div>
+                  <h1 class="mb-2"><a href="tour-india.html" class="white">The Golden Triangle & Beyond</a></h1>
+                  <p class="white mb-4">
+                    Immerse yourself in the vibrant culture of Delhi, Jaipur, and Agra. Witness the majesty of the Taj Mahal.
+                  </p>
+                </div>
+                <div class="dot-overlay"></div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner">
                 <div class="slide-image" style="background-image: url(images/destination/tikal.jpg)"></div>
                 <div class="swiper-content">
                   <div class="entry-meta mb-2">
@@ -220,6 +261,21 @@
             </div>
             <div class="swiper-slide">
               <div class="slide-inner">
+                <div class="slide-image" style="background-image: url(images/india/india-journey.jpg)"></div>
+                <div class="swiper-content">
+                  <div class="entry-meta mb-2">
+                    <h5 class="entry-category mb-0 white">Spiritual Varanasi</h5>
+                  </div>
+                  <h1 class="mb-2"><a href="tour-india.html" class="white">Ganges River & Ancient Traditions</a></h1>
+                  <p class="white mb-4">
+                    Experience the spiritual heart of India in Varanasi. Witness the Ganga Aarti and explore the oldest living city.
+                  </p>
+                </div>
+                <div class="dot-overlay"></div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner">
                 <div class="slide-image" style="background-image: url(images/destination/guatemala.jpg)"></div>
                 <div class="swiper-content">
                   <div class="entry-meta mb-2">
@@ -228,6 +284,21 @@
                   <h1 class="mb-2"><a href="tour-mexico-guatemala.html" class="white">Highland Lake Culture & Traditions</a></h1>
                   <p class="white mb-4">
                     Immerse yourself in the vibrant indigenous cultures surrounding Guatemala's most picturesque lake, surrounded by volcanic peaks and artisan communities.
+                  </p>
+                </div>
+                <div class="dot-overlay"></div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide-inner">
+                <div class="slide-image" style="background-image: url(images/india/india-hotel-1.jpg)"></div>
+                <div class="swiper-content">
+                  <div class="entry-meta mb-2">
+                    <h5 class="entry-category mb-0 white">Luxury Stays</h5>
+                  </div>
+                  <h1 class="mb-2"><a href="tour-india.html" class="white">Experience Royal Hospitality</a></h1>
+                  <p class="white mb-4">
+                    Stay in world-class 5-star hotels and heritage properties. Enjoy the finest Indian hospitality and comfort.
                   </p>
                 </div>
                 <div class="dot-overlay"></div>
@@ -401,32 +472,32 @@
           <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="offer-card h-100">
               <div class="offer-card-image">
-                <img src="images/destination/destination6.jpg" alt="Vuelos incluidos a Chiapas" />
+                <img src="images/destination/destination6.jpg" alt="Vuelos incluidos" />
                 <div class="offer-card-badge">Flights</div>
               </div>
               <div class="offer-card-content">
-                <h3 class="offer-card-title">Complete Your Adventure</h3>
-                <p class="offer-card-subtitle">Round-trip flights included</p>
-                <p class="offer-card-description">Experience seamless travel with our all-inclusive flight packages to Chiapas. Depart and return with confidence.</p>
+                <h3 class="offer-card-title">Global Connectivity</h3>
+                <p class="offer-card-subtitle">Flights to Mexico & India</p>
+                <p class="offer-card-description">Seamless travel arrangements for your journey. Whether it's the Mayan world or the Taj Mahal, we handle your connections.</p>
                 <div class="offer-card-highlight">
-                  <span class="offer-label">Special Price</span>
-                  <span class="offer-price">+$600 USD</span>
+                  <span class="offer-label">Flight Options</span>
+                  <span class="offer-price">Best Rates</span>
                 </div>
                 <div class="offer-card-features">
                   <div class="feature-item">
                     <i class="fa fa-check"></i>
-                    <span>Direct flights</span>
+                    <span>International connections</span>
                   </div>
                   <div class="feature-item">
                     <i class="fa fa-check"></i>
-                    <span>Travel insurance</span>
+                    <span>Domestic add-ons</span>
                   </div>
                   <div class="feature-item">
                     <i class="fa fa-check"></i>
                     <span>Baggage included</span>
                   </div>
                 </div>
-                <a href="#contact" class="offer-card-btn">Explore Offer</a>
+                <a href="#contact" class="offer-card-btn">Explore Options</a>
               </div>
             </div>
           </div>
@@ -441,10 +512,10 @@
               <div class="offer-card-content">
                 <h3 class="offer-card-title">Easy Financing</h3>
                 <p class="offer-card-subtitle">Flexible payment plans available</p>
-                <p class="offer-card-description">Make your dream vacation affordable with our easy payment options. Zero interest rates on selected packages.</p>
+                <p class="offer-card-description">Make your dream vacation affordable with our easy payment options. Applicable for both our Mexico and India tours.</p>
                 <div class="offer-card-highlight">
                   <span class="offer-label">Payment Plan</span>
-                  <span class="offer-price">4x Installments</span>
+                  <span class="offer-price">Installments</span>
                 </div>
                 <div class="offer-card-features">
                   <div class="feature-item">
@@ -476,10 +547,10 @@
         <div class="row align-items-center justify-content-center mb-6 text-center">
           <div class="col-lg-8">
             <div class="section-title">
-              <span class="badge rounded-pill px-3 py-2 mb-3" style="background-color: rgba(191, 48, 58, 0.12); color: var(--color-accent);">Mexico + Guatemala Signature Journey</span>
-              <h2 class="mb-2">One Seamless Adventure Across <span class="theme">Chiapas & Guatemala</span></h2>
-              <p class="lead text-muted mb-3">From the highlands of San Cristobal to the Mayan temples of Tikal and the lakeside region of Lake Petén Itzá (Flores) — discover the region in <strong>12 unforgettable days</strong> for <strong>$1,980 USD</strong> per traveler.</p>
-              <p class="mb-0 text-muted">Includes bilingual guides, curated four-star hotels, cross-border logistics, and an optional helicopter experience to <strong>El Mirador (+ $600)</strong>.</p>
+              <span class="badge rounded-pill px-3 py-2 mb-3" style="background-color: rgba(191, 48, 58, 0.12); color: var(--color-accent);">Signature International Journeys</span>
+              <h2 class="mb-2">Explore Our <span class="theme">Curated Adventures</span></h2>
+              <p class="lead text-muted mb-3">Discover the world with NTC Travels. From the ancient Mayan ruins of <strong>Mexico & Guatemala</strong> to the spiritual depths of <strong>Incredible India</strong>.</p>
+              <p class="mb-0 text-muted">Handpicked itineraries, 4-5 star accommodations, and expert guides for an unforgettable experience.</p>
             </div>
           </div>
         </div>
@@ -487,13 +558,13 @@
           <div class="row align-items-stretch justify-content-center">
             <!-- Single Package: Mexico (Chiapas) + Guatemala 12 Days -->
             <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <div class="trend-item rounded box-shadow bg-white h-100">
+              <div class="trend-item rounded box-shadow bg-white h-100 d-flex flex-column">
                 <div class="trend-image position-relative" style="height: 220px; overflow: hidden;">
                   <img src="https://source.unsplash.com/1200x600/?chiapas,guatemala,tikal,palenque,travel" alt="Mexico (Chiapas) + Guatemala 12 Days" style="height: 100%; object-fit: cover;" onerror="this.onerror=null;this.src='images/new-deal/deal1.jpg';" />
                   <div class="color-overlay"></div>
                   <div class="ribbon ribbon-top-left"><span class="fw-bold">Featured</span></div>
                 </div>
-                <div class="trend-content p-3 pt-5 position-relative">
+                <div class="trend-content p-3 pt-5 position-relative d-flex flex-column flex-grow-1">
                   <div class="trend-meta bg-theme white px-3 py-2 rounded mb-2 d-inline-block">
                     <div class="entry-author">
                       <i class="icon-calendar"></i>
@@ -534,10 +605,70 @@
                     </ul>
                   </div>
 
-                  <div class="entry-meta border-top pt-2">
+                  <div class="entry-meta border-top pt-2 mt-auto">
                     <div class="entry-author d-flex align-items-center gap-2 flex-wrap justify-content-center">
                       <a href="tour-mexico-guatemala.html" class="nir-btn small"><i class="fa fa-info-circle me-1"></i> Details</a>
                       <a href="#" class="nir-btn-white small card-whatsapp-btn" data-tour="mxgt" onclick="return handleCardWhatsApp(event, 'mxgt')"><i class="fa fa-whatsapp me-1"></i> Book</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Single Package: Incredible India 12 Days -->
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+              <div class="trend-item rounded box-shadow bg-white h-100 d-flex flex-column">
+                <div class="trend-image position-relative" style="height: 220px; overflow: hidden;">
+                  <img src="images/india/india-1.jpg" alt="Incredible India 12 Days" style="height: 100%; object-fit: cover;" />
+                  <div class="color-overlay"></div>
+                  <div class="ribbon ribbon-top-left"><span class="fw-bold">New</span></div>
+                </div>
+                <div class="trend-content p-3 pt-5 position-relative d-flex flex-column flex-grow-1">
+                  <div class="trend-meta bg-theme white px-3 py-2 rounded mb-2 d-inline-block">
+                    <div class="entry-author">
+                      <i class="icon-calendar"></i>
+                      <span class="fw-bold">April 1–30, 2026 (12 days)</span>
+                    </div>
+                  </div>
+                  
+                  <h6 class="theme mb-1"><i class="flaticon-location-pin"></i> Delhi → Jaipur → Agra → Varanasi → Rishikesh</h6>
+                  <h4 class="mb-2"><a href="tour-india.html" class="text-decoration-none">Incredible India Journey</a></h4>
+                  
+                  <p class="text-muted small mb-3">
+                    <strong>Delhi (2d):</strong> Old Delhi, Jama Masjid, Qutub Minar, Humayun's Tomb. <strong>Jaipur (2d):</strong> Amber Fort, City Palace, elephant interactions. <strong>Agra (2d):</strong> Taj Mahal sunrise, Agra Fort, Fatehpur Sikri. <strong>Varanasi (2d):</strong> Ganges boat ride, aarti ceremony, Sarnath. <strong>Rishikesh (3d):</strong> Yoga, meditation, Himalayan foothills.
+                  </p>
+
+                  <div class="mb-3">
+                    <div class="p-2 bg-light rounded">
+                      <h6 class="mb-1 small"><i class="fa fa-tag theme me-2"></i> Price Per Person</h6>
+                      <h5 class="theme fw-bold mb-0">From $1,478 USD</h5>
+                      <small class="text-muted d-block">Based on 30 travelers (April 17-30)</small>
+                      <small class="text-muted d-block mt-1">April 1-16: $1,852 USD per person</small>
+                      <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="india_card_flights" data-tour="india">
+                        <label class="form-check-label small" for="india_card_flights">
+                          Add Domestic Flights <strong>+$604 USD</strong> (Delhi-Varanasi-Dehradun)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <h6 class="fw-bold small mb-2"><i class="fa fa-check-circle theme me-2"></i> Includes:</h6>
+                    <ul class="list-unstyled small">
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Luxury hotels: Le Meridien, ITC Rajputana, Taj Ganges</li>
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Daily breakfasts (lunch & dinner optional)</li>
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Spanish-speaking tour manager</li>
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Rickshaw rides, jeep safari, boat tours</li>
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Yoga & meditation sessions</li>
+                      <li class="mb-1"><i class="fa fa-check theme me-1"></i> Traditional ceremonies & cultural experiences</li>
+                    </ul>
+                  </div>
+
+                  <div class="entry-meta border-top pt-2 mt-auto">
+                    <div class="entry-author d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                      <a href="tour-india.html" class="nir-btn small"><i class="fa fa-info-circle me-1"></i> Details</a>
+                      <a href="#" class="nir-btn-white small card-whatsapp-btn" data-tour="india" onclick="return handleCardWhatsApp(event, 'india')"><i class="fa fa-whatsapp me-1"></i> Book</a>
                     </div>
                   </div>
                 </div>
@@ -1220,7 +1351,7 @@
                                                 <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>Complete All-Inclusive Packages</strong> - Entire trip included, no hidden costs</li>
                                                 <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>Flexible Payment Plans</strong> - Monthly installments available (0% interest)</li>
                                                 <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>Expert Local Guides</strong> - Authentic experiences and cultural immersion</li>
-                                                <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>Optional Helicopter Tours</strong> - Breathtaking aerial views (+$600)</li>
+                                                <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>Optional Helicopter Tours</strong> - Breathtaking aerial views (+$600 USD per traveler)</li>
                                                 <li class="mb-3"><i class="fa fa-check theme me-2"></i> <strong>24/7 Support</strong> - We answer WhatsApp within 24 hours</li>
                                             </ul>
                                         </div>
@@ -1251,6 +1382,7 @@
                         <select name="inquiry_type" class="form-control" id="ntc_inquiry_type" required onchange="updateFormFields()">
                           <option value="">-- Select One --</option>
                           <option value="booking_mxgt">Book Mexico (Chiapas) + Guatemala - 12 Days</option>
+                          <option value="booking_india">Book Incredible India - 12 Days</option>
                           <option value="question">Ask Questions About Tours</option>
                           <option value="other">Other Inquiry</option>
                         </select>
@@ -1457,7 +1589,7 @@
                   <li><a href="#">Home</a></li>
                   <li><a href="#about-us">About Us</a></li>
                   <li><a href="#contact">Contact</a></li>
-                  <li><a href="#tours">Chiapas Tours</a></li>
+                  <li><a href="#tours">Our Tours</a></li>
                 </ul>
               </div>
             </div>
@@ -1466,6 +1598,7 @@
                 <h3 class="white">Signature Experiences</h3>
                 <ul>
                   <li><a href="tour-mexico-guatemala.html">Mexico + Guatemala Journey</a></li>
+                  <li><a href="tour-india.html">Incredible India Journey</a></li>
                   <li><a href="#contact">Custom Travel Planning</a></li>
                 </ul>
               </div>
@@ -1685,6 +1818,18 @@
           travelStyleGroup.style.display = 'block';
           priorityGroup.style.display = 'block';
           tourDatesInfo.textContent = 'Departures available year-round | Recommended stay: 12 days (flexible dates welcome)';
+          // Update helicopter label for Mexico
+          document.querySelector('label[for="ntc_helicopter_tour"]').innerHTML = '<strong>Yes, add helicopter tour</strong> - Aerial views of El Mirador (Guatemala)';
+        } else if (inquiryType === 'booking_india') {
+          travelersGroup.style.display = 'block';
+          datesGroup.style.display = 'block';
+          helicopterGroup.style.display = 'block'; // Reusing this for flights
+          paymentGroup.style.display = 'block';
+          travelStyleGroup.style.display = 'block';
+          priorityGroup.style.display = 'block';
+          tourDatesInfo.textContent = 'Confirmed Dates: April 1-30, 2026';
+          // Update helicopter label for India (actually flights)
+          document.querySelector('label[for="ntc_helicopter_tour"]').innerHTML = '<strong>Yes, add domestic flights</strong> - Delhi-Varanasi-Dehradun (+$604 USD)';
         } else if (inquiryType === 'question') {
           datesGroup.style.display = 'block';
           travelStyleGroup.style.display = 'block';
@@ -1706,14 +1851,14 @@
         const fullName = document.getElementById('ntc_fullname').value.trim();
         const email = document.getElementById('ntc_email').value.trim();
         const phone = document.getElementById('ntc_phone').value.trim();
-  const departureCity = document.getElementById('ntc_departure_city').value.trim();
+        const departureCity = document.getElementById('ntc_departure_city').value.trim();
         const inquiryType = document.getElementById('ntc_inquiry_type').value;
         const travelersCount = document.getElementById('ntc_travelers_count').value;
         const travelDates = document.getElementById('ntc_travel_dates').value.trim();
         const helicopterTour = document.getElementById('ntc_helicopter_tour').checked;
         const paymentOption = document.getElementById('ntc_payment_option').value;
-  const travelStyle = document.getElementById('ntc_travel_style').value;
-  const tripPriority = document.getElementById('ntc_primary_interest').value;
+        const travelStyle = document.getElementById('ntc_travel_style').value;
+        const tripPriority = document.getElementById('ntc_primary_interest').value;
         const comments = document.getElementById('ntc_comments').value.trim();
         const contactMe = document.getElementById('ntc_contact_me').checked;
 
@@ -1734,13 +1879,13 @@
         };
 
         // Validate required fields
-  if (!fullName || !email || !phone || !inquiryType) {
-    alert('Please complete all required fields (marked with *).');
+        if (!fullName || !email || !phone || !inquiryType) {
+          alert('Please complete all required fields (marked with *).');
           return;
         }
 
         // Validate that booking selections have required info
-        if (inquiryType === 'booking_mxgt') {
+        if (inquiryType.startsWith('booking_')) {
           if (!travelersCount) {
             alert('Please select the number of travelers for your booking.');
             return;
@@ -1755,23 +1900,21 @@
           }
         }
 
-  // Build professional WhatsApp message
-  let messageContent = `----------------------------------------
+        // Build professional WhatsApp message
+        let messageContent = `----------------------------------------
 NTC TRAVELS & DREAMS
-Adventure Tours
+New Website Inquiry
 ----------------------------------------
-
-NEW INQUIRY FROM WEBSITE
 
 `;
 
         // CLIENT INFO
-  messageContent += `CLIENT INFORMATION
+        messageContent += `CLIENT DETAILS
 ----------------------------------------
 Name: *${fullName}*
 Email: ${email}
 WhatsApp: ${phone}
-Departure City / Airport: ${departureCity || 'Not provided'}
+Departure: ${departureCity || 'Not provided'}
 
 `;
 
@@ -1779,128 +1922,125 @@ Departure City / Airport: ${departureCity || 'Not provided'}
         if (inquiryType === 'booking_mxgt') {
           const numericTravelers = /^\d+$/.test(travelersCount) ? parseInt(travelersCount, 10) : null;
 
-          messageContent += `BOOKING: Mexico (Chiapas) + Guatemala - 12 Days
+          messageContent += `BOOKING REQUEST: Mexico + Guatemala (12 Days)
 ----------------------------------------
 Base Price: $1,980 USD per person
-Destinations: San Cristobal, Sumidero, Palenque, Flores (Lake Petén Itzá), Tikal, Yaxhá, Antigua
+Route: Chiapas - Petén - Antigua
 
-Number of Travelers: *${travelersCount || 'Not specified'}*`;
+Travelers: *${travelersCount || 'Not specified'}*`;
 
           if (numericTravelers) {
             const price = 1980;
             const baseTotal = price * numericTravelers;
             messageContent += `
-Subtotal (${numericTravelers} x $1,980): *$${baseTotal} USD*`;
-          } else if (travelersCount) {
-            messageContent += `
-Subtotal: Group pricing available for ${travelersCount}. We'll tailor the quote once we confirm the final headcount.`;
-          }
-
-          messageContent += `
-Departure City / Airport: ${departureCity || 'Not provided'}`;
-
-          if (travelStyle) {
-            const travelProfile = travelStyleMap[travelStyle] || travelStyle;
-            messageContent += `
-Traveler Profile: ${travelProfile}`;
-          }
-
-          if (tripPriority) {
-            const priorityFocus = tripPriorityMap[tripPriority] || tripPriority;
-            messageContent += `
-Trip Priority: ${priorityFocus}`;
+Est. Base Total: *$${baseTotal} USD*`;
           }
 
           if (helicopterTour) {
             messageContent += `
-Helicopter Tour: YES (+$600 USD per traveler)
-  - El Mirador (Flores; subject to availability)`;
-            if (numericTravelers) {
-              const helicopterTotal = 600 * numericTravelers;
-              messageContent += `
-  - Helicopter Subtotal: *$${helicopterTotal} USD*`;
-            }
+Add-on: HELICOPTER TOUR (+$600 USD/pp)
+  - El Mirador Expedition`;
           } else {
             messageContent += `
-Helicopter Tour: NO (optional +$600 USD per traveler)`;
+Add-on: No helicopter selected`;
           }
 
-          if (travelDates && travelDates.toLowerCase() !== 'flexible') {
+        } else if (inquiryType === 'booking_india') {
+          const numericTravelers = /^\d+$/.test(travelersCount) ? parseInt(travelersCount, 10) : null;
+
+          messageContent += `BOOKING REQUEST: Incredible India (12 Days)
+----------------------------------------
+Base Price: From $1,478 USD per person
+Route: Delhi - Jaipur - Agra - Varanasi - Rishikesh
+
+Travelers: *${travelersCount || 'Not specified'}*`;
+
+          if (numericTravelers) {
+             messageContent += `
+Est. Base Total: (Pending dates selection)`;
+          }
+
+          if (helicopterTour) {
             messageContent += `
-Preferred Dates: *${travelDates}*`;
+Add-on: DOMESTIC FLIGHTS (+$604 USD/pp)
+  - Delhi-Varanasi-Dehradun`;
           } else {
             messageContent += `
-Preferred Dates: *Flexible*`;
+Add-on: No flights selected`;
           }
-
         } else if (inquiryType === 'question') {
           messageContent += `GENERAL INQUIRY
 ----------------------------------------
-Client has questions about our tours`;
+Client has questions about tours`;
           
         } else if (inquiryType === 'other') {
           messageContent += `OTHER INQUIRY
 ----------------------------------------`;
         }
 
-        // PAYMENT PREFERENCE (if booking)
-        if (inquiryType === 'booking_mxgt' && paymentOption) {
-          messageContent += `
+        // COMMON FIELDS
+        if (inquiryType.startsWith('booking_')) {
+             if (travelStyle) {
+                const travelProfile = travelStyleMap[travelStyle] || travelStyle;
+                messageContent += `
+Profile: ${travelProfile}`;
+              }
 
-PAYMENT PREFERENCE
-----------------------------------------`;
-          
-          const paymentMap = {
-            'full_payment': 'Full Payment (5% Discount)',
-            '2_installments': '2 Installments (0% Interest)',
-            '3_installments': '3 Installments (0% Interest)',
-            '4_installments': '4 Monthly Installments (0% Interest)',
-            'ask_options': 'Tell me available payment options'
-          };
-          messageContent += `\n${paymentMap[paymentOption] || paymentOption}`;
+              if (tripPriority) {
+                const priorityFocus = tripPriorityMap[tripPriority] || tripPriority;
+                messageContent += `
+Priority: ${priorityFocus}`;
+              }
+              
+              if (travelDates) {
+                messageContent += `
+Dates: *${travelDates}*`;
+              }
+              
+              if (paymentOption) {
+                  const paymentMap = {
+                    'full_payment': 'Full Payment (5% Discount)',
+                    '2_installments': '2 Installments (0% Interest)',
+                    '3_installments': '3 Installments (0% Interest)',
+                    '4_installments': '4 Monthly Installments (0% Interest)',
+                    'ask_options': 'Tell me available payment options'
+                  };
+                  messageContent += `
+Payment: ${paymentMap[paymentOption] || paymentOption}`;
+              }
         }
 
         // ADDITIONAL DETAILS
-  if (comments) {
-    messageContent += `
+        if (comments) {
+          messageContent += `
 
-ADDITIONAL DETAILS / QUESTIONS
+NOTES / QUESTIONS
 ----------------------------------------
 ${comments}`;
         }
 
-        // CONTACT PREFERENCE & FOOTER
+        // FOOTER
         messageContent += `
 
-CONTACT PREFERENCE
 ----------------------------------------
-${contactMe ? 'Client prefers WhatsApp contact' : 'Email contact preferred'}
-
-----------------------------------------
-Sent: ${new Date().toLocaleString()}
-Source: www.ntctravels.com
-Response: Within 24 hours
-----------------------------------------
-Thank you for choosing NTC!`;
+Sent from: www.ntctravels.com
+----------------------------------------`;
 
         // NTC WhatsApp number
         const whatsappNumber = '14086090027';
         
         // Create WhatsApp URL
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageContent)}`;
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageContent)}`;
 
         // Open WhatsApp
         window.open(whatsappURL, '_blank');
 
         // Success message
-  alert('Success! Your inquiry has been sent to NTC Travels & Dreams. WhatsApp will open in a new window and we will respond within 24 hours. Thank you for your interest!');
+        alert('Success! Your inquiry has been sent to NTC Travels & Dreams via WhatsApp.');
 
         // Reset form
         document.getElementById('contactform_ntc').reset();
-        document.getElementById('travelers_group').style.display = 'none';
-        document.getElementById('dates_group').style.display = 'none';
-        document.getElementById('helicopter_group').style.display = 'none';
-        document.getElementById('payment_group').style.display = 'none';
+        updateFormFields(); // Reset visibility
       }
       
       // Handle nav link clicks to set active state
@@ -1983,21 +2123,42 @@ Thank you for choosing NTC!`;
       function handleCardWhatsApp(event, tour) {
         event.preventDefault();
         
-        const checkboxId = tour + '_card_helicopter';
-        const helicopterCheckbox = document.getElementById(checkboxId);
-        const helicopterAdded = helicopterCheckbox ? helicopterCheckbox.checked : false;
-        
         let whatsappText = '';
-  let tourName = 'Mexico (Chiapas) + Guatemala - 12 Days';
+        let tourName = '';
+        let basePrice = '';
+        let dates = '';
+        let addOnText = '';
         
-  whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: $1,980 USD per person\nDates: Flexible (12 days)`;
-        
-        if (helicopterAdded) {
-          const helicopterDesc = 'El Mirador (Guatemala)';
-          whatsappText += `\nHelicopter Tour: YES (+$600) - Aerial views of ${helicopterDesc}\nTotal: $2,580 USD per person`;
+        if (tour === 'mxgt') {
+          const helicopterCheckbox = document.getElementById('mxgt_card_helicopter');
+          const helicopterAdded = helicopterCheckbox ? helicopterCheckbox.checked : false;
+          
+          tourName = 'Mexico (Chiapas) + Guatemala - 12 Days';
+          basePrice = '$1,980 USD per person';
+          dates = 'March 3-13, 2026';
+          
+          whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}`;
+          
+          if (helicopterAdded) {
+            const helicopterDesc = 'El Mirador (Guatemala)';
+            whatsappText += `\nHelicopter Tour: YES (+$600 USD per traveler) - Aerial views of ${helicopterDesc}`;
+          }
+        } else if (tour === 'india') {
+          const flightsCheckbox = document.getElementById('india_card_flights');
+          const flightsAdded = flightsCheckbox ? flightsCheckbox.checked : false;
+          
+          tourName = 'Incredible India Journey - 12 Days';
+          basePrice = 'From $1,478 USD per person (April 17-30) or $1,852 USD (April 1-16)';
+          dates = 'April 2026 (Flexible dates available)';
+          
+          whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Delhi - Jaipur - Agra - Varanasi - Rishikesh - Delhi`;
+          
+          if (flightsAdded) {
+            whatsappText += `\nDomestic Flights: YES (+$604 USD per traveler) - Delhi-Varanasi-Dehradun`;
+          }
         }
         
-        whatsappText += `\nPlease help me confirm availability.`;
+        whatsappText += `\n\nPlease help me confirm availability and send detailed itinerary.`;
         
         // Encode for WhatsApp URL
         const encodedText = encodeURIComponent(whatsappText);

@@ -50,10 +50,10 @@
     <link href="css/plugin.css" rel="stylesheet" type="text/css" />
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     
-    <!-- Line Icons -->
-    <link rel="stylesheet" href="fonts/line-icons.css" type="text/css" />
+    <!-- Line Icons removed as file is missing -->
+    <!-- <link rel="stylesheet" href="fonts/line-icons.css" type="text/css" /> -->
     
     <!-- Optimized Google Fonts with preload and display=swap -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" as="style" />
@@ -61,6 +61,43 @@
     
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* Fix for missing Line Icons in Mobile Menu */
+        .slicknav_btn.slicknav_collapsed:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0c9"; /* fa-bars */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        .slicknav_btn.slicknav_open:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d"; /* fa-times */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        
+        /* Fix for Back to Top Icon */
+        #back-to-top a:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f062"; /* fa-arrow-up */
+            font-size: 18px;
+        }
+
+        /* Fix for Tabs Active State */
+        #tabs li.active a {
+            color: #bf303a !important;
+            border-bottom: 2px solid #bf303a;
+        }
+        
+        /* Ensure first tab text is visible */
+        #tabs li a {
+            color: #505467;
+        }
+    </style>
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="images/logo-NTC-bg.png" />
@@ -167,7 +204,7 @@
             <div class="container">
                 <div class="breadcrumb-content text-center">
                     <h1 class="mb-3">Mexico + Guatemala - 12 Days</h1>
-                    <h4 class="white mb-4">One seamless itinerary | $1,980 USD per person | Optional helicopter +$600</h4>
+                    <h4 class="white mb-4">One seamless itinerary | $1,980 USD per person | Optional helicopter +$600 USD per traveler</h4>
                     <nav aria-label="breadcrumb" class="d-block">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -277,7 +314,7 @@
                 <div id="itinerary">
                     <div class="single-full-title border-b mb-4 pb-2">
                         <h3 class="mb-0">Itinerary: March 3–13, 2026</h3>
-                        <p class="text-muted small mb-0"><strong>Chiapas (5 days):</strong> San Cristóbal, El Chiflón cascades, Montebello lakes, Sumidero Canyon, Palenque | <strong>Petén (3 days):</strong> Flores, Tikal, optional El Mirador helicopter (+$600), Yaxhá, Maya ceremonies | <strong>Antigua (2 days):</strong> Colonial heritage, Cerro de la Cruz, Guatemala City departure. Times flexible per weather & group preferences.</p>
+                        <p class="text-muted small mb-0"><strong>Chiapas (5 days):</strong> San Cristóbal, El Chiflón cascades, Montebello lakes, Sumidero Canyon, Palenque | <strong>Petén (3 days):</strong> Flores, Tikal, optional El Mirador helicopter (+$600 USD per traveler), Yaxhá, Maya ceremonies | <strong>Antigua (2 days):</strong> Colonial heritage, Cerro de la Cruz, Guatemala City departure. Times flexible per weather & group preferences.</p>
                     </div>
 
                     <!-- Day 1 - ARRIVAL MARCH 3 -->
@@ -578,7 +615,7 @@
                                     <li class="mb-2"><i class="fa fa-times theme me-2"></i> International flights to Tuxtla Gutiérrez and from Guatemala City</li>
                                     <li class="mb-2"><i class="fa fa-times theme me-2"></i> Dinners (unless expressly listed) and personal expenses</li>
                                     <li class="mb-2"><i class="fa fa-times theme me-2"></i> Tips for guides and drivers (suggested $5–$10 USD per day)</li>
-                                    <li class="mb-2"><i class="fa fa-times theme me-2"></i> Optional helicopter to El Mirador (+$600) and any requested domestic flights</li>
+                                    <li class="mb-2"><i class="fa fa-times theme me-2"></i> Optional helicopter to El Mirador (+$600 USD per traveler) and any requested domestic flights</li>
                                     <li class="mb-2"><i class="fa fa-times theme me-2"></i> Single supplement (available on request)</li>
                                 </ul>
                             </div>

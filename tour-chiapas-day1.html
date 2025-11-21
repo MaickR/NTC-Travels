@@ -56,7 +56,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* Fix for missing Line Icons in Mobile Menu */
+        .slicknav_btn.slicknav_collapsed:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0c9"; /* fa-bars */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        .slicknav_btn.slicknav_open:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d"; /* fa-times */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        
+        /* Fix for Back to Top Icon */
+        #back-to-top a:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f062"; /* fa-arrow-up */
+            font-size: 18px;
+        }
+
+        /* Fix for Tabs Active State */
+        #tabs li.active a {
+            color: #bf303a !important;
+            border-bottom: 2px solid #bf303a;
+        }
+        
+        /* Ensure first tab text is visible */
+        #tabs li a {
+            color: #505467;
+        }
+    </style>
     
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="images/logo-NTC-bg.png" />
@@ -542,7 +579,7 @@
                         <div class="form-check d-inline-block bg-light p-3 rounded">
                             <input class="form-check-input cta-helicopter-checkbox" type="checkbox" id="chiapas_cta_helicopter" value="yes">
                             <label class="form-check-label ms-2" for="chiapas_cta_helicopter">
-                                <strong>Add Helicopter Tour +$600 USD</strong> (aerial views of Palenque)
+                                <strong>Add Helicopter Tour +$600 USD per traveler</strong> (aerial views of Palenque)
                             </label>
                         </div>
                     </div>
@@ -724,25 +761,36 @@
         const helicopterAdded = helicopterCheckbox ? helicopterCheckbox.checked : false;
         
         let whatsappText = '';
-        let whatsappUrl = '';
         
         if (tour === 'chiapas') {
-          whatsappText = `Hello NTC! I'm interested in the Chiapas 5 Days package\nPrice: $1,980 USD per person\nDates: March 3-7, 2026`;
+          whatsappText = 'Hello NTC! I am interested in the Chiapas 5-Day Adventure';
+          whatsappText += '\nBase Price: $1,980 USD per traveler';
+          whatsappText += '\nDates: March 3-7, 2026';
+          
           if (helicopterAdded) {
-            whatsappText += `\nHelicopter Tour: YES (+$600) - Aerial views of Palenque\nTotal: $2,580 USD per person`;
+            whatsappText += '\nAdd-on: HELICOPTER TOUR (+$600 USD per traveler)';
+            whatsappText += '\nDestination: Aerial views of Palenque';
+          } else {
+            whatsappText += '\nAdd-on: No helicopter selected';
           }
-          whatsappText += `\nPlease help me confirm availability and group discount options.`;
         } else if (tour === 'guatemala') {
-          whatsappText = `Hello NTC! I'm interested in the Guatemala 7-Day Adventure\nPrice: $1,980 USD per person\nDates: March 7-13, 2025`;
+          whatsappText = 'Hello NTC! I am interested in the Guatemala 7-Day Adventure';
+          whatsappText += '\nBase Price: $1,980 USD per traveler';
+          whatsappText += '\nDates: March 7-13, 2025';
+          
           if (helicopterAdded) {
-            whatsappText += `\nHelicopter Tour: YES (+$600) - Aerial views of Tikal\nTotal: $2,580 USD per person`;
+            whatsappText += '\nAdd-on: HELICOPTER TOUR (+$600 USD per traveler)';
+            whatsappText += '\nDestination: Aerial views of Tikal';
+          } else {
+            whatsappText += '\nAdd-on: No helicopter selected';
           }
-          whatsappText += `\nPlease help me confirm availability.`;
         }
+        
+        whatsappText += '\nPlease share availability and booking details.';
         
         // Encode for WhatsApp URL
         const encodedText = encodeURIComponent(whatsappText);
-        whatsappUrl = `https://wa.me/14086090027?text=${encodedText}`;
+        const whatsappUrl = `https://wa.me/14086090027?text=${encodedText}`;
         
         // Open WhatsApp
         window.open(whatsappUrl, '_blank');

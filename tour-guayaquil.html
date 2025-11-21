@@ -56,7 +56,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* Fix for missing Line Icons in Mobile Menu */
+        .slicknav_btn.slicknav_collapsed:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f0c9"; /* fa-bars */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        .slicknav_btn.slicknav_open:before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f00d"; /* fa-times */
+            color: #141d40;
+            font-size: 1.5rem;
+        }
+        
+        /* Fix for Back to Top Icon */
+        #back-to-top a:after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f062"; /* fa-arrow-up */
+            font-size: 18px;
+        }
+
+        /* Fix for Tabs Active State */
+        #tabs li.active a {
+            color: #bf303a !important;
+            border-bottom: 2px solid #bf303a;
+        }
+        
+        /* Ensure first tab text is visible */
+        #tabs li a {
+            color: #505467;
+        }
+    </style>
 
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="images/logo-NTC-bg.png" />
@@ -266,7 +303,7 @@
                         <h5 class="mt-4 mb-3">What Makes This Tour Special:</h5>
                         <ul class="list-unstyled">
                             <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>UNESCO World Heritage Sites:</strong> Tikal, Yaxha, and Antigua - three of Guatemala's most important locations</li>
-                            <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>Helicopter Tours Available:</strong> Optional aerial views of archaeological sites (+$600)</li>
+                            <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>Helicopter Tours Available:</strong> Optional aerial views of archaeological sites (+$600 USD per traveler)</li>
                             <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>Cultural Experiences:</strong> Traditional Maya ceremony with local shaman</li>
                             <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>All Inclusive:</strong> Transportation, meals, hotel, entries, and 24/7 support</li>
                             <li class="mb-2"><i class="fa fa-check-circle theme me-2"></i> <strong>Expert Local Guides:</strong> Professional guides including specialized ceremony leaders</li>
@@ -551,7 +588,7 @@
                                 <ul class="list-unstyled">
                                     <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> International flights to/from Guatemala</li>
                                     <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Travel insurance (recommended)</li>
-                                    <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Optional helicopter tours (+$600)</li>
+                                    <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Optional helicopter tours (+$600 USD per traveler)</li>
                                     <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Personal expenses and souvenirs</li>
                                     <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Additional meals and beverages</li>
                                     <li class="mb-2"><i class="fa fa-times text-muted me-2"></i> Gratuities for guides and drivers</li>
@@ -628,7 +665,7 @@
                         <div class="form-check d-inline-block bg-light p-3 rounded">
                             <input class="form-check-input cta-helicopter-checkbox" type="checkbox" id="guatemala_cta_helicopter" value="yes">
                             <label class="form-check-label ms-2" for="guatemala_cta_helicopter">
-                                <strong>Add Helicopter Tour +$600 USD</strong> (aerial views of Tikal)
+                                <strong>Add Helicopter Tour +$600 USD per traveler</strong> (aerial views of Tikal)
                             </label>
                         </div>
                     </div>
@@ -816,13 +853,13 @@
         if (tour === 'chiapas') {
           whatsappText = `Hello NTC! I'm interested in the Chiapas 5 Days package\nPrice: $1,980 USD per person\nDates: March 3-7, 2026`;
           if (helicopterAdded) {
-            whatsappText += `\nHelicopter Tour: YES (+$600) - Aerial views of Palenque\nTotal: $2,580 USD per person`;
+            whatsappText += `\nHelicopter Tour: YES (+$600 USD per traveler) - Aerial views of Palenque`;
           }
           whatsappText += `\nPlease help me confirm availability and group discount options.`;
         } else if (tour === 'guatemala') {
           whatsappText = `Hello NTC! I'm interested in the Guatemala 7-Day Adventure\nPrice: $1,980 USD per person\nDates: March 7-13, 2025`;
           if (helicopterAdded) {
-            whatsappText += `\nHelicopter Tour: YES (+$600) - Aerial views of Tikal\nTotal: $2,580 USD per person`;
+            whatsappText += `\nHelicopter Tour: YES (+$600 USD per traveler) - Aerial views of Tikal`;
           }
           whatsappText += `\nPlease help me confirm availability.`;
         }

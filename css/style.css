@@ -584,7 +584,7 @@ table thead tr th {
 }
 
 .dot-overlay {
-  background: #000000 url(../images/dot-overlay.png) repeat;
+  background: #000000;
   opacity: 0.6;
 }
 
@@ -1081,7 +1081,7 @@ input#submit:hover {
   width: 400px;
   height: 300px;
   margin: 0 auto;
-  background: url(../images/loader.gif);
+  /* background: url(../images/loader.gif); */
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -2518,7 +2518,7 @@ header {
     text-align: center;
   }
   .trending .trend-item .trend-image .trend-meta .entry-author {
-    margin-bottom: 15px;
+       margin-bottom: 15px;
   }
 }
 .entry-author img {
@@ -3607,7 +3607,7 @@ section.blog .grid {
 
 /* Footer background */
 .footer-main {
-  background-image: url(../images/background_pattern.png);
+  /* background-image: url(../images/background_pattern.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -4242,4 +4242,73 @@ section.blog .grid {
     flex: 0 1 auto;
     min-width: 180px;
   }
+}
+
+/* ========================================= */
+/*    Flight Addon Box - Mobile Optimized    */
+/* ========================================= */
+
+.flight-addon-box {
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.flight-addon-box > div {
+    width: 100%;
+}
+
+.flight-addon-box .form-check-input {
+    cursor: pointer;
+    accent-color: #bf303a;
+    border: 2px solid #ced4da;
+    flex-shrink: 0;
+}
+
+.flight-addon-box .form-check-input:checked {
+    background-color: #bf303a;
+    border-color: #bf303a;
+}
+
+.flight-addon-box .form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Mobile Devices (Landscape phones and portrait tablets) */
+@media (max-width: 576px) {
+    .flight-addon-box {
+        max-width: 100% !important;
+        width: calc(100% - 2rem) !important;
+        padding: 1rem !important;
+    }
+    
+    .flight-addon-box .form-check-input {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        min-width: 24px;
+        min-height: 24px;
+    }
+    
+    .flight-addon-box label span:first-child {
+        font-size: 1rem !important;
+    }
+    
+    .flight-addon-box label span:last-child {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Small Phones (Portrait) */
+@media (max-width: 375px) {
+    .flight-addon-box {
+        padding: 0.875rem !important;
+    }
+
+    .flight-addon-box label span:first-child {
+        font-size: 0.95rem !important;
+    }
+    
+    .flight-addon-box label span:last-child {
+        font-size: 0.8rem !important;
+    }
 }

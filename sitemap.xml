@@ -15,4 +15,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- New Tour Package: Incredible India -->
+  <url>
+    <loc>https://www.ntctravels.com/tour-india.html</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
