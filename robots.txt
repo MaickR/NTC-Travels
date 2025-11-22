@@ -1,5 +1,5 @@
 # NTC Travels & Dreams - robots.txt
-# https://www.ntctravels.com
+# https://www.ntcluxurytravels.com
 
 User-agent: *
 Allow: /
@@ -8,4 +8,4 @@ Disallow: /tmp/
 Disallow: /junk/
 
 # Sitemap
-Sitemap: https://www.ntctravels.com/sitemap.xml
+Sitemap: https://www.ntcluxurytravels.com/sitemap.xml

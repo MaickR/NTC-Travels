@@ -52,9 +52,9 @@ El sitio está listo para ser desplegado en cualquier servidor web estático (Ap
 ## 📞 Contacto
 
 **NTC Travels & Dreams**
-- 🌐 Web: [www.ntctravels.com](https://www.ntctravels.com)
+- 🌐 Web: [www.ntcluxurytravels.com](https://www.ntcluxurytravels.com)
 - 📱 WhatsApp: +1 408-609-0027
-- 📧 Email: info@ntctravels.com
+- 📧 Email: info@ntcluxurytravels.com
 
 ---
 © 2025 NTC Travels & Dreams. Todos los derechos reservados.

@@ -773,7 +773,7 @@ ${comments}`;
         messageContent += `
 
 ----------------------------------------
-Sent from: www.ntctravels.com
+Sent from: www.ntcluxurytravels.com
 ----------------------------------------`;
 
         // Número de WhatsApp de NTC
