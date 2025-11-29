@@ -846,6 +846,13 @@ Sent from: www.ntcluxurytravels.com
 
             whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Delhi - Jaipur - Agra - Varanasi - Rishikesh - Delhi`;
             whatsappText += `\n\nI would like to know if the $200 USD Early Bird discount (before Dec 15) is still available.`;
+        } else if (tour === 'egypt') {
+            tourName = 'Egypt on Dahabiya - 11 Days';
+            basePrice = 'From $2,575 USD per person (Based on 16 Pax)';
+            dates = 'Sept 16 - 26, 2026';
+
+            whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Cairo - Nile Cruise - Luxor`;
+            whatsappText += `\n\nI would like to know more about the private Dahabiya charter options.`;
         }
 
         whatsappText += `\n\nPlease help me confirm availability and send detailed itinerary.`;

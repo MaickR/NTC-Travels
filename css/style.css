@@ -3804,3 +3804,24 @@ section.blog .grid {
     color: #fff;
     transform: translateY(-2px);
 }
+
+/* ========================================= */
+/*    Egypt Tour Page Backgrounds           */
+/* ========================================= */
+
+/* Egypt Breadcrumb Banner - Giza Pyramids */
+.breadcrumb-egypt {
+    background-image: url('https://images.unsplash.com/photo-1568322445389-f64ac2515020?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Egypt CTA Section - Abu Simbel */
+.cta-egypt {
+    background-image: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
