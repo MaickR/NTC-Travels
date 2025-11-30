@@ -605,6 +605,8 @@
 
         // Mostrar campos basados en el tipo de consulta
         const type = inquiryType.value;
+        
+        // Lógica para Reservas (Bookings)
         if (type === 'booking_india') {
             if (travelersGroup) travelersGroup.style.display = 'block';
             if (datesGroup) datesGroup.style.display = 'block';
@@ -612,13 +614,29 @@
             if (travelStyleGroup) travelStyleGroup.style.display = 'block';
             if (priorityGroup) priorityGroup.style.display = 'block';
             if (tourDatesInfo) tourDatesInfo.textContent = 'Confirmed Dates: April 22 - May 3, 2026';
-        } else if (type === 'question') {
+        } else if (type === 'booking_egypt') {
+            if (travelersGroup) travelersGroup.style.display = 'block';
+            if (datesGroup) datesGroup.style.display = 'block';
+            if (paymentGroup) paymentGroup.style.display = 'block';
+            if (travelStyleGroup) travelStyleGroup.style.display = 'block';
+            if (priorityGroup) priorityGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Confirmed Dates: Sept 16 - 26, 2026';
+        } 
+        // Lógica para Preguntas (Questions)
+        else if (type === 'question_india') {
+            if (travelersGroup) travelersGroup.style.display = 'block';
+            if (datesGroup) datesGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Dates: April 22 - May 3, 2026';
+        } else if (type === 'question_egypt') {
+            if (travelersGroup) travelersGroup.style.display = 'block';
+            if (datesGroup) datesGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Dates: Sept 16 - 26, 2026';
+        } else if (type === 'question_general') {
+            if (travelersGroup) travelersGroup.style.display = 'block';
             if (datesGroup) datesGroup.style.display = 'block';
             if (travelStyleGroup) travelStyleGroup.style.display = 'block';
             if (priorityGroup) priorityGroup.style.display = 'block';
-            if (tourDatesInfo) tourDatesInfo.textContent = 'Share your preferred month or let us know if your dates are flexible.';
-        } else if (type === 'other') {
-            if (travelStyleGroup) travelStyleGroup.style.display = 'block';
+            if (tourDatesInfo) tourDatesInfo.textContent = 'Share your preferred dates or month.';
         }
     };
 
@@ -673,10 +691,6 @@
                 alert('Please share your home city or departure airport so we can coordinate logistics.');
                 return;
             }
-            if (!travelStyle) {
-                alert('Please tell us who will be traveling so we can tailor the itinerary.');
-                return;
-            }
         }
 
         // Construir mensaje profesional para WhatsApp
@@ -714,50 +728,78 @@ Travelers: *${travelersCount || 'Not specified'}*`;
                 messageContent += `
 Est. Total: *$${baseTotal} USD*`;
             }
-
             messageContent += `
 Note: Checking availability for $200 USD Early Bird Discount`;
 
-        } else if (inquiryType === 'question') {
-            messageContent += `GENERAL INQUIRY
-----------------------------------------
-Client has questions about tours`;
+        } else if (inquiryType === 'booking_egypt') {
+            const numericTravelers = /^\d+$/.test(travelersCount) ? parseInt(travelersCount, 10) : null;
 
-        } else if (inquiryType === 'other') {
-            messageContent += `OTHER INQUIRY
-----------------------------------------`;
+            messageContent += `BOOKING REQUEST: Egypt on Dahabiya (11 Days)
+----------------------------------------
+Price: $2,575 USD per person (Est. Group 16)
+Route: Cairo - Nile Cruise - Luxor
+
+Travelers: *${travelersCount || 'Not specified'}*`;
+
+            if (numericTravelers) {
+                const price = 2575;
+                const baseTotal = price * numericTravelers;
+                messageContent += `
+Est. Total: *$${baseTotal} USD*`;
+            }
+            messageContent += `
+Note: Checking availability for Private Dahabiya`;
+
+        } else if (inquiryType === 'question_india') {
+            messageContent += `QUESTION: Incredible India Tour
+----------------------------------------
+Client has specific questions about the India itinerary.`;
+
+        } else if (inquiryType === 'question_egypt') {
+            messageContent += `QUESTION: Egypt on Dahabiya Tour
+----------------------------------------
+Client has specific questions about the Egypt itinerary.`;
+
+        } else if (inquiryType === 'question_general') {
+            messageContent += `GENERAL INQUIRY / CUSTOM TRIP
+----------------------------------------
+Client is interested in a custom trip or general information.`;
         }
 
-        // CAMPOS COMUNES
-        if (inquiryType.startsWith('booking_')) {
-            if (travelStyle) {
-                const travelProfile = travelStyleMap[travelStyle] || travelStyle;
-                messageContent += `
+        // CAMPOS COMUNES (Travelers, Dates, Style, Priority)
+        // Mostrar si tienen valor, independientemente del tipo
+        if (travelersCount && !inquiryType.startsWith('booking_')) {
+             messageContent += `
+Travelers: ${travelersCount}`;
+        }
+
+        if (travelStyle) {
+            const travelProfile = travelStyleMap[travelStyle] || travelStyle;
+            messageContent += `
 Profile: ${travelProfile}`;
-            }
+        }
 
-            if (tripPriority) {
-                const priorityFocus = tripPriorityMap[tripPriority] || tripPriority;
-                messageContent += `
+        if (tripPriority) {
+            const priorityFocus = tripPriorityMap[tripPriority] || tripPriority;
+            messageContent += `
 Priority: ${priorityFocus}`;
-            }
+        }
 
-            if (travelDates) {
-                messageContent += `
+        if (travelDates) {
+            messageContent += `
 Dates: *${travelDates}*`;
-            }
+        }
 
-            if (paymentOption) {
-                const paymentMap = {
-                    'full_payment': 'Full Payment (5% Discount)',
-                    '2_installments': '2 Installments (0% Interest)',
-                    '3_installments': '3 Installments (0% Interest)',
-                    '4_installments': '4 Monthly Installments (0% Interest)',
-                    'ask_options': 'Tell me available payment options'
-                };
-                messageContent += `
+        if (paymentOption && inquiryType.startsWith('booking_')) {
+            const paymentMap = {
+                'full_payment': 'Full Payment (5% Discount)',
+                '2_installments': '2 Installments (0% Interest)',
+                '3_installments': '3 Installments (0% Interest)',
+                '4_installments': '4 Monthly Installments (0% Interest)',
+                'ask_options': 'Tell me available payment options'
+            };
+            messageContent += `
 Payment: ${paymentMap[paymentOption] || paymentOption}`;
-            }
         }
 
         // DETALLES ADICIONALES
@@ -819,9 +861,15 @@ Sent from: www.ntcluxurytravels.com
             } else {
                 whatsappText += '\nAdd-on: No helicopter selected';
             }
+            whatsappText += '\nPlease share availability, payment plans, and next steps.';
+        } else if (tour === 'egypt') {
+            whatsappText = 'Hello NTC Travels! 🇪🇬\n\nI would like to reserve my spot for the Egypt on Dahabiya tour:\n• Dates: September 16-26, 2026\n• Duration: 11 Days / 10 Nights\n• Route: Cairo → Nile Cruise → Luxor\n\nPlease send me availability and reservation details. Thank you!';
         }
 
-        whatsappText += '\nPlease share availability, payment plans, and next steps.';
+        if (tour !== 'egypt' && tour !== 'mxgt') {
+             whatsappText += '\nPlease share availability, payment plans, and next steps.';
+        }
+        
         const encodedText = encodeURIComponent(whatsappText);
         const whatsappUrl = 'https://wa.me/14086090027?text=' + encodedText;
         window.open(whatsappUrl, '_blank');

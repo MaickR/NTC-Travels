@@ -211,7 +211,7 @@
                         <div class="row">
                             <div class="col"><img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?q=80&w=800&auto=format&fit=crop&fm=jpg" alt="Giza Pyramids" class="rounded w-100" width="400" height="220" loading="lazy" decoding="async" style="height: 220px; object-fit: cover;" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1549873147-285079fd792d?q=80&w=800&auto=format&fit=crop&fm=jpg';" /></div>
                             <div class="col"><img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=800&auto=format&fit=crop&fm=jpg" alt="Abu Simbel Temple" class="rounded w-100" width="400" height="220" loading="lazy" decoding="async" style="height: 220px; object-fit: cover;" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1535157419803-40bb18d135e8?q=80&w=800&auto=format&fit=crop&fm=jpg';" /></div>
-                            <div class="col"><img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?q=80&w=800&auto=format&fit=crop&fm=jpg" alt="Nile Cruise on Dahabiya" class="rounded w-100" width="400" height="220" loading="lazy" decoding="async" style="height: 220px; object-fit: cover;" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1599056956020-4bf6ba52eae1?q=80&w=800&auto=format&fit=crop&fm=jpg';" /></div>
+                            <div class="col"><img src="images/egipto/egypt.jpg" alt="Nile Cruise on Dahabiya" class="rounded w-100" width="400" height="220" loading="lazy" decoding="async" style="height: 220px; object-fit: cover;" /></div>
                         </div>
                     </div>
 
@@ -623,21 +623,6 @@
     <script defer src="js/ntc-plugins.js?v=3"></script>
     <script defer src="js/main.js"></script>
     <script defer src="js/custom-nav.js"></script>
-    
-    <!-- WhatsApp Handler for Egypt -->
-    <script>
-      function handleCTAWhatsApp(event, tour) {
-        event.preventDefault();
-        let whatsappText = '';
-        if (tour === 'egypt') {
-          whatsappText = 'Hello NTC Travels! 🇪🇬\n\nI would like to reserve my spot for the Egypt on Dahabiya tour:\n• Dates: September 16-26, 2026\n• Duration: 11 Days / 10 Nights\n• Route: Cairo → Nile Cruise → Luxor\n\nPlease send me availability and reservation details. Thank you!';
-        }
-        const encodedText = encodeURIComponent(whatsappText);
-        const whatsappUrl = `https://wa.me/14086090027?text=${encodedText}`;
-        window.open(whatsappUrl, '_blank');
-        return false;
-      }
-    </script>
 </body>
 
 </html>

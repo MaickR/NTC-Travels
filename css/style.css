@@ -3825,3 +3825,249 @@ section.blog .grid {
     background-repeat: no-repeat;
 }
 
+/* India Breadcrumb Banner - Taj Mahal */
+.breadcrumb-india {
+    background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* India CTA Section - Rajasthan Palace */
+.cta-india {
+    background-image: url('https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================= */
+/*    SLICKNAV MOBILE MENU - ELEGANT STYLE   */
+/* ========================================= */
+
+/* Main Navigation Container */
+.slicknav_nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1a2347 100%);
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 15px 40px rgba(20, 29, 64, 0.3), 
+                0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px 0 20px;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+.slicknav_nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.slicknav_nav::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.slicknav_nav::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+
+/* Menu Links */
+.slicknav_nav a {
+    display: block;
+    padding: 14px 24px;
+    margin: 4px 12px;
+    color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.slicknav_nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 60%;
+    background: var(--color-accent);
+    border-radius: 0 4px 4px 0;
+    transition: width 0.3s ease;
+}
+
+.slicknav_nav a:hover,
+.slicknav_nav a:focus {
+    color: #ffffff !important;
+    background: rgba(191, 48, 58, 0.15);
+    padding-left: 32px;
+}
+
+.slicknav_nav a:hover::before,
+.slicknav_nav a:focus::before {
+    width: 4px;
+}
+
+/* Active Link State */
+.slicknav_nav li.active > a,
+.slicknav_nav a.active {
+    background: linear-gradient(90deg, var(--color-accent) 0%, #d63442 100%);
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(191, 48, 58, 0.4);
+}
+
+.slicknav_nav li.active > a::before {
+    display: none;
+}
+
+/* Row Hover (for dropdowns) */
+.slicknav_nav .slicknav_row {
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.slicknav_nav .slicknav_row:hover {
+    background: rgba(191, 48, 58, 0.15);
+    border-radius: 10px;
+}
+
+/* Submenu / Dropdown Styles */
+.slicknav_nav ul {
+    padding: 8px 0 8px 12px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    margin: 4px 12px;
+}
+
+.slicknav_nav ul li {
+    background: transparent;
+    border: none;
+}
+
+.slicknav_nav ul li a {
+    font-size: 13px;
+    padding: 12px 20px;
+    margin: 2px 0;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 400;
+}
+
+.slicknav_nav ul li a:hover {
+    color: #ffffff !important;
+    background: rgba(191, 48, 58, 0.2);
+}
+
+/* Dropdown Arrow */
+.slicknav_nav .slicknav_arrow {
+    font-size: 10px;
+    margin-left: 8px;
+    color: var(--color-accent);
+    transition: transform 0.3s ease;
+}
+
+.slicknav_nav .slicknav_open > .slicknav_row .slicknav_arrow {
+    transform: rotate(90deg);
+}
+
+/* Menu Item Separator Effect */
+.slicknav_nav > li:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 0 24px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.08) 50%, 
+        transparent 100%);
+}
+
+/* Hamburger Button Enhancement */
+.slicknav_btn {
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.slicknav_btn:hover {
+    background: rgba(20, 29, 64, 0.08);
+}
+
+.slicknav_btn.slicknav_collapsed:before,
+.slicknav_btn.slicknav_open:before {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.slicknav_btn.slicknav_open:before {
+    color: var(--color-accent);
+}
+
+/* Tour Page Specific Adjustments */
+.breadcrumb-egypt ~ .slicknav_nav,
+.breadcrumb-india ~ .slicknav_nav {
+    top: 75px;
+}
+
+/* Mobile-First Responsive */
+@media (max-width: 991px) {
+    .slicknav_nav {
+        top: 75px;
+    }
+}
+
+@media (max-width: 767px) {
+    .slicknav_nav {
+        top: 70px;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .slicknav_nav a {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slicknav_nav {
+        max-height: 80vh;
+        border-radius: 0;
+    }
+    
+    .slicknav_nav a {
+        margin: 3px 8px;
+        padding: 11px 16px;
+    }
+}
+
