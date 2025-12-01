@@ -1,60 +1,143 @@
 # ✈️ NTC Travels & Dreams
 
-> **Tu puerta de entrada a experiencias de viaje inolvidables.**
-> Especialistas en viajes a medida a la India, México, Guatemala y destinos globales.
+<div align="center">
 
-![NTC Travels Banner](images/logo-NTC-bg.png)
+![NTC Travels Logo](images/logo-NTC-bg.png)
 
-## 🌟 Sobre el Proyecto
+### *Creando experiencias de viaje extraordinarias desde el corazón*
 
-Este repositorio aloja el sitio web oficial de **NTC Travels & Dreams**, una agencia de viajes boutique dedicada a crear itinerarios personalizados y experiencias de lujo. El sitio está diseñado para inspirar a los viajeros y facilitar la reserva de tours exclusivos.
+[![Website](https://img.shields.io/badge/Website-ntcluxurytravels.com-029e9d?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.ntcluxurytravels.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-+1_408--609--0027-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/14086090027)
 
-### 🎯 Objetivos
-- Presentar destinos exóticos con una interfaz visualmente atractiva.
-- Ofrecer información detallada sobre itinerarios, inclusiones y precios.
-- Facilitar el contacto directo a través de WhatsApp y formularios personalizados.
-- Garantizar un rendimiento óptimo y accesibilidad (SEO, ARIA).
+</div>
 
-## 🚀 Características Principales
+---
 
-- **Diseño Responsivo:** Adaptado perfectamente a móviles, tablets y escritorio utilizando Bootstrap 5.
-- **Experiencia de Usuario (UX):** Navegación intuitiva, tiempos de carga rápidos y llamadas a la acción claras.
-- **Integración con WhatsApp:** Botones de reserva directa para una comunicación ágil.
-- **SEO Optimizado:** Estructura semántica, metaetiquetas y Schema.org para mejor visibilidad.
-- **Galerías Interactivas:** Sliders y carruseles para mostrar la belleza de los destinos.
+## 🌍 Sobre Nosotros
 
-## 🛠️ Tecnologías Utilizadas
+**NTC Travels & Dreams** es una agencia de viajes boutique especializada en crear itinerarios personalizados y experiencias de lujo. Nos enfocamos en destinos únicos que transforman vidas: desde las pirámides milenarias de Egipto hasta los templos sagrados de India, pasando por las maravillas naturales de México y Guatemala.
 
-- **HTML5 Semántico:** Estructura sólida y accesible.
-- **CSS3 & Bootstrap 5:** Estilos modernos y sistema de rejilla flexible.
-- **JavaScript (ES6+) & jQuery:** Interactividad, validaciones y efectos dinámicos.
-- **FontAwesome:** Iconografía vectorial escalable.
-- **Google Fonts:** Tipografía elegante y legible (Montserrat & Inter).
+## 🎯 Tours Destacados 2026
 
-## 📂 Estructura del Proyecto
+| Tour | Duración | Fechas | Precio |
+|------|----------|--------|--------|
+| 🇪🇬 **Egypt on Dahabiya** | 11 días | Sept 16-26, 2026 | $4,190 USD |
+| 🇮🇳 **Incredible India** | 12 días | Abr 22 - May 3, 2026 | $4,390 USD |
+| 🇲🇽🇬🇹 **México & Guatemala** | 12 días | Fechas flexibles | $1,980 USD |
 
-```text
-NTC-Travels/
-├── css/                # Hojas de estilo y librerías (Bootstrap, Plugins)
-├── fonts/              # Fuentes e iconos locales
-├── images/             # Activos gráficos optimizados
-├── js/                 # Lógica del sitio y scripts de terceros
-├── index.html          # Página de inicio (Landing Page)
-├── tour-india.html     # Página de detalle: Tour India
-├── tour-mexico...html  # Página de detalle: Tour México & Guatemala
-└── ...                 # Otros recursos y páginas
+> 💡 **Early Bird:** ¡Reserva antes del 31 de diciembre y obtén **$200 USD de descuento**!
+
+## ✨ Características del Sitio
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 Diseño & UX
+- Diseño responsivo (Bootstrap 5)
+- Interfaz moderna y elegante
+- Navegación intuitiva
+- Animaciones suaves
+
+</td>
+<td width="50%">
+
+### ⚡ Rendimiento
+- Carga optimizada de imágenes
+- CSS y JS minificados
+- Lazy loading
+- SEO optimizado
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 📱 Integraciones
+- WhatsApp Business directo
+- Formularios dinámicos
+- Google Maps embebido
+- Redes sociales
+
+</td>
+<td>
+
+### 🔐 Técnico
+- HTML5 semántico
+- Schema.org estructurado
+- Accesibilidad ARIA
+- SSL ready
+
+</td>
+</tr>
+</table>
+
+## 🛠️ Stack Tecnológico
+
+```
+Frontend       → HTML5 · CSS3 · JavaScript ES6+
+Framework      → Bootstrap 5.0
+Librerías      → jQuery 3.5 · Swiper.js · Particles.js
+Iconos         → FontAwesome 5.15
+Tipografía     → Montserrat · Inter (Google Fonts)
 ```
 
-## 🌐 Despliegue
+## 📁 Estructura del Proyecto
 
-El sitio está listo para ser desplegado en cualquier servidor web estático (Apache, Nginx, Vercel, Netlify, GitHub Pages).
+```
+NTC-Travels/
+├── 📂 css/
+│   ├── style.css           # Estilos personalizados
+│   ├── ntc-plugins.css     # Plugins consolidados
+│   └── bootstrap.min.css   # Framework CSS
+├── 📂 js/
+│   ├── main.js             # Lógica principal
+│   ├── custom-swiper.js    # Slider del banner
+│   └── custom-nav.js       # Navegación
+├── 📂 images/
+│   ├── india/              # Imágenes tour India
+│   ├── egipto/             # Imágenes tour Egipto
+│   └── ...
+├── 📄 index.html           # Página principal
+├── 📄 tour-egypt.html      # Detalle tour Egipto
+├── 📄 tour-india.html      # Detalle tour India
+└── 📄 tour-mexico-guatemala.html
+```
+
+## 🚀 Despliegue
+
+El sitio está optimizado para despliegue en:
+- **GitHub Pages**
+- **Netlify**
+- **Vercel**
+- Cualquier servidor web estático
+
+```bash
+# Clonar repositorio
+git clone https://github.com/MaickR/NTC-Travels.git
+
+# Servir localmente (ejemplo con Live Server de VS Code)
+# O usar cualquier servidor HTTP estático
+```
 
 ## 📞 Contacto
 
-**NTC Travels & Dreams**
-- 🌐 Web: [www.ntcluxurytravels.com](https://www.ntcluxurytravels.com)
-- 📱 WhatsApp: +1 408-609-0027
-- 📧 Email: info@ntcluxurytravels.com
+<div align="center">
+
+| Canal | Información |
+|-------|-------------|
+| 🌐 **Web** | [www.ntcluxurytravels.com](https://www.ntcluxurytravels.com) |
+| 📱 **WhatsApp** | [+1 408-609-0027](https://wa.me/14086090027) |
+| 📧 **Email** | info@ntcluxurytravels.com |
+
+</div>
 
 ---
+
+<div align="center">
+
+**Desarrollado con ❤️ por [AVALON](https://www.avalon.com)**
+
 © 2025 NTC Travels & Dreams. Todos los derechos reservados.
+
+</div>

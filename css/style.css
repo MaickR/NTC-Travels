@@ -3344,7 +3344,7 @@ section.blog .grid {
   color: #fff;
 }
 .home-thh .main_header_area .navbar.navbar-default .nav.navbar-nav li.active a, .home-thh .main_header_area .navbar.navbar-default .nav.navbar-nav li:hover a {
-  color: #029e9d;
+  color: var(--color-accent);
 }
 .home-thh .main_header_area .navbar.navbar-default.navbar-sticky-in {
   border-color: #eee;

@@ -1,11 +1,44 @@
 /*------------------------------------------------------------------
 * Project:        NTC Travels & Dreams
 * Description:    Main JavaScript file
-* Updated:        October 2025
+* Updated:        December 2025
 -------------------------------------------------------------------*/
 
 (function($) {
     'use strict';
+
+    // ========================================
+    // Egypt Early Bird Discount Logic
+    // ========================================
+    const EGYPT_DISCOUNT_DEADLINE = new Date('2025-12-31T23:59:59');
+    const EGYPT_BASE_PRICE = 4190;
+    const EGYPT_DISCOUNT_AMOUNT = 200;
+
+    function isEgyptDiscountActive() {
+        return new Date() <= EGYPT_DISCOUNT_DEADLINE;
+    }
+
+    function updateEgyptPriceDisplay() {
+        const hasDiscount = isEgyptDiscountActive();
+        
+        // Update index.html card elements
+        const discountCardEl = document.getElementById('egypt-discount-card');
+        if (discountCardEl) {
+            discountCardEl.style.display = hasDiscount ? 'block' : 'none';
+        }
+
+        // Update tour-egypt.html header elements
+        const headerDiscountEl = document.getElementById('egypt-header-discount');
+        if (headerDiscountEl) {
+            headerDiscountEl.style.display = hasDiscount ? 'inline' : 'none';
+        }
+
+        // Update tour-egypt.html main discount section
+        const mainDiscountEl = document.getElementById('egypt-main-discount');
+        if (mainDiscountEl) {
+            mainDiscountEl.style.display = hasDiscount ? 'block' : 'none';
+        }
+    }
 
     // ========================================
     // Document Ready Function
@@ -25,6 +58,9 @@
         if (typeof WOW !== 'undefined') {
             new WOW().init();
         }
+
+        // Update Egypt discount display
+        updateEgyptPriceDisplay();
     });
 
     // ========================================
@@ -733,22 +769,34 @@ Note: Checking availability for $200 USD Early Bird Discount`;
 
         } else if (inquiryType === 'booking_egypt') {
             const numericTravelers = /^\d+$/.test(travelersCount) ? parseInt(travelersCount, 10) : null;
+            const egyptPrice = 4190;
+            const discountDeadline = new Date('2025-12-31T23:59:59');
+            const today = new Date();
+            const hasDiscount = today <= discountDeadline;
+            const finalPrice = hasDiscount ? egyptPrice - 200 : egyptPrice;
 
             messageContent += `BOOKING REQUEST: Egypt on Dahabiya (11 Days)
 ----------------------------------------
-Price: $2,575 USD per person (Est. Group 16)
+Price: $${egyptPrice} USD per person (All Inclusive)
 Route: Cairo - Nile Cruise - Luxor
 
 Travelers: *${travelersCount || 'Not specified'}*`;
 
             if (numericTravelers) {
-                const price = 2575;
-                const baseTotal = price * numericTravelers;
+                const baseTotal = finalPrice * numericTravelers;
                 messageContent += `
 Est. Total: *$${baseTotal} USD*`;
             }
-            messageContent += `
+            
+            if (hasDiscount) {
+                messageContent += `
+🎉 EARLY BIRD DISCOUNT APPLIED: $200 USD OFF per person (until Dec 31)`;
+                messageContent += `
+Final Price: *$${finalPrice} USD* per person`;
+            } else {
+                messageContent += `
 Note: Checking availability for Private Dahabiya`;
+            }
 
         } else if (inquiryType === 'question_india') {
             messageContent += `QUESTION: Incredible India Tour
@@ -863,7 +911,18 @@ Sent from: www.ntcluxurytravels.com
             }
             whatsappText += '\nPlease share availability, payment plans, and next steps.';
         } else if (tour === 'egypt') {
-            whatsappText = 'Hello NTC Travels! 🇪🇬\n\nI would like to reserve my spot for the Egypt on Dahabiya tour:\n• Dates: September 16-26, 2026\n• Duration: 11 Days / 10 Nights\n• Route: Cairo → Nile Cruise → Luxor\n\nPlease send me availability and reservation details. Thank you!';
+            const egyptPrice = 4190;
+            const discountDeadline = new Date('2025-12-31T23:59:59');
+            const today = new Date();
+            const hasDiscount = today <= discountDeadline;
+            
+            whatsappText = 'Hello NTC Travels! 🇪🇬\n\nI would like to reserve my spot for the Egypt on Dahabiya tour:\n• Dates: September 16-26, 2026\n• Duration: 11 Days / 10 Nights\n• Route: Cairo → Nile Cruise → Luxor\n• Price: $' + egyptPrice + ' USD per person';
+            
+            if (hasDiscount) {
+                whatsappText += '\n\n🎉 I would like to apply the $200 USD Early Bird Discount (before Dec 31)!';
+                whatsappText += '\n• Discounted Price: $' + (egyptPrice - 200) + ' USD per person';
+            }
+            whatsappText += '\n\nPlease send me availability and reservation details. Thank you!';
         }
 
         if (tour !== 'egypt' && tour !== 'mxgt') {
@@ -895,12 +954,23 @@ Sent from: www.ntcluxurytravels.com
             whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Delhi - Jaipur - Agra - Varanasi - Rishikesh - Delhi`;
             whatsappText += `\n\nI would like to know if the $200 USD Early Bird discount (before Dec 15) is still available.`;
         } else if (tour === 'egypt') {
+            const egyptPrice = 4190;
+            const discountDeadline = new Date('2025-12-31T23:59:59');
+            const today = new Date();
+            const hasDiscount = today <= discountDeadline;
+            
             tourName = 'Egypt on Dahabiya - 11 Days';
-            basePrice = 'From $2,575 USD per person (Based on 16 Pax)';
+            basePrice = '$' + egyptPrice + ' USD per person (All Inclusive)';
             dates = 'Sept 16 - 26, 2026';
 
             whatsappText = `Hello NTC! I am interested in the ${tourName}\nPrice: ${basePrice}\nDates: ${dates}\nRoute: Cairo - Nile Cruise - Luxor`;
-            whatsappText += `\n\nI would like to know more about the private Dahabiya charter options.`;
+            
+            if (hasDiscount) {
+                whatsappText += `\n\n🎉 I would like to apply the $200 USD Early Bird Discount (before Dec 31)!`;
+                whatsappText += `\nDiscounted Price: $${egyptPrice - 200} USD per person`;
+            } else {
+                whatsappText += `\n\nI would like to know more about the private Dahabiya charter options.`;
+            }
         }
 
         whatsappText += `\n\nPlease help me confirm availability and send detailed itinerary.`;
