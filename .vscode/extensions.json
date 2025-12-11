@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "aaron-bond.better-comments",
+    "formulahendry.auto-rename-tag",
+    "ecmel.vscode-html-css",
+    "ritwickdey.liveserver",
+    "ms-vscode.vscode-css-peek"
+  ]
+}

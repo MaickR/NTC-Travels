@@ -1,0 +1,191 @@
+// ============================================
+// SlickNav - Menú móvil responsivo
+// Librería: slicknav.js
+// ============================================
+
+// Variables del componente
+$slicknav-bg: #141d40;
+$slicknav-text-color: #fff;
+$slicknav-hover-bg: rgba(255, 255, 255, 0.1);
+$slicknav-border-color: rgba(255, 255, 255, 0.2);
+
+// ----------------------------------------
+// Contenedor del menú
+// ----------------------------------------
+.slicknav_menu {
+  display: none;
+  background: $slicknav-bg;
+
+  @media (width <= 991px) {
+    display: block;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// ----------------------------------------
+// Botón hamburguesa
+// ----------------------------------------
+.slicknav_btn {
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.438em 0.625em;
+  margin: 5px 5px 6px;
+  line-height: 1.125em;
+  text-decoration: none;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid $slicknav-border-color;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $slicknav-hover-bg;
+  }
+}
+
+// Texto del botón (oculto visualmente)
+.slicknav_menutxt {
+  display: block;
+  line-height: 1.188em;
+  float: left;
+  color: $slicknav-text-color;
+}
+
+// Ícono hamburguesa
+.slicknav_icon {
+  float: left;
+  width: 1.125em;
+  height: 0.875em;
+  margin: 0.188em 0 0 0.438em;
+
+  &-bar {
+    display: block;
+    width: 1.125em;
+    height: 0.125em;
+    margin-top: 0.188em;
+    background-color: $slicknav-text-color;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// Estado abierto del botón
+.slicknav_btn.slicknav_open {
+  .slicknav_icon-bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .slicknav_icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .slicknav_icon-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+// ----------------------------------------
+// Lista de navegación
+// ----------------------------------------
+.slicknav_nav {
+  display: none;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+
+  &.slicknav_hidden {
+    display: none;
+  }
+
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: block;
+  }
+
+  a {
+    display: block;
+    padding: 0.5em 1em;
+    color: $slicknav-text-color;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $slicknav-hover-bg;
+    }
+  }
+
+  // Submenús
+  .slicknav_item {
+    cursor: pointer;
+  }
+
+  .slicknav_row {
+    display: block;
+
+    &:hover {
+      background-color: $slicknav-hover-bg;
+    }
+  }
+
+  // Flechas de submenús
+  .slicknav_arrow {
+    float: right;
+    margin: 0.5em 0.5em 0 0;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+  }
+
+  .slicknav_item.slicknav_open .slicknav_arrow {
+    transform: rotate(90deg);
+  }
+
+  // Anidamiento de submenús
+  ul ul {
+    padding-left: 1em;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+// ----------------------------------------
+// Visualización del menú original
+// ----------------------------------------
+.slicknav_hidden {
+  display: none;
+}
+
+// ----------------------------------------
+// Contenedor en la página
+// ----------------------------------------
+#slicknav-mobile {
+  @media (width > 991px) {
+    display: none;
+  }
+}

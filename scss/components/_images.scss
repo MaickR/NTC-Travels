@@ -1,0 +1,347 @@
+/**
+ * NTC Travels - Optimizaciones de Imágenes CSS
+ *
+ * Estilos para lazy loading, blur placeholders, aspect-ratio
+ * y otras optimizaciones de rendimiento de imágenes.
+ *
+ * @version 1.0.0
+ */
+
+/* ============================================
+   ASPECT RATIO CONTAINERS
+   ============================================ */
+
+/**
+ * Contenedores con aspect-ratio para prevenir CLS (Cumulative Layout Shift)
+ */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+/* Fallback para navegadores sin soporte de aspect-ratio */
+@supports not (aspect-ratio: 16 / 9) {
+  .aspect-ratio-16-9::before {
+    content: '';
+    float: left;
+    padding-top: 56.25%;
+  }
+
+  .aspect-ratio-16-9::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .aspect-ratio-4-3::before {
+    content: '';
+    float: left;
+    padding-top: 75%;
+  }
+
+  .aspect-ratio-4-3::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+/* ============================================
+   LAZY LOADING STYLES
+   ============================================ */
+
+/**
+ * Placeholder blur effect mientras carga la imagen
+ */
+.img-blur-placeholder {
+  filter: blur(20px);
+  transition: filter 0.3s ease-out;
+}
+
+.img-blur-placeholder.loaded {
+  filter: blur(0);
+}
+
+/**
+ * Skeleton loader para imágenes
+ */
+.img-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/**
+ * Fade in animation para imágenes lazy loaded
+ */
+.img-lazy-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.img-lazy-fade.loaded {
+  opacity: 1;
+}
+
+/* ============================================
+   PICTURE ELEMENT STYLES
+   ============================================ */
+
+/**
+ * Asegurar que picture ocupa todo el contenedor
+ */
+picture {
+  display: block;
+  width: 100%;
+}
+
+picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/**
+ * Imágenes dentro de picture que ocupan todo el contenedor
+ */
+picture.img-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+picture.img-contain img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+   RESPONSIVE IMAGE UTILITIES
+   ============================================ */
+
+/**
+ * Imagen que mantiene aspect ratio y ocupa todo el ancho
+ */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Imagen que cubre su contenedor
+ */
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/**
+ * Imagen que contiene en su contenedor
+ */
+.img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+   BACKGROUND IMAGE OPTIMIZATION
+   ============================================ */
+
+/**
+ * Contenedor para imágenes de fondo optimizadas
+ * Usa image-set() para formatos modernos
+ */
+.bg-optimized {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Soporte para image-set con formatos modernos
+ */
+@supports (background-image: image-set(url('test.avif') type('image/avif'))) {
+  .bg-optimized-webp {
+    background-image: image-set(
+      url('test.webp') type('image/webp'),
+      url('test.jpg') type('image/jpeg')
+    );
+  }
+}
+
+/* ============================================
+   SLIDER/BANNER IMAGES
+   ============================================ */
+
+/**
+ * Imágenes del slider principal
+ */
+.slide-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/**
+ * Optimizar renderizado de imágenes grandes
+ */
+.slide-image img,
+.banner img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* ============================================
+   GALLERY IMAGES
+   ============================================ */
+
+/**
+ * Grid de galería de imágenes
+ */
+.img-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.img-gallery-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.img-gallery-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.img-gallery-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .img-gallery-3,
+  .img-gallery-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .img-gallery-2,
+  .img-gallery-3,
+  .img-gallery-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   TOUR CARD IMAGES
+   ============================================ */
+
+/**
+ * Imagen de tarjeta de tour
+ */
+.trend-image,
+.tour-card__image {
+  overflow: hidden;
+  position: relative;
+}
+
+.trend-image picture,
+.trend-image img,
+.tour-card__image picture,
+.tour-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.trend-item:hover .trend-image picture img,
+.trend-item:hover .trend-image img,
+.tour-card:hover .tour-card__image picture img,
+.tour-card:hover .tour-card__image img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   HERO/BREADCRUMB IMAGES
+   ============================================ */
+
+/**
+ * Imágenes de hero/breadcrumb con gradiente
+ */
+.breadcrumb-main {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.breadcrumb-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(20, 29, 64, 0.7), rgba(20, 29, 64, 0.9));
+  z-index: 1;
+}
+
+.breadcrumb-main > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   PERFORMANCE HINTS
+   ============================================ */
+
+/**
+ * Optimizar renderizado de imágenes críticas
+ */
+.img-critical {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
+
+/**
+ * Desactivar efectos en preferencias de movimiento reducido
+ */
+@media (prefers-reduced-motion: reduce) {
+  .img-blur-placeholder,
+  .img-lazy-fade {
+    transition: none;
+  }
+
+  .trend-item:hover .trend-image picture img,
+  .trend-item:hover .trend-image img,
+  .tour-card:hover .tour-card__image picture img,
+  .tour-card:hover .tour-card__image img {
+    transform: none;
+  }
+}

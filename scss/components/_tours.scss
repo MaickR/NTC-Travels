@@ -1,0 +1,368 @@
+// ==========================================================================
+// * TOURS / TRENDING COMPONENT - NTC Travels & Dreams
+// * Descripción: Estilos de tarjetas de tours y sección trending
+// * Arquitectura: SCSS 7-1 Pattern + BEM
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! TRENDING SECTION
+// --------------------------------------------------------------------------
+
+.trending {
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+// --------------------------------------------------------------------------
+// ! TREND ITEM BASE
+// --------------------------------------------------------------------------
+
+.trend-item,
+.tour-card,
+.trend-item1,
+.tour-card--compact,
+.trend-item2,
+.tour-card--wide {
+  position: relative;
+  transition: all $transicion-base;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // Bottom accent bar
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    background: $color-secundario;
+    height: 4px;
+    transition: all $transicion-base;
+    z-index: 2;
+  }
+
+  // Meta positioning
+  .trend-meta,
+  .tour-card__meta {
+    position: absolute;
+    top: -28px;
+    right: 20px;
+  }
+
+  // Image container
+  .trend-image,
+  .tour-card__image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    transition: all $transicion-base;
+    overflow: hidden;
+
+    img {
+      transition: all $transicion-base;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .trend-content,
+    .tour-card__content {
+      z-index: 1;
+    }
+  }
+
+  // Content area
+  .trend-content,
+  .tour-card__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trend-content1,
+  .tour-card__content-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  // Hover effects
+  &:hover {
+    transition: all $transicion-base;
+
+    &::before {
+      transition: all $transicion-base;
+      width: 100%;
+    }
+
+    .trend-image img,
+    .tour-card__image img {
+      transform: scale(1.1);
+      transition: all $transicion-base;
+    }
+
+    .color-overlay {
+      height: 100%;
+      transition: all $transicion-base;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TREND ITEM VARIANTS
+// --------------------------------------------------------------------------
+
+.trend-item1::before {
+  display: none;
+}
+
+.tour-card--compact::before {
+  display: none;
+}
+
+.trend-item2,
+.tour-card--wide {
+  position: relative;
+  transition: all $transicion-base;
+  height: 100%;
+  overflow: hidden;
+
+  > a {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    display: inline-block;
+    transition: all $transicion-base;
+  }
+
+  &::before {
+    display: none;
+  }
+
+  @include hasta('md') {
+    height: 300px;
+    border-radius: $radio-base;
+    margin-bottom: 15px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TREND IMAGE ASPECT RATIO
+// --------------------------------------------------------------------------
+
+.trend-image,
+.tour-card__image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: $color-neutro-100;
+}
+
+// --------------------------------------------------------------------------
+// ! CATEGORY ITEM
+// --------------------------------------------------------------------------
+
+.category-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+
+  i {
+    font-size: $fuente-3xl;
+  }
+
+  img {
+    width: auto;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    transition: all $transicion-base;
+    background: $color-secundario;
+    cursor: pointer;
+  }
+
+  .trending-topic-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transition: all $transicion-base;
+  }
+}
+
+@include hasta('lg') {
+  .category-main-inner h3 {
+    margin-bottom: 0;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TOUR INCLUDES
+// --------------------------------------------------------------------------
+
+.tour-includes {
+  .includes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $color-blanco;
+    border-radius: $radio-md;
+    padding: 22px;
+    border: 1px solid $color-neutro-200;
+  }
+
+  .include-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: $fuente-sm;
+    color: $color-neutro-700;
+    width: 33.333%;
+    padding: 6px 12px;
+    box-sizing: border-box;
+
+    &:nth-child(n + 4) {
+      border-top: 1px solid $color-neutro-100;
+      margin-top: 12px;
+      padding-top: 18px;
+    }
+
+    i {
+      font-size: $fuente-md;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    span {
+      display: block;
+      line-height: $linea-normal;
+    }
+  }
+
+  @include hasta('lg') {
+    .include-item {
+      width: 50%;
+
+      &:nth-child(n + 3) {
+        border-top: 1px solid $color-neutro-100;
+        margin-top: 12px;
+        padding-top: 18px;
+      }
+    }
+  }
+
+  @include hasta('sm') {
+    .includes-grid {
+      flex-direction: column;
+      padding: 18px;
+      gap: 14px;
+    }
+
+    .include-item {
+      width: 100%;
+      font-size: $fuente-sm;
+      border-top: 1px solid $color-neutro-100;
+      margin-top: 0;
+      padding: 14px 0 0;
+
+      &:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ENTRY META / AUTHOR
+// --------------------------------------------------------------------------
+
+.entry-author img {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+
+.entry-meta {
+  @include hasta('sm') {
+    display: block;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TREND PACKAGES
+// --------------------------------------------------------------------------
+
+@include hasta('md') {
+  .trend-packages .trend-full .col-lg-5 {
+    padding: 0;
+  }
+}
+
+@include hasta('xs') {
+  .trending .trend-item .trend-image .trend-meta,
+  .trending .tour-card .tour-card__image .tour-card__meta {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    .entry-author {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! LIST UNSTYLED VERTICAL
+// --------------------------------------------------------------------------
+
+.list-unstyled li {
+  display: block;
+}
+
+// --------------------------------------------------------------------------
+// ! TRENDING RESPONSIVE
+// --------------------------------------------------------------------------
+
+@include hasta('sm') {
+  .trending .trend-item,
+  .trending .tour-card {
+    display: block;
+
+    .trend-content-main,
+    .tour-card__content-main,
+    .trend-image,
+    .tour-card__image {
+      width: 100%;
+    }
+
+    .trend-content,
+    .tour-card__content {
+      padding: 20px 0;
+    }
+  }
+}

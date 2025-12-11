@@ -1,0 +1,13 @@
+// ==========================================================================
+// * ABSTRACTS INDEX - NTC Travels & Dreams
+// * Descripción: Archivo índice que exporta todas las abstracciones
+// * Arquitectura: SCSS 7-1 Pattern
+// * Autor: NTC Development Team
+// ==========================================================================
+
+// ! IMPORTANTE: El orden de importación es crucial
+// ? Las variables deben cargarse primero, luego funciones, y finalmente mixins
+
+@forward 'variables';
+@forward 'funciones';
+@forward 'mixins';

@@ -1,0 +1,131 @@
+// ============================================
+// Range Slider - Estilos del componente
+// Basado en jQuery UI Slider
+// ============================================
+
+// Variables del componente
+$range-slider-track-bg: #ccc;
+$range-slider-track-height: 6px;
+$range-slider-range-bg: #42ac3c;
+$range-slider-handle-size: 14px;
+$range-slider-handle-bg: #fff;
+$range-slider-handle-border: #ccc;
+
+// ----------------------------------------
+// Contenedor principal
+// ----------------------------------------
+.range-slider {
+  label {
+    margin-bottom: 1rem;
+  }
+}
+
+// ----------------------------------------
+// Track del slider
+// ----------------------------------------
+.range-slider .ui-slider {
+  position: relative;
+  text-align: left;
+}
+
+.range-slider .ui-slider-horizontal {
+  width: calc(100% - 16px);
+  height: $range-slider-track-height;
+  margin-left: 8px;
+  border-radius: 10px;
+}
+
+.range-slider .ui-widget-content {
+  background-color: $range-slider-track-bg;
+}
+
+// ----------------------------------------
+// Rango seleccionado
+// ----------------------------------------
+.range-slider .ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+  background-color: $range-slider-range-bg;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+
+.range-slider .ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+// ----------------------------------------
+// Handles (controles)
+// ----------------------------------------
+.range-slider .ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  top: -5px;
+  width: $range-slider-handle-size;
+  height: $range-slider-handle-size;
+  margin-left: -8px;
+  background: $range-slider-handle-bg;
+  border: 1px solid $range-slider-handle-border;
+  border-radius: 50%;
+  box-shadow: none !important;
+  outline: none;
+  cursor: ew-resize;
+  transition: inherit;
+}
+
+// Estado deshabilitado
+.range-slider .ui-slider.ui-state-disabled .ui-slider-handle,
+.range-slider .ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+
+// ----------------------------------------
+// Valores mínimo y máximo
+// ----------------------------------------
+.min-value,
+.max-value {
+  display: inline-block;
+  width: 40%;
+  padding: 0;
+  margin: 12px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  background-color: transparent;
+  border: 0;
+  cursor: default;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.min-value {
+  float: left;
+  width: 50%;
+  margin-top: 15px;
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.max-value {
+  float: right;
+  width: 50%;
+  margin-top: 15px;
+  margin-right: -8px;
+  text-align: right;
+}
+
+// Clase para track completo
+.range-slider .full {
+  background: $range-slider-track-bg !important;
+}

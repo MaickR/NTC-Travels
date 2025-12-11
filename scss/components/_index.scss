@@ -1,0 +1,31 @@
+// ==========================================================================
+// * COMPONENTS INDEX - NTC Travels & Dreams
+// * Descripción: Archivo índice de componentes reutilizables
+// * Arquitectura: SCSS 7-1 Pattern
+// * Autor: NTC Development Team
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// ! COMPONENTES ACTIVOS
+// --------------------------------------------------------------------------
+
+@forward 'buttons';
+@forward 'hero';
+@forward 'tours';
+@forward 'cta';
+@forward 'forms';
+@forward 'slicknav';
+@forward 'images';
+
+// --------------------------------------------------------------------------
+// ? COMPONENTES PENDIENTES (Fases posteriores)
+// --------------------------------------------------------------------------
+
+// @forward 'cards';
+// @forward 'iconos';
+// @forward 'badges';
+// @forward 'modales';
+// @forward 'tabs';
+// @forward 'acordeon';
+// @forward 'breadcrumb';
+// @forward 'paginacion';

@@ -1,0 +1,187 @@
+// ==========================================================================
+// * GRID LAYOUT - NTC Travels & Dreams
+// * Descripción: Sistema de grid y contenedor
+// * Arquitectura: SCSS 7-1 Pattern
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! CONTENEDOR
+// --------------------------------------------------------------------------
+
+.container {
+  position: relative;
+  z-index: 1;
+
+  @include hasta('md') {
+    max-width: 100%;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! SECCIÓN BASE
+// --------------------------------------------------------------------------
+
+section {
+  padding: $espacio-12 0 $espacio-12;
+  position: relative;
+}
+
+// --------------------------------------------------------------------------
+// ! SECTION TITLE
+// --------------------------------------------------------------------------
+
+.section-title {
+  position: relative;
+  z-index: 1;
+
+  h2 {
+    position: relative;
+    line-height: $linea-compacta;
+  }
+
+  @include hasta('lg') {
+    width: 100%;
+  }
+
+  @include hasta('md') {
+    width: 100%;
+    text-align: center;
+
+    &::before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! SECTION SHAPE
+// --------------------------------------------------------------------------
+
+.section-shape {
+  position: absolute;
+  top: -96px;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  &.section-shape1 {
+    transform: rotate(180deg);
+  }
+
+  @include hasta('lg') {
+    background-size: cover;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ROW OVERRIDES
+// --------------------------------------------------------------------------
+
+.row {
+  &[class*='col-'] {
+    padding: 0 15px;
+  }
+
+  &.slick-slider {
+    margin: 0 -15px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TREND BOX GRID
+// --------------------------------------------------------------------------
+
+.trend-box,
+.tour-grid {
+  width: 100%;
+
+  .row {
+    align-items: stretch;
+  }
+}
+
+// Mobile: stack full-width cards
+@include hasta('sm') {
+  .trend-box .row,
+  .tour-grid .row {
+    margin-left: 0;
+    margin-right: 0;
+
+    > [class*='col-'] {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+}
+
+// Tablet: rely on Bootstrap col-md-6
+@include entre('sm', 'lg') {
+  .trend-box .row,
+  .tour-grid .row {
+    justify-content: flex-start;
+  }
+}
+
+// Desktop: center single card or default to 3 per row
+@include desde('lg') {
+  .trend-box .row,
+  .tour-grid .row {
+    justify-content: center;
+  }
+}
+
+// Safety: if a variant adds more cards, keep normal grid flow
+.trend-box.has-more-cards .row,
+.tour-grid.has-more-cards .row {
+  justify-content: flex-start;
+}
+
+// --------------------------------------------------------------------------
+// ! OVERLAYS
+// --------------------------------------------------------------------------
+
+.overlay,
+.dot-overlay,
+.color-overlay,
+.white-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $color-negro;
+  transition: all $transicion-base;
+  opacity: 0.5;
+}
+
+.dot-overlay {
+  background: $color-negro;
+  opacity: 0.6;
+}
+
+.color-overlay {
+  top: inherit;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, $color-negro);
+  height: 50%;
+  opacity: 0.6;
+
+  @include hasta('sm') {
+    height: 100%;
+    opacity: 0.4;
+    background: $color-negro;
+  }
+}
+
+.white-overlay {
+  background: $color-neutro-50;
+  opacity: 0.5;
+}

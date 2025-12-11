@@ -1,0 +1,32 @@
+# NTC Travels & Dreams
+# Apache configuration for PHP deployment (cPanel/Apache)
+
+# Prefer PHP index when both index.html and index.php exist
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # -------------------------------
+  # Canonical redirects
+  # -------------------------------
+
+  # /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # /tour-egypt.html or /tour-india.html -> /tour-egypt or /tour-india
+  RewriteCond %{THE_REQUEST} \s/+((?:tour-(?:egypt|india))\.html)[\s?] [NC]
+  RewriteRule ^(tour-(?:egypt|india))\.html$ /$1 [R=301,L]
+
+  # /tour-egypt.php or /tour-india.php -> /tour-egypt or /tour-india
+  RewriteCond %{THE_REQUEST} \s/+((?:tour-(?:egypt|india))\.php)[\s?] [NC]
+  RewriteRule ^(tour-(?:egypt|india))\.php$ /$1 [R=301,L]
+
+  # -------------------------------
+  # Pretty URLs: /tour-egypt -> tour-egypt.php
+  # -------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^([A-Za-z0-9_-]+)/?$ $1.php [L]
+</IfModule>

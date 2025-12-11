@@ -1,0 +1,11 @@
+// ==========================================================================
+// * LEGACY CSS (BUILD-TIME INLINE) - NTC Travels & Dreams
+// * Descripción: Carga e INLINÉA el CSS legacy en el build de Sass.
+// * Objetivo: Mantener paridad visual sin hacer request runtime a `css/style.css`.
+// * NOTA: Este archivo se irá eliminando a medida que migremos todo a SCSS.
+// ==========================================================================
+
+@use 'sass:meta';
+
+// Inlinea el CSS legacy en la salida compilada (no emite `@import` en el CSS final)
+@include meta.load-css('../../css/style.css');

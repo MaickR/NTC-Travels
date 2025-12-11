@@ -1,0 +1,201 @@
+// ============================================
+// Nice Select - Estilos del componente
+// Librería: jquery-nice-select v1.1.0
+// ============================================
+
+// Variables del componente
+$nice-select-height: 50px;
+$nice-select-padding: 12px 20px;
+$nice-select-font-size: 15px;
+$nice-select-border-radius: 10px;
+$nice-select-border-color: #f1f1f1;
+$nice-select-bg: #fff;
+$nice-select-color: #777;
+$nice-select-arrow-color: #999;
+
+// ----------------------------------------
+// Contenedor principal
+// ----------------------------------------
+.nice-select {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  outline: none;
+  text-align: left !important;
+  user-select: none;
+  white-space: nowrap;
+  width: 100%;
+
+  // Estilos visuales
+  height: $nice-select-height;
+  padding: $nice-select-padding;
+  font-size: $nice-select-font-size;
+  font-weight: 300;
+  line-height: 1.5;
+  color: $nice-select-color;
+  background: $nice-select-bg;
+  border: 1px solid $nice-select-border-color;
+  border-radius: $nice-select-border-radius;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: darken($nice-select-border-color, 10%);
+  }
+
+  &:active,
+  &.open,
+  &:focus {
+    border-color: $nice-select-arrow-color;
+  }
+
+  // Flecha indicadora
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    margin-top: -4px;
+    border-bottom: 2px solid $nice-select-arrow-color;
+    border-right: 2px solid $nice-select-arrow-color;
+    pointer-events: none;
+    transform-origin: 66% 66%;
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+  }
+
+  &.open::after {
+    transform: rotate(-135deg);
+  }
+
+  // Estado deshabilitado
+  &.disabled {
+    border-color: #ededed;
+    color: #999;
+    pointer-events: none;
+
+    &::after {
+      border-color: #ccc;
+    }
+  }
+
+  // Modificadores de ancho
+  &.wide {
+    width: 100%;
+
+    .list {
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+
+  &.right {
+    float: right;
+
+    .list {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  // Tamaño pequeño
+  &.small {
+    font-size: 12px;
+    height: 36px;
+    line-height: 34px;
+
+    &::after {
+      height: 4px;
+      width: 4px;
+    }
+
+    .option {
+      line-height: 34px;
+      min-height: 34px;
+    }
+  }
+}
+
+// ----------------------------------------
+// Lista desplegable
+// ----------------------------------------
+.nice-select .list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding: 0;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: $nice-select-bg;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: 50% 0;
+  transform: scale(0.75) translateY(-21px);
+  transition:
+    all 0.2s cubic-bezier(0.5, 0, 0, 1.25),
+    opacity 0.15s ease-out;
+
+  &:hover .option:not(:hover) {
+    background-color: transparent !important;
+  }
+}
+
+.nice-select.open .list {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+  width: 100%;
+  background: $nice-select-bg;
+}
+
+// ----------------------------------------
+// Opciones individuales
+// ----------------------------------------
+.nice-select .option {
+  display: block;
+  margin-bottom: 0;
+  padding: 10px 20px;
+  min-height: 40px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 14px;
+  color: #444;
+  list-style: none;
+  outline: none;
+  text-align: left;
+  transition: all 0.2s;
+
+  &:hover,
+  &.focus,
+  &.selected.focus {
+    background-color: #f6f6f6;
+  }
+
+  &.disabled {
+    background-color: transparent;
+    color: #999;
+    cursor: default;
+  }
+}
+
+// ----------------------------------------
+// Fallback para navegadores sin pointer-events
+// ----------------------------------------
+.no-csspointerevents .nice-select .list {
+  display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+  display: block;
+}

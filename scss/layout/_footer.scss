@@ -1,0 +1,360 @@
+// ==========================================================================
+// * FOOTER LAYOUT - NTC Travels & Dreams
+// * Descripción: Estilos del footer principal
+// * Arquitectura: SCSS 7-1 Pattern + BEM
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! FOOTER PRINCIPAL
+// --------------------------------------------------------------------------
+
+footer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color: #17233e;
+
+  .overlay {
+    opacity: 0.8;
+  }
+
+  // Links y texto
+  a,
+  p,
+  li {
+    color: $color-blanco;
+    font-weight: $peso-normal;
+  }
+
+  a:hover {
+    color: $color-blanco;
+  }
+
+  // Títulos de sección
+  h3 {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 50px;
+      background: $color-blanco;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! FOOTER UPPER
+// --------------------------------------------------------------------------
+
+.footer-upper {
+  position: relative;
+  z-index: 1;
+
+  .footer-links {
+    ul.list li {
+      display: inline-block;
+      padding: 0 10px;
+    }
+
+    ul li {
+      margin-bottom: 20px;
+      color: $color-blanco;
+      display: block;
+
+      a {
+        transition: all $transicion-base;
+        color: $color-blanco;
+
+        &:hover {
+          color: $color-secundario;
+          transition: all $transicion-base;
+        }
+
+        &.active {
+          color: $color-secundario;
+        }
+      }
+    }
+
+    ul p span {
+      color: $color-secundario;
+    }
+
+    h5 {
+      border: none;
+      padding: 0;
+    }
+
+    input.nir-btn {
+      border: none;
+
+      &:hover {
+        opacity: 0.8;
+        background: $color-secundario;
+        color: $color-blanco;
+      }
+    }
+  }
+
+  .footer-about {
+    p,
+    li {
+      color: $color-neutro-600;
+    }
+
+    li {
+      line-height: 2;
+    }
+
+    // Stack Phone and Website vertically
+    ul li {
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+
+  @include hasta('lg') {
+    padding-bottom: $espacio-8;
+
+    .footer-links {
+      width: 100%;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! FOOTER COPYRIGHT
+// --------------------------------------------------------------------------
+
+.footer-copyright {
+  position: relative;
+  z-index: 1;
+
+  .copyright-inner {
+    background: transparentar($color-neutro-100, 0.07);
+  }
+
+  @include hasta('md') {
+    .copyright-inner {
+      text-align: center;
+
+      .copyright-text {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! FOOTER PAYMENT
+// --------------------------------------------------------------------------
+
+.footer-payment {
+  position: relative;
+  z-index: 2;
+
+  .col-lg-8.footer-payment-nav {
+    margin-bottom: $espacio-3;
+  }
+
+  .col-lg-4.footer-payment-nav {
+    margin-bottom: $espacio-4;
+  }
+
+  @include hasta('xs') {
+    .footer-pay .footer-payment-nav select {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! FOOTER RESPONSIVE
+// --------------------------------------------------------------------------
+
+@include hasta('lg') {
+  footer {
+    .footer-upper {
+      .footer-about,
+      .footer-links {
+        text-align: center;
+      }
+
+      .pe-4 {
+        padding-right: 0;
+      }
+
+      .footer-about ul,
+      .footer-links ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 auto;
+      }
+    }
+
+    .footer-payment {
+      .footer-pay {
+        justify-content: center;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px 12px;
+        justify-content: center;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+
+        li {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@include hasta('md') {
+  footer {
+    h3 {
+      text-align: center;
+
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .footer-upper {
+      .footer-links ul li,
+      .footer-about ul li {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .footer-about img {
+        max-width: 130px;
+        height: auto;
+        display: block;
+        margin: 0 auto 12px;
+      }
+    }
+  }
+}
+
+// Tablet only: center headings
+@include entre('md', 'lg') {
+  footer {
+    h3 {
+      text-align: center;
+
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .footer-upper .footer-about img {
+      display: block;
+      margin: 0 auto 16px;
+    }
+  }
+}
+
+@include hasta('sm') {
+  footer .footer-payment {
+    ul li:first-child {
+      flex-basis: 100%;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    ul li i {
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! PARTICLES JS (Footer decoration)
+// --------------------------------------------------------------------------
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// --------------------------------------------------------------------------
+// ! INSTAGRAM SECTION
+// --------------------------------------------------------------------------
+
+.insta-main {
+  .insta-inner {
+    .follow-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+
+      h5 {
+        position: relative;
+        background-color: $color-blanco;
+        font-size: $fuente-base;
+        color: $color-neutro-900;
+        display: block;
+        padding: 12px 15px 13px;
+        text-align: center;
+        font-weight: $peso-normal;
+        width: 250px;
+        box-shadow: 0 0 50px transparentar($color-negro, 0.5);
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: -5px;
+          top: -5px;
+          right: -5px;
+          bottom: -5px;
+          border: 1px solid $color-blanco;
+          border-radius: $radio-base;
+        }
+      }
+    }
+
+    .insta-image,
+    .insta-image a img {
+      transition: all $transicion-base;
+      overflow: hidden;
+    }
+
+    .insta-image:hover img {
+      transform: scale(1.1);
+      transition: all $transicion-base;
+    }
+  }
+
+  @include hasta('xs') {
+    .insta-inner .follow-button h5 a {
+      font-size: rem(13);
+    }
+  }
+}

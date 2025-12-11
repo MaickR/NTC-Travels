@@ -1,0 +1,748 @@
+// ==========================================================================
+// * HOME PAGE - NTC Travels & Dreams
+// * Descripción: Estilos específicos de la página de inicio
+// * Arquitectura: SCSS 7-1 Pattern + BEM
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! HOME THEME (home-thh variant)
+// --------------------------------------------------------------------------
+
+.home-thh {
+  .main_header_area {
+    position: absolute;
+
+    .header-content {
+      background: transparent;
+      border-bottom: 1px solid $color-neutro-500;
+    }
+
+    .navbar.navbar-default {
+      border-bottom: 1px solid $color-neutro-500;
+
+      .nav.navbar-nav li {
+        a {
+          color: $color-blanco;
+        }
+
+        &.active a,
+        &:hover a {
+          color: $color-acento;
+        }
+      }
+
+      &.navbar-sticky-in {
+        border-color: $color-neutro-200;
+
+        .nav.navbar-nav li a {
+          color: $color-neutro-600;
+          border-color: $color-neutro-200;
+        }
+      }
+    }
+  }
+
+  .banner .slider {
+    height: 100vh;
+
+    .swiper-container .swiper-slide .slide-inner .swiper-content {
+      top: 55%;
+      width: 60%;
+    }
+  }
+
+  .banner {
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      background: transparent;
+    }
+  }
+
+  @include desde(lg) {
+    .header_menu .navbar.navbar-default .nav.navbar-nav li.submenu:hover ul {
+      left: inherit;
+      right: 0;
+    }
+  }
+
+  @include hasta(xl) {
+    .form-main .form-content {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  @include hasta(sm) {
+    .header_menu .navbar.navbar-default .navbar-header .navbar-brand img {
+      display: block;
+      width: 50%;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ABOUT US SECTION (HOMEPAGE)
+// --------------------------------------------------------------------------
+
+.about_us__ot {
+  .experience-badge {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    background: $color-acento;
+    color: $color-blanco;
+    border: 5px solid $color-blanco;
+    padding: 20px;
+    border-radius: 50px;
+    font-weight: $peso-semibold;
+    box-shadow: 0 4px 15px transparentar($color-acento, 0.3);
+    transition: $transicion-base;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px transparentar($color-acento, 0.4);
+    }
+  }
+
+  .img-fluid {
+    width: 65%;
+  }
+
+  .video-thumbnail {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    width: 50%;
+    border: 10px solid $color-blanco;
+    background: $color-blanco;
+    border-radius: $radio-md;
+
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  .icon__png {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 15%;
+    z-index: -1;
+    transform: rotate(-4deg);
+    animation: moveUpDown 3s infinite alternate ease-in-out;
+  }
+
+  .dot-pattern {
+    width: 100px;
+    height: 120px;
+    background: radial-gradient(circle, $color-secundario 10%, transparent 10%) 0 0 / 15px 15px;
+    position: absolute;
+    bottom: -5%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    animation: moveUpDown 2s infinite alternate ease-in-out;
+  }
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(10px);
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! OFFER BANNER
+// --------------------------------------------------------------------------
+
+.offer_banner {
+  position: relative;
+  border-radius: $radio-md;
+  height: 306px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 5px 15px transparentar($color-negro, 0.2);
+  animation: slideIn 1s ease-in-out;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform $transicion-media;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  .content {
+    position: relative;
+    width: 60%;
+    background: linear-gradient(to right, $color-secundario, transparentar($color-secundario, 1));
+    color: $color-blanco;
+    padding: 30px;
+    border-top-left-radius: $radio-md;
+    border-bottom-left-radius: $radio-md;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: $fuente-md;
+      margin-bottom: 15px;
+    }
+
+    .discount {
+      font-size: 24px;
+      font-weight: $peso-bold;
+      color: $color-secundario;
+    }
+  }
+
+  .nir-btn-white {
+    margin-top: 10px;
+    transition: $transicion-base;
+    box-shadow: 0 4px 8px transparentar($color-negro, 0.5);
+    animation: pulse 2s infinite;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .blob {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  .content-2 {
+    opacity: 0.8;
+    z-index: 1;
+
+    p {
+      width: max-content;
+      margin: 0 auto;
+    }
+
+    & > * {
+      border-radius: 5px;
+    }
+  }
+
+  @include hasta(sm) {
+    .content {
+      width: 80%;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! OFFERS SECTION
+// --------------------------------------------------------------------------
+
+.offers-main {
+  background-color: $color-superficie;
+  padding-top: 0;
+  padding-bottom: 6rem;
+}
+
+.offer-card {
+  background: $color-blanco;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px transparentar($color-negro, 0.08);
+  transition:
+    transform $transicion-base,
+    box-shadow $transicion-base;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid transparentar($color-negro, 0.05);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px transparentar($color-negro, 0.12);
+  }
+
+  &-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transicion-media;
+    }
+  }
+
+  &:hover &-image img {
+    transform: scale(1.05);
+  }
+
+  &-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: $color-acento;
+    color: $color-blanco;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: $fuente-xs;
+    font-weight: $peso-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px transparentar($color-acento, 0.3);
+  }
+
+  &-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &-title {
+    font-family: $fuente-titulos;
+    font-size: $fuente-lg;
+    font-weight: $peso-bold;
+    color: $color-primario;
+    margin-bottom: $espacio-2;
+  }
+
+  &-subtitle {
+    font-family: $fuente-principal;
+    font-size: $fuente-base;
+    color: $color-acento;
+    font-weight: $peso-semibold;
+    margin-bottom: $espacio-4;
+  }
+
+  &-description {
+    font-family: $fuente-principal;
+    color: $color-neutro-600;
+    font-size: $fuente-sm;
+    line-height: $linea-relajada;
+    margin-bottom: $espacio-6;
+  }
+
+  &-highlight {
+    background: transparentar($color-primario, 0.97);
+    padding: $espacio-4;
+    border-radius: $radio-base;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $espacio-6;
+    border-left: 4px solid $color-primario;
+  }
+
+  &-features {
+    margin-bottom: 2rem;
+  }
+
+  &-btn {
+    margin-top: auto;
+    display: block;
+    text-align: center;
+    background: $color-primario;
+    color: $color-blanco;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: $peso-semibold;
+    text-decoration: none;
+    transition: $transicion-base;
+    font-family: $fuente-titulos;
+
+    &:hover {
+      background: $color-acento;
+      color: $color-blanco;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.offer-label {
+  font-weight: $peso-semibold;
+  color: $color-primario;
+  font-size: $fuente-sm;
+}
+
+.offer-price {
+  font-weight: $peso-extrabold;
+  color: $color-acento;
+  font-size: $fuente-md;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: $espacio-3;
+  color: $color-neutro-600;
+  font-size: $fuente-sm;
+
+  i {
+    color: $color-exito;
+    margin-right: 10px;
+    font-size: $fuente-xs;
+    background: transparentar($color-exito, 0.9);
+    padding: 5px;
+    border-radius: 50%;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ABOUT US SECTION
+// --------------------------------------------------------------------------
+
+.about-us {
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: contain;
+  position: relative;
+
+  &:hover .trend-item {
+    transform: none;
+  }
+
+  @include hasta(lg) {
+    .form-content {
+      top: 5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @include hasta(sm) {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@include hasta(md) {
+  section.about-us {
+    padding-bottom: 3rem;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! OUR TEAM SECTION
+// --------------------------------------------------------------------------
+
+.our-team {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .team-image {
+    overflow: hidden;
+    transition: $transicion-media;
+
+    img {
+      transition: $transicion-media;
+      width: 100%;
+    }
+
+    &:hover img {
+      transition: $transicion-media;
+      transform: scale(1.1);
+    }
+  }
+
+  .team-list {
+    overflow: hidden;
+
+    .team-content {
+      transition: $transicion-media;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover .team-content {
+      margin-top: -15px;
+      transition: $transicion-media;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! TESTIMONIALS SECTION
+// --------------------------------------------------------------------------
+
+.testimonial {
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: cover;
+
+  .testimonial-item1 {
+    .details {
+      position: relative;
+
+      i {
+        font-size: 40px;
+        color: $color-terciario;
+        margin-bottom: 13px;
+      }
+
+      p {
+        font-size: $fuente-md;
+        font-style: italic;
+      }
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+      }
+    }
+
+    .author-info {
+      position: relative;
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: 20px;
+        color: $color-terciario;
+        position: absolute;
+        left: 38%;
+        z-index: 1;
+        background: $color-blanco;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  .review-slider {
+    .slick-prev,
+    .slick-next {
+      bottom: -80px;
+      top: inherit;
+      background: $color-terciario;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      line-height: 1;
+
+      &::before {
+        color: $color-blanco;
+        font-size: $fuente-md;
+        line-height: 50px;
+      }
+
+      &:hover,
+      &:focus {
+        background: $color-primario;
+      }
+    }
+
+    .slick-prev {
+      left: 16px;
+    }
+
+    .slick-next {
+      left: 76px;
+      right: inherit;
+    }
+  }
+
+  .counter-main .counter-item {
+    padding: 0 1rem 1rem;
+  }
+
+  @include hasta(lg) {
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .about-slider {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  @include hasta(md) {
+    .testimonial-item1 {
+      margin: 2.5rem 0 0;
+      text-align: center;
+
+      .author-info {
+        display: inline-block;
+      }
+
+      i {
+        display: none;
+      }
+
+      .author-content {
+        margin: 0;
+      }
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! COUNTER SECTION
+// --------------------------------------------------------------------------
+
+.counter {
+  margin-top: -120px;
+
+  .counter-item {
+    h2 {
+      font-size: 50px;
+    }
+
+    i {
+      font-size: 40px;
+    }
+  }
+}
+
+@include hasta(lg) {
+  .counter-main {
+    width: 100%;
+
+    .counter {
+      margin: 0;
+    }
+
+    .counter-item {
+      border: none;
+      padding: 0;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! INSTAGRAM SECTION
+// --------------------------------------------------------------------------
+
+.insta-main {
+  .insta-inner {
+    .follow-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+
+      h5 {
+        position: relative;
+        background-color: $color-blanco;
+        font-size: $fuente-base;
+        color: $color-texto;
+        display: block;
+        padding: 12px 15px 13px;
+        text-align: center;
+        font-weight: $peso-normal;
+        width: 250px;
+        box-shadow: 0 0 50px transparentar($color-negro, 0.5);
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: -5px;
+          top: -5px;
+          right: -5px;
+          bottom: -5px;
+          border: 1px solid $color-blanco;
+          border-radius: $radio-md;
+        }
+      }
+    }
+
+    .insta-image,
+    .insta-image a img {
+      transition: $transicion-media;
+      overflow: hidden;
+    }
+
+    .insta-image:hover img {
+      transform: scale(1.1);
+      transition: $transicion-media;
+    }
+  }
+
+  @include hasta(sm) {
+    .insta-inner .follow-button h5 a {
+      font-size: 13px;
+    }
+  }
+}

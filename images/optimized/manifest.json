@@ -1,0 +1,1466 @@
+{
+  "generated": "2025-12-04T15:36:14.305Z",
+  "config": {
+    "sizes": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "quality": {
+      "webp": 80,
+      "avif": 65,
+      "jpg": 85
+    }
+  },
+  "images": {
+    "images/logo-NTC.jpg": {
+      "baseName": "logo-NTC",
+      "folder": "",
+      "originalSize": 7024,
+      "formats": {
+        "webp": [],
+        "avif": [],
+        "jpg": []
+      },
+      "blur": "images/optimized/logo-NTC-blur.webp"
+    },
+    "images/new-deal/deal3.jpg": {
+      "baseName": "deal3",
+      "folder": "new-deal",
+      "originalSize": 169385,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal3-400w.webp",
+            "size": 34266
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal3-400w.avif",
+            "size": 35734
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal3-400w.jpg",
+            "size": 50608
+          }
+        ]
+      },
+      "blur": "images/optimized/new-deal/deal3-blur.webp"
+    },
+    "images/new-deal/deal1.jpg": {
+      "baseName": "deal1",
+      "folder": "new-deal",
+      "originalSize": 137260,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal1-400w.webp",
+            "size": 25386
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal1-400w.avif",
+            "size": 25066
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/new-deal/deal1-400w.jpg",
+            "size": 40403
+          }
+        ]
+      },
+      "blur": "images/optimized/new-deal/deal1-blur.webp"
+    },
+    "images/india/india.jpg": {
+      "baseName": "india",
+      "folder": "india",
+      "originalSize": 222718,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-400w.webp",
+            "size": 16938
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-800w.webp",
+            "size": 47174
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1200w.webp",
+            "size": 84394
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-400w.avif",
+            "size": 17653
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-800w.avif",
+            "size": 47375
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1200w.avif",
+            "size": 82088
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-400w.jpg",
+            "size": 25029
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-800w.jpg",
+            "size": 78287
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1200w.jpg",
+            "size": 154616
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-blur.webp"
+    },
+    "images/india/india-journey.jpg": {
+      "baseName": "india-journey",
+      "folder": "india",
+      "originalSize": 115768,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-journey-400w.webp",
+            "size": 9004
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-journey-800w.webp",
+            "size": 21684
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-journey-1200w.webp",
+            "size": 35296
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-journey-400w.avif",
+            "size": 8857
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-journey-800w.avif",
+            "size": 18516
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-journey-1200w.avif",
+            "size": 29111
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-journey-400w.jpg",
+            "size": 16761
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-journey-800w.jpg",
+            "size": 46135
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-journey-1200w.jpg",
+            "size": 86222
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-journey-blur.webp"
+    },
+    "images/india/india-hotel.jpg": {
+      "baseName": "india-hotel",
+      "folder": "india",
+      "originalSize": 81277,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-400w.webp",
+            "size": 18880
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-800w.webp",
+            "size": 52966
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-400w.avif",
+            "size": 20323
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-800w.avif",
+            "size": 54623
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-400w.jpg",
+            "size": 26530
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-800w.jpg",
+            "size": 84082
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-hotel-blur.webp"
+    },
+    "images/india/india-hotel-1.jpg": {
+      "baseName": "india-hotel-1",
+      "folder": "india",
+      "originalSize": 96076,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-1-400w.webp",
+            "size": 23658
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-1-800w.webp",
+            "size": 68608
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-1-400w.avif",
+            "size": 27052
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-1-800w.avif",
+            "size": 71254
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-hotel-1-400w.jpg",
+            "size": 29917
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-hotel-1-800w.jpg",
+            "size": 96110
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-hotel-1-blur.webp"
+    },
+    "images/india/india-5.jpg": {
+      "baseName": "india-5",
+      "folder": "india",
+      "originalSize": 369146,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-5-400w.webp",
+            "size": 20444
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-5-800w.webp",
+            "size": 72058
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-5-1200w.webp",
+            "size": 155838
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-5-400w.avif",
+            "size": 24386
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-5-800w.avif",
+            "size": 81481
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-5-1200w.avif",
+            "size": 169837
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-5-400w.jpg",
+            "size": 27598
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-5-800w.jpg",
+            "size": 97834
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-5-1200w.jpg",
+            "size": 209644
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-5-blur.webp"
+    },
+    "images/india/india-4.jpg": {
+      "baseName": "india-4",
+      "folder": "india",
+      "originalSize": 283296,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-4-400w.webp",
+            "size": 15350
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-4-800w.webp",
+            "size": 52676
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-4-1200w.webp",
+            "size": 108482
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-4-400w.avif",
+            "size": 17012
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-4-800w.avif",
+            "size": 57265
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-4-1200w.avif",
+            "size": 111906
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-4-400w.jpg",
+            "size": 24522
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-4-800w.jpg",
+            "size": 87137
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-4-1200w.jpg",
+            "size": 183764
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-4-blur.webp"
+    },
+    "images/india/india-3.jpg": {
+      "baseName": "india-3",
+      "folder": "india",
+      "originalSize": 533422,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-3-400w.webp",
+            "size": 39562
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-3-800w.webp",
+            "size": 127366
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-3-1200w.webp",
+            "size": 244190
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-3-400w.avif",
+            "size": 51122
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-3-800w.avif",
+            "size": 152865
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-3-1200w.avif",
+            "size": 270876
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-3-400w.jpg",
+            "size": 46355
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-3-800w.jpg",
+            "size": 162862
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-3-1200w.jpg",
+            "size": 325084
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-3-blur.webp"
+    },
+    "images/india/india-1.jpg": {
+      "baseName": "india-1",
+      "folder": "india",
+      "originalSize": 382110,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-1-400w.webp",
+            "size": 25962
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-1-800w.webp",
+            "size": 89602
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1-1200w.webp",
+            "size": 177370
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-1-400w.avif",
+            "size": 31428
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-1-800w.avif",
+            "size": 105800
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1-1200w.avif",
+            "size": 197527
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/india/india-1-400w.jpg",
+            "size": 32609
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/india/india-1-800w.jpg",
+            "size": 115996
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/india/india-1-1200w.jpg",
+            "size": 238832
+          }
+        ]
+      },
+      "blur": "images/optimized/india/india-1-blur.webp"
+    },
+    "images/egipto/egypt.jpg": {
+      "baseName": "egypt",
+      "folder": "egipto",
+      "originalSize": 55651,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/egipto/egypt-400w.webp",
+            "size": 8904
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/egipto/egypt-400w.avif",
+            "size": 9259
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/egipto/egypt-400w.jpg",
+            "size": 18016
+          }
+        ]
+      },
+      "blur": "images/optimized/egipto/egypt-blur.webp"
+    },
+    "images/destination/tikal.jpg": {
+      "baseName": "tikal",
+      "folder": "destination",
+      "originalSize": 628966,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/tikal-400w.webp",
+            "size": 38848
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/tikal-800w.webp",
+            "size": 153990
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/tikal-1200w.webp",
+            "size": 338662
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/tikal-400w.avif",
+            "size": 48768
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/tikal-800w.avif",
+            "size": 183626
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/tikal-1200w.avif",
+            "size": 380743
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/tikal-400w.jpg",
+            "size": 43355
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/tikal-800w.jpg",
+            "size": 172201
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/tikal-1200w.jpg",
+            "size": 380408
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/tikal-blur.webp"
+    },
+    "images/destination/san-cristobal.jpg": {
+      "baseName": "san-cristobal",
+      "folder": "destination",
+      "originalSize": 548109,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/san-cristobal-400w.webp",
+            "size": 32944
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/san-cristobal-800w.webp",
+            "size": 127314
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/san-cristobal-1200w.webp",
+            "size": 265818
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/san-cristobal-400w.avif",
+            "size": 42717
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/san-cristobal-800w.avif",
+            "size": 149697
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/san-cristobal-1200w.avif",
+            "size": 297217
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/san-cristobal-400w.jpg",
+            "size": 39169
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/san-cristobal-800w.jpg",
+            "size": 152864
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/san-cristobal-1200w.jpg",
+            "size": 326013
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/san-cristobal-blur.webp"
+    },
+    "images/destination/mexico.jpg": {
+      "baseName": "mexico",
+      "folder": "destination",
+      "originalSize": 354999,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/mexico-400w.webp",
+            "size": 23092
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/mexico-800w.webp",
+            "size": 79136
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/mexico-1200w.webp",
+            "size": 156128
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/mexico-400w.avif",
+            "size": 26351
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/mexico-800w.avif",
+            "size": 89605
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/mexico-1200w.avif",
+            "size": 165968
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/mexico-400w.jpg",
+            "size": 29110
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/mexico-800w.jpg",
+            "size": 104160
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/mexico-1200w.jpg",
+            "size": 213970
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/mexico-blur.webp"
+    },
+    "images/destination/guatemala.jpg": {
+      "baseName": "guatemala",
+      "folder": "destination",
+      "originalSize": 174196,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/guatemala-400w.webp",
+            "size": 21448
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/guatemala-800w.webp",
+            "size": 78364
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/guatemala-1200w.webp",
+            "size": 164276
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/guatemala-400w.avif",
+            "size": 25229
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/guatemala-800w.avif",
+            "size": 91801
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/guatemala-1200w.avif",
+            "size": 174209
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/guatemala-400w.jpg",
+            "size": 25439
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/guatemala-800w.jpg",
+            "size": 95973
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/guatemala-1200w.jpg",
+            "size": 200086
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/guatemala-blur.webp"
+    },
+    "images/destination/destination4.jpg": {
+      "baseName": "destination4",
+      "folder": "destination",
+      "originalSize": 226030,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination4-400w.webp",
+            "size": 53502
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination4-400w.avif",
+            "size": 64153
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination4-400w.jpg",
+            "size": 58430
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination4-blur.webp"
+    },
+    "images/destination/destination3.jpg": {
+      "baseName": "destination3",
+      "folder": "destination",
+      "originalSize": 138794,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination3-400w.webp",
+            "size": 28196
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination3-400w.avif",
+            "size": 33025
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination3-400w.jpg",
+            "size": 37136
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination3-blur.webp"
+    },
+    "images/destination/destination2.jpg": {
+      "baseName": "destination2",
+      "folder": "destination",
+      "originalSize": 117529,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination2-400w.webp",
+            "size": 8548
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/destination2-800w.webp",
+            "size": 25514
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/destination2-1200w.webp",
+            "size": 48614
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination2-400w.avif",
+            "size": 8951
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/destination2-800w.avif",
+            "size": 26844
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/destination2-1200w.avif",
+            "size": 52867
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination2-400w.jpg",
+            "size": 14127
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/destination/destination2-800w.jpg",
+            "size": 45842
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/destination/destination2-1200w.jpg",
+            "size": 87602
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination2-blur.webp"
+    },
+    "images/destination/destination14.jpg": {
+      "baseName": "destination14",
+      "folder": "destination",
+      "originalSize": 135623,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination14-400w.webp",
+            "size": 27620
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination14-400w.avif",
+            "size": 27169
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination14-400w.jpg",
+            "size": 37621
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination14-blur.webp"
+    },
+    "images/destination/destination13.jpg": {
+      "baseName": "destination13",
+      "folder": "destination",
+      "originalSize": 140147,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination13-400w.webp",
+            "size": 27152
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination13-400w.avif",
+            "size": 27884
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination13-400w.jpg",
+            "size": 36279
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination13-blur.webp"
+    },
+    "images/destination/destination12.jpg": {
+      "baseName": "destination12",
+      "folder": "destination",
+      "originalSize": 104723,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination12-400w.webp",
+            "size": 17930
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination12-400w.avif",
+            "size": 19363
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination12-400w.jpg",
+            "size": 28971
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination12-blur.webp"
+    },
+    "images/destination/destination11.jpg": {
+      "baseName": "destination11",
+      "folder": "destination",
+      "originalSize": 130870,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination11-400w.webp",
+            "size": 25544
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination11-400w.avif",
+            "size": 27343
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination11-400w.jpg",
+            "size": 35993
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination11-blur.webp"
+    },
+    "images/destination/destination10.jpg": {
+      "baseName": "destination10",
+      "folder": "destination",
+      "originalSize": 72682,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination10-400w.webp",
+            "size": 10964
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination10-400w.avif",
+            "size": 11628
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/destination/destination10-400w.jpg",
+            "size": 20712
+          }
+        ]
+      },
+      "blur": "images/optimized/destination/destination10-blur.webp"
+    },
+    "images/Banner/guatemala.jpg": {
+      "baseName": "guatemala",
+      "folder": "Banner",
+      "originalSize": 612839,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-400w.webp",
+            "size": 38120
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-800w.webp",
+            "size": 145816
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-1200w.webp",
+            "size": 317326
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-400w.avif",
+            "size": 44913
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-800w.avif",
+            "size": 163904
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-1200w.avif",
+            "size": 342692
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-400w.jpg",
+            "size": 43470
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-800w.jpg",
+            "size": 170191
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-1200w.jpg",
+            "size": 374505
+          }
+        ]
+      },
+      "blur": "images/optimized/Banner/guatemala-blur.webp"
+    },
+    "images/Banner/guatemala-atlitan.jpg": {
+      "baseName": "guatemala-atlitan",
+      "folder": "Banner",
+      "originalSize": 305707,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-atlitan-400w.webp",
+            "size": 15894
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-atlitan-800w.webp",
+            "size": 67768
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-atlitan-1200w.webp",
+            "size": 151366
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-atlitan-400w.avif",
+            "size": 19332
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-atlitan-800w.avif",
+            "size": 73605
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-atlitan-1200w.avif",
+            "size": 157895
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/guatemala-atlitan-400w.jpg",
+            "size": 20258
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/guatemala-atlitan-800w.jpg",
+            "size": 82873
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/guatemala-atlitan-1200w.jpg",
+            "size": 186719
+          }
+        ]
+      },
+      "blur": "images/optimized/Banner/guatemala-atlitan-blur.webp"
+    },
+    "images/Banner/canyon.jpg": {
+      "baseName": "canyon",
+      "folder": "Banner",
+      "originalSize": 2199517,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/canyon-400w.webp",
+            "size": 11060
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/canyon-800w.webp",
+            "size": 37586
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/canyon-1200w.webp",
+            "size": 79944
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/Banner/canyon-1920w.webp",
+            "size": 191756
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/canyon-400w.avif",
+            "size": 11731
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/canyon-800w.avif",
+            "size": 40417
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/canyon-1200w.avif",
+            "size": 81440
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/Banner/canyon-1920w.avif",
+            "size": 196695
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/canyon-400w.jpg",
+            "size": 18694
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/canyon-800w.jpg",
+            "size": 67968
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/canyon-1200w.jpg",
+            "size": 146108
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/Banner/canyon-1920w.jpg",
+            "size": 365312
+          }
+        ]
+      },
+      "blur": "images/optimized/Banner/canyon-blur.webp"
+    },
+    "images/Banner/atlitan.jpg": {
+      "baseName": "atlitan",
+      "folder": "Banner",
+      "originalSize": 299106,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/atlitan-400w.webp",
+            "size": 21630
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/atlitan-800w.webp",
+            "size": 66178
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/atlitan-1200w.webp",
+            "size": 124598
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/atlitan-400w.avif",
+            "size": 25889
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/atlitan-800w.avif",
+            "size": 69982
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/atlitan-1200w.avif",
+            "size": 124989
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/Banner/atlitan-400w.jpg",
+            "size": 28638
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/Banner/atlitan-800w.jpg",
+            "size": 91790
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/Banner/atlitan-1200w.jpg",
+            "size": 181236
+          }
+        ]
+      },
+      "blur": "images/optimized/Banner/atlitan-blur.webp"
+    },
+    "images/shape8.png": {
+      "baseName": "shape8",
+      "folder": "",
+      "originalSize": 14039,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape8-400w.webp",
+            "size": 2848
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape8-800w.webp",
+            "size": 6836
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape8-1200w.webp",
+            "size": 11916
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape8-1920w.webp",
+            "size": 7012
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape8-400w.avif",
+            "size": 2132
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape8-800w.avif",
+            "size": 7638
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape8-1200w.avif",
+            "size": 12509
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape8-1920w.avif",
+            "size": 7698
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape8-400w.jpg",
+            "size": 2845
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape8-800w.jpg",
+            "size": 6113
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape8-1200w.jpg",
+            "size": 10015
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape8-1920w.jpg",
+            "size": 19364
+          }
+        ]
+      },
+      "blur": "images/optimized/shape8-blur.webp"
+    },
+    "images/shape6.png": {
+      "baseName": "shape6",
+      "folder": "",
+      "originalSize": 40871,
+      "formats": {
+        "webp": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape6-400w.webp",
+            "size": 2476
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape6-800w.webp",
+            "size": 5942
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape6-1200w.webp",
+            "size": 10490
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape6-1920w.webp",
+            "size": 22802
+          }
+        ],
+        "avif": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape6-400w.avif",
+            "size": 1445
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape6-800w.avif",
+            "size": 2338
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape6-1200w.avif",
+            "size": 3307
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape6-1920w.avif",
+            "size": 3696
+          }
+        ],
+        "jpg": [
+          {
+            "width": 400,
+            "path": "images/optimized/shape6-400w.jpg",
+            "size": 2149
+          },
+          {
+            "width": 800,
+            "path": "images/optimized/shape6-800w.jpg",
+            "size": 3930
+          },
+          {
+            "width": 1200,
+            "path": "images/optimized/shape6-1200w.jpg",
+            "size": 6058
+          },
+          {
+            "width": 1920,
+            "path": "images/optimized/shape6-1920w.jpg",
+            "size": 10803
+          }
+        ]
+      },
+      "blur": "images/optimized/shape6-blur.webp"
+    },
+    "images/logo-NTC-bg.png": {
+      "baseName": "logo-NTC-bg",
+      "folder": "",
+      "originalSize": 8965,
+      "formats": {
+        "webp": [],
+        "avif": [],
+        "jpg": []
+      },
+      "blur": "images/optimized/logo-NTC-bg-blur.webp"
+    }
+  }
+}

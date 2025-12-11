@@ -1,0 +1,370 @@
+// ==========================================================================
+// * MIXINS SCSS - NTC Travels & Dreams
+// * Descripción: Mixins reutilizables para media queries, componentes y utilidades
+// * Arquitectura: SCSS 7-1 Pattern
+// * Autor: NTC Development Team
+// ==========================================================================
+
+@use 'sass:map';
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// ! MEDIA QUERIES (Mobile First)
+// --------------------------------------------------------------------------
+
+/// Mixin para breakpoint mínimo (min-width)
+/// @param {String} $breakpoint - Nombre del breakpoint (sm, md, lg, xl, xxl)
+/// @example
+///   @include desde('md') {
+///     // Estilos para tablet y superiores
+///   }
+@mixin desde($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $valor: map.get($breakpoints, $breakpoint);
+    @if $valor == 0 {
+      @content;
+    } @else {
+      @media (min-width: $valor) {
+        @content;
+      }
+    }
+  } @else {
+    @warn "El breakpoint '#{$breakpoint}' no existe en $breakpoints.";
+  }
+}
+
+/// Mixin para breakpoint máximo (max-width)
+/// @param {String} $breakpoint - Nombre del breakpoint
+/// @example
+///   @include hasta('md') {
+///     // Estilos solo para móvil
+///   }
+@mixin hasta($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    $valor: map.get($breakpoints, $breakpoint) - 0.02px;
+    @media (max-width: $valor) {
+      @content;
+    }
+  } @else {
+    @warn "El breakpoint '#{$breakpoint}' no existe en $breakpoints.";
+  }
+}
+
+/// Mixin para rango de breakpoints
+/// @param {String} $min - Breakpoint mínimo
+/// @param {String} $max - Breakpoint máximo
+/// @example
+///   @include entre('sm', 'lg') {
+///     // Estilos solo para tablet
+///   }
+@mixin entre($min, $max) {
+  @if map.has-key($breakpoints, $min) and map.has-key($breakpoints, $max) {
+    $valor-min: map.get($breakpoints, $min);
+    $valor-max: map.get($breakpoints, $max) - 0.02px;
+    @media (min-width: $valor-min) and (max-width: $valor-max) {
+      @content;
+    }
+  } @else {
+    @warn "Uno de los breakpoints no existe en $breakpoints.";
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! FLEXBOX
+// --------------------------------------------------------------------------
+
+/// Mixin para centrar con flexbox
+/// @param {String} $direccion [row] - Dirección del flex (row, column)
+@mixin flex-centrar($direccion: row) {
+  display: flex;
+  flex-direction: $direccion;
+  justify-content: center;
+  align-items: center;
+}
+
+/// Mixin para distribuir con espacio entre elementos
+/// @param {String} $alinear [center] - Alineación vertical
+@mixin flex-entre($alinear: center) {
+  display: flex;
+  justify-content: space-between;
+  align-items: $alinear;
+}
+
+/// Mixin para columnas flex
+/// @param {Number} $gap [$espacio-4] - Espacio entre elementos
+@mixin flex-columna($gap: $espacio-4) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+/// Mixin para filas flex
+/// @param {Number} $gap [$espacio-4] - Espacio entre elementos
+@mixin flex-fila($gap: $espacio-4) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+// --------------------------------------------------------------------------
+// ! GRID
+// --------------------------------------------------------------------------
+
+/// Mixin para grid responsive de cards
+/// @param {Number} $min-ancho [280px] - Ancho mínimo de cada elemento
+/// @param {Number} $gap [$espacio-6] - Espacio entre elementos
+@mixin grid-auto($min-ancho: 280px, $gap: $espacio-6) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-ancho, 1fr));
+  gap: $gap;
+}
+
+/// Mixin para grid con columnas fijas
+/// @param {Number} $columnas - Número de columnas
+/// @param {Number} $gap [$espacio-4] - Espacio entre elementos
+@mixin grid-columnas($columnas, $gap: $espacio-4) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $gap;
+}
+
+// --------------------------------------------------------------------------
+// ! TIPOGRAFÍA
+// --------------------------------------------------------------------------
+
+/// Mixin para títulos con estilos base
+/// @param {String} $tamanio [$fuente-3xl] - Tamaño de fuente
+/// @param {Number} $peso [$peso-bold] - Peso de fuente
+@mixin titulo($tamanio: $fuente-3xl, $peso: $peso-bold) {
+  font-family: $fuente-titulos;
+  font-size: $tamanio;
+  font-weight: $peso;
+  line-height: $linea-compacta;
+  letter-spacing: $espaciado-compacto;
+}
+
+/// Mixin para texto de párrafo
+/// @param {String} $tamanio [$fuente-base] - Tamaño de fuente
+@mixin parrafo($tamanio: $fuente-base) {
+  font-family: $fuente-principal;
+  font-size: $tamanio;
+  font-weight: $peso-normal;
+  line-height: $linea-normal;
+}
+
+/// Mixin para truncar texto con elipsis
+/// @param {Number} $lineas [1] - Número de líneas antes de truncar
+@mixin truncar-texto($lineas: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $lineas == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lineas;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! BOTONES
+// --------------------------------------------------------------------------
+
+/// Mixin base para botones
+@mixin boton-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $espacio-2;
+  padding: $boton-padding-y $boton-padding-x;
+  font-family: $fuente-titulos;
+  font-size: $fuente-base;
+  font-weight: $peso-semibold;
+  text-decoration: none;
+  text-align: center;
+  border: $borde-ancho-normal solid transparent;
+  border-radius: $boton-radio;
+  cursor: pointer;
+  transition: all $transicion-base;
+
+  &:focus-visible {
+    outline: 2px solid $color-secundario;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/// Mixin para botón primario
+@mixin boton-primario {
+  @include boton-base;
+  background-color: $color-acento;
+  color: $color-blanco;
+
+  &:hover:not(:disabled) {
+    background-color: $color-acento-oscuro;
+    transform: translateY(-2px);
+    box-shadow: $sombra-md;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+/// Mixin para botón secundario (outline)
+@mixin boton-secundario {
+  @include boton-base;
+  background-color: transparent;
+  color: $color-primario;
+  border-color: $color-primario;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primario;
+    color: $color-blanco;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! CARDS
+// --------------------------------------------------------------------------
+
+/// Mixin para card base
+@mixin card-base {
+  background-color: $color-blanco;
+  border-radius: $card-radio;
+  box-shadow: $card-sombra;
+  overflow: hidden;
+  transition:
+    transform $transicion-base,
+    box-shadow $transicion-base;
+}
+
+/// Mixin para card con hover
+@mixin card-hover {
+  @include card-base;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $sombra-lg;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! EFECTOS Y TRANSICIONES
+// --------------------------------------------------------------------------
+
+/// Mixin para transición suave
+/// @param {String} $propiedades [all] - Propiedades a animar
+/// @param {String} $duracion [$transicion-base] - Duración
+@mixin transicion($propiedades: all, $duracion: $transicion-base) {
+  transition: $propiedades $duracion;
+}
+
+/// Mixin para overlay oscuro
+/// @param {Number} $opacidad [0.5] - Opacidad del overlay
+@mixin overlay($opacidad: 0.5) {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba($color-negro, $opacidad);
+    z-index: 1;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! UTILIDADES
+// --------------------------------------------------------------------------
+
+/// Mixin para ocultar visualmente pero mantener accesible
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/// Mixin para reset de listas
+@mixin lista-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/// Mixin para imagen de fondo con cover
+/// @param {String} $url - URL de la imagen
+@mixin fondo-cover($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/// Mixin para aspect ratio
+/// @param {Number} $ancho - Proporción de ancho
+/// @param {Number} $alto - Proporción de alto
+@mixin aspect-ratio($ancho, $alto) {
+  aspect-ratio: $ancho / $alto;
+
+  // Fallback para navegadores antiguos
+  @supports not (aspect-ratio: 1) {
+    &::before {
+      content: '';
+      display: block;
+      padding-top: calc($alto / $ancho * 100%);
+    }
+  }
+}
+
+/// Mixin para contenedor centrado
+/// @param {Number} $max-ancho [$contenedor-max] - Ancho máximo
+@mixin contenedor($max-ancho: $contenedor-max) {
+  width: 100%;
+  max-width: $max-ancho;
+  margin-inline: auto;
+  padding-inline: $contenedor-padding;
+}
+
+// --------------------------------------------------------------------------
+// ! FORMULARIOS
+// --------------------------------------------------------------------------
+
+/// Mixin para input base
+@mixin input-base {
+  width: 100%;
+  padding: $espacio-3 $espacio-4;
+  font-family: $fuente-principal;
+  font-size: $fuente-base;
+  color: $color-neutro-800;
+  background-color: $color-blanco;
+  border: $borde-ancho-fino solid $color-neutro-300;
+  border-radius: $radio-base;
+  transition:
+    border-color $transicion-rapida,
+    box-shadow $transicion-rapida;
+
+  &::placeholder {
+    color: $color-neutro-500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-secundario;
+    box-shadow: 0 0 0 3px rgba($color-secundario, 0.2);
+  }
+
+  &:disabled {
+    background-color: $color-neutro-100;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,367 @@
+// ==========================================================================
+// * RESET / NORMALIZE - NTC Travels & Dreams
+// * Descripción: Reset CSS moderno basado en normalize.css y mejores prácticas
+// * Arquitectura: SCSS 7-1 Pattern
+// * Autor: NTC Development Team
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! BOX SIZING
+// --------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// --------------------------------------------------------------------------
+// ! ROOT Y DOCUMENTO
+// --------------------------------------------------------------------------
+
+/// Configuración base del documento
+/// Base de 10px para facilitar cálculos rem (62.5% de 16px = 10px)
+:root {
+  // ? Variables CSS nativas para compatibilidad
+  --color-primario: #{$color-primario};
+  --color-acento: #{$color-acento};
+  --color-secundario: #{$color-secundario};
+  --fuente-principal: #{$fuente-principal};
+  --fuente-titulos: #{$fuente-titulos};
+}
+
+html {
+  // Base 10px para rem
+  font-size: 62.5%;
+
+  // Scroll suave nativo
+  scroll-behavior: smooth;
+
+  // Mejora del rendering de texto
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  // Altura mínima del viewport
+  min-height: 100%;
+
+  // Evitar overflow horizontal
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $fuente-principal;
+  font-size: $fuente-base;
+  font-weight: $peso-normal;
+  line-height: $linea-normal;
+  color: $color-neutro-800;
+  background-color: $color-blanco;
+
+  // Mejora del rendering de fuentes
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  // Altura mínima
+  min-height: 100vh;
+  min-height: 100dvh; // Dynamic viewport height
+}
+
+// --------------------------------------------------------------------------
+// ! TIPOGRAFÍA
+// --------------------------------------------------------------------------
+
+/// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: $espacio-4;
+  font-family: $fuente-titulos;
+  font-weight: $peso-bold;
+  line-height: $linea-compacta;
+  color: $color-primario;
+}
+
+h1 {
+  font-size: $fuente-4xl;
+
+  @include hasta('md') {
+    font-size: $fuente-3xl;
+  }
+}
+
+h2 {
+  font-size: $fuente-3xl;
+
+  @include hasta('md') {
+    font-size: $fuente-2xl;
+  }
+}
+
+h3 {
+  font-size: $fuente-2xl;
+
+  @include hasta('md') {
+    font-size: $fuente-xl;
+  }
+}
+
+h4 {
+  font-size: $fuente-xl;
+}
+
+h5 {
+  font-size: $fuente-lg;
+}
+
+h6 {
+  font-size: $fuente-md;
+}
+
+/// Párrafos
+p {
+  margin-top: 0;
+  margin-bottom: $espacio-4;
+}
+
+/// Enlaces
+a {
+  color: $color-secundario;
+  text-decoration: none;
+  transition: color $transicion-rapida;
+
+  &:hover {
+    color: $color-secundario-oscuro;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-secundario;
+    outline-offset: 2px;
+    border-radius: $radio-sm;
+  }
+}
+
+/// Texto enfatizado
+strong,
+b {
+  font-weight: $peso-bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: $fuente-sm;
+}
+
+// --------------------------------------------------------------------------
+// ! LISTAS
+// --------------------------------------------------------------------------
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: $espacio-4;
+  padding-left: $espacio-6;
+}
+
+li {
+  margin-bottom: $espacio-2;
+}
+
+// --------------------------------------------------------------------------
+// ! IMÁGENES Y MEDIA
+// --------------------------------------------------------------------------
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  // Evitar espacio debajo de imágenes
+  vertical-align: middle;
+
+  // Mantener proporción
+  object-fit: cover;
+}
+
+// ? Imágenes decorativas - Descomentar en desarrollo para detectar alt faltantes
+// img[alt=""],
+// img:not([alt]) {
+//   outline: 2px dashed $color-error;
+// }
+
+// --------------------------------------------------------------------------
+// ! FORMULARIOS
+// --------------------------------------------------------------------------
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+button:disabled,
+[disabled] {
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  // Evitar zoom en iOS
+  font-size: 16px;
+
+  @include desde('md') {
+    font-size: $fuente-base;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+// --------------------------------------------------------------------------
+// ! TABLAS
+// --------------------------------------------------------------------------
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  font-weight: $peso-semibold;
+}
+
+// --------------------------------------------------------------------------
+// ! ELEMENTOS INTERACTIVOS
+// --------------------------------------------------------------------------
+
+/// Eliminar outline feo pero mantener accesibilidad
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $color-secundario;
+  outline-offset: 2px;
+}
+
+/// Selection
+::selection {
+  background-color: $color-secundario;
+  color: $color-blanco;
+}
+
+// --------------------------------------------------------------------------
+// ! ACCESIBILIDAD
+// --------------------------------------------------------------------------
+
+/// Reducir animaciones para usuarios que lo prefieren
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/// Skip link accesible
+.sr-only,
+.visualmente-oculto {
+  @include sr-only;
+}
+
+.sr-only-focusable,
+.visualmente-oculto-focusable {
+  @include sr-only;
+
+  &:focus,
+  &:focus-within {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! UTILIDADES GENERALES
+// --------------------------------------------------------------------------
+
+/// Ocultar elementos
+[hidden] {
+  display: none !important;
+}
+
+/// Deshabilitar selección de texto
+.no-select {
+  user-select: none;
+}
+
+/// Scroll snap
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+
+  > * {
+    scroll-snap-align: start;
+  }
+}
+
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+
+  > * {
+    scroll-snap-align: start;
+  }
+}

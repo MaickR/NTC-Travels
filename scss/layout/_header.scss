@@ -1,0 +1,460 @@
+// ==========================================================================
+// * HEADER LAYOUT - NTC Travels & Dreams
+// * Descripción: Estilos del header principal
+// * Arquitectura: SCSS 7-1 Pattern + BEM
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! HEADER PRINCIPAL
+// --------------------------------------------------------------------------
+
+.main_header_area {
+  position: relative;
+  width: 100%;
+  z-index: $z-index-sticky;
+
+  // ? Top bar content
+  .header-content {
+    position: relative;
+    z-index: 1;
+    background: transparentar($color-blanco, 0.19);
+
+    li {
+      display: inline-block;
+      padding: 0 $espacio-4;
+      border-left: 1px solid transparentar($color-neutro-200, 0.21);
+      margin: 0;
+
+      &:first-child {
+        border: none;
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    a,
+    i {
+      font-size: $fuente-sm;
+    }
+
+    @include hasta('lg') {
+      display: none;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! HEADER MENU
+// --------------------------------------------------------------------------
+
+.header_menu {
+  background: transparent;
+  transition: all $transicion-base;
+
+  // Estado fixed (sticky)
+  &.fixed-top {
+    box-shadow: $sombra-sm;
+    background: $color-blanco;
+  }
+
+  &.hide {
+    top: -94px;
+    animation-name: slideInUp;
+  }
+
+  // Navbar container
+  .navbar.navbar-default {
+    border-radius: 0;
+    margin-bottom: 0;
+    background: transparent;
+    border: none;
+    width: 100%;
+    z-index: $z-index-sticky;
+
+    // Brand/Logo
+    .navbar-header .navbar-brand {
+      padding: 0;
+      margin: 0;
+
+      img {
+        display: block;
+
+        & + img {
+          display: none;
+        }
+      }
+    }
+
+    // Navbar collapse
+    .navbar-collapse {
+      text-align: right;
+      padding: 0;
+    }
+
+    // Navigation items
+    .nav.navbar-nav {
+      float: none;
+      text-align: right;
+      display: inline-block;
+      background: transparent;
+
+      li {
+        float: none;
+        display: inline-block;
+        margin-right: 0;
+        background: transparent;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        a {
+          background: transparent;
+          font-size: $fuente-sm;
+          font-weight: $peso-normal;
+          text-transform: uppercase;
+          padding: 0 $espacio-2;
+          line-height: inherit;
+          transition: all $transicion-rapida;
+          border: none;
+
+          i {
+            font-size: rem(12);
+
+            &.fa-angle-right {
+              position: absolute;
+              right: 15px;
+              top: 20px;
+            }
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+
+        &:hover a,
+        &.active a {
+          color: $color-acento;
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include entre('xl', 'xxl') {
+    .navbar.navbar-default .nav.navbar-nav li a {
+      padding: 10px 6px;
+      font-size: $fuente-sm;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! SUBMENU / DROPDOWN
+// --------------------------------------------------------------------------
+
+.header_menu .navbar.navbar-default .nav.navbar-nav li.submenu {
+  position: relative;
+
+  .dropdown-menu {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: $color-neutro-200 transparent transparent transparent;
+      position: absolute;
+      right: 24px;
+      top: 45px;
+      z-index: 3;
+      opacity: 0;
+      transition: all $transicion-lenta;
+    }
+
+    li {
+      display: block;
+      float: none;
+      margin-right: 0;
+      border-bottom: 1px dashed $color-neutro-200;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        line-height: 2.5;
+        color: $color-neutro-600;
+        font-size: $fuente-sm;
+        padding: 3px 20px;
+        font-weight: $peso-normal;
+        letter-spacing: 0.3px;
+        transition: all $transicion-rapida;
+        display: flex;
+        text-transform: capitalize;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+          background: $color-secundario;
+          color: $color-blanco;
+        }
+      }
+    }
+  }
+
+  // Desktop submenu positioning
+  @include desde('lg') {
+    .dropdown-menu {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      min-width: 250px;
+      background: $color-blanco;
+      box-shadow: $sombra-md;
+      text-align: left;
+      opacity: 0;
+      transition: all $transicion-base;
+      visibility: hidden;
+      display: block;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+
+      // Nested submenu
+      li.submenu .dropdown-menu {
+        transform: scaleY(0);
+        transform-origin: 0 50%;
+        position: absolute;
+        left: 100%;
+        right: auto;
+        width: auto;
+        top: 0;
+
+        li a {
+          line-height: 3;
+          color: $color-neutro-600;
+          font-size: $fuente-sm;
+          padding: 3px 20px;
+          letter-spacing: 0.3px;
+          transition: all $transicion-rapida;
+          display: block;
+        }
+
+        li:hover a {
+          color: $color-blanco;
+        }
+      }
+
+      li.submenu:hover .dropdown-menu {
+        transform: scale(1, 1);
+      }
+    }
+
+    &:hover ul {
+      left: 0;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! HEADER POSICIONAMIENTO
+// --------------------------------------------------------------------------
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-sticky + 2;
+}
+
+// Navbar sticky styles
+.navbar-sticky-in .nir-btn:hover {
+  color: $color-secundario;
+}
+
+// --------------------------------------------------------------------------
+// ! SEARCH POPUP
+// --------------------------------------------------------------------------
+
+#search1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-blanco;
+  z-index: $z-index-modal;
+  transition: all $transicion-base;
+  transform: translate(0px, -100%) scale(0, 0);
+  opacity: 0;
+
+  &.open {
+    transform: translate(0px, 0px) scale(1, 1);
+    opacity: 1;
+  }
+
+  input[type='search'] {
+    position: absolute;
+    top: 40%;
+    width: 50%;
+    color: $color-neutro-600;
+    background: transparent;
+    font-size: $fuente-4xl;
+    font-weight: $peso-normal;
+    text-align: center;
+    border-width: 0 0 1px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    outline: none;
+    margin-bottom: 30px;
+    height: 82px;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $color-neutro-200;
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: $color-secundario;
+    padding: 15px 30px;
+    border: none;
+    border-radius: $radio-base;
+    font-size: $fuente-md;
+    width: 10%;
+  }
+
+  .close {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    color: $color-blanco;
+    background-color: $color-secundario;
+    border-color: $color-secundario;
+    opacity: 1;
+    padding: 4px 16px;
+    border-radius: $radio-base;
+    font-size: 27px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! MODAL LOGIN/REGISTRO
+// --------------------------------------------------------------------------
+
+.modal-backdrop {
+  background: transparent;
+}
+
+.modal-open {
+  padding: 0;
+
+  .modal {
+    background: transparentar($color-negro, 0.68);
+    overflow: hidden;
+    padding-right: 0;
+
+    .modal-dialog {
+      max-width: 920px;
+      top: 5%;
+
+      .modal-content {
+        border: none;
+        position: relative;
+        border-radius: 0;
+
+        .modal-body {
+          padding: 20px;
+        }
+      }
+    }
+
+    @include hasta('lg') {
+      .modal-dialog {
+        max-width: 80%;
+        margin: 0 auto;
+
+        .blog-full .blog-image > a {
+          height: 280px;
+        }
+      }
+    }
+  }
+}
+
+.log-reg {
+  .nav-pills {
+    margin-bottom: 20px;
+
+    .nav-link {
+      padding: 14px 18px;
+
+      &.active,
+      .show > & {
+        background: $color-secundario;
+        border-radius: $radio-base;
+      }
+    }
+  }
+
+  .btn-fb,
+  .btn-google {
+    padding: 14px 18px;
+    text-align: center;
+    background: #506dab;
+    color: $color-blanco;
+    border-radius: $radio-base;
+    font-size: $fuente-sm;
+  }
+
+  .btn-google {
+    background: #dd4b39;
+  }
+
+  hr.log-reg-hr {
+    opacity: 1;
+    background-color: $color-neutro-300;
+
+    &::before {
+      background-color: $color-blanco;
+      bottom: 0;
+      color: $color-secundario;
+      content: 'Or';
+      font-size: $fuente-base;
+      position: absolute;
+      left: 0;
+      margin: 0 auto;
+      right: 0;
+      text-align: center;
+      top: -12px;
+      width: 10%;
+    }
+  }
+}
+
+// Dropdown toggle responsive
+@include hasta('xl') {
+  .dropdown-toggle::after {
+    display: none;
+  }
+}

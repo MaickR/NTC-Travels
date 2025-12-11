@@ -1,0 +1,452 @@
+// ==========================================================================
+// * SLICKNAV MOBILE MENU - NTC Travels & Dreams
+// * Descripción: Estilos elegantes para menú móvil con SlickNav
+// * Arquitectura: SCSS 7-1 Pattern
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// --------------------------------------------------------------------------
+// ! SLICKNAV ICONS FIX
+// --------------------------------------------------------------------------
+
+.slicknav_btn {
+  &.slicknav_collapsed::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f0c9'; // fa-bars
+    color: $color-primario;
+    font-size: 1.5rem;
+  }
+
+  &.slicknav_open::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f00d'; // fa-times
+    color: $color-primario;
+    font-size: 1.5rem;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! BACK TO TOP ICON
+// --------------------------------------------------------------------------
+
+#back-to-top a::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f062'; // fa-arrow-up
+  font-size: $fuente-md;
+}
+
+// --------------------------------------------------------------------------
+// ! MAIN NAVIGATION CONTAINER
+// --------------------------------------------------------------------------
+
+.slicknav_nav {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, $color-primario 0%, darken($color-primario, 5%) 100%);
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 0 0 16px 16px;
+  box-shadow:
+    0 15px 40px transparentar($color-primario, 0.7),
+    0 5px 15px transparentar($color-negro, 0.8);
+  padding: 10px 0 20px;
+  z-index: $z-menu;
+  backdrop-filter: blur(10px);
+  animation: slideDown 0.3s ease-out;
+
+  // Custom Scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparentar($color-blanco, 0.95);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-acento;
+    border-radius: 4px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! MENU LINKS
+// --------------------------------------------------------------------------
+
+.slicknav_nav a {
+  display: block;
+  padding: 14px 24px;
+  margin: 4px 12px;
+  color: $color-blanco;
+  font-family: $fuente-titulos;
+  font-size: 14px;
+  font-weight: $peso-medio;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: none;
+  border-radius: $radio-md;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 60%;
+    background: $color-acento;
+    border-radius: 0 4px 4px 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-blanco;
+    background: transparentar($color-acento, 0.85);
+    padding-left: 32px;
+
+    &::before {
+      width: 4px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ACTIVE LINK STATE
+// --------------------------------------------------------------------------
+
+.slicknav_nav li.active > a,
+.slicknav_nav a.active {
+  background: linear-gradient(90deg, $color-acento 0%, lighten($color-acento, 5%) 100%);
+  color: $color-blanco;
+  font-weight: $peso-semibold;
+  box-shadow: 0 4px 15px transparentar($color-acento, 0.6);
+
+  &::before {
+    display: none;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! ROW HOVER (for dropdowns)
+// --------------------------------------------------------------------------
+
+.slicknav_nav .slicknav_row {
+  padding: 0;
+  margin: 0;
+  border-radius: $radio-md;
+
+  &:hover {
+    background: transparentar($color-acento, 0.85);
+    border-radius: $radio-md;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! SUBMENU / DROPDOWN STYLES
+// --------------------------------------------------------------------------
+
+.slicknav_nav ul {
+  padding: 8px 0 8px 12px;
+  margin: 4px 12px;
+  background: transparentar($color-negro, 0.85);
+  border-radius: $radio-base;
+
+  li {
+    background: transparent;
+    border: none;
+
+    a {
+      font-size: 13px;
+      padding: 12px 20px;
+      margin: 2px 0;
+      color: transparentar($color-blanco, 0.15);
+      font-weight: $peso-normal;
+
+      &:hover {
+        color: $color-blanco;
+        background: transparentar($color-acento, 0.8);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! DROPDOWN ARROW
+// --------------------------------------------------------------------------
+
+.slicknav_nav .slicknav_arrow {
+  font-size: 10px;
+  margin-left: 8px;
+  color: $color-acento;
+  transition: transform 0.3s ease;
+}
+
+.slicknav_nav .slicknav_open > .slicknav_row .slicknav_arrow {
+  transform: rotate(90deg);
+}
+
+// --------------------------------------------------------------------------
+// ! MENU ITEM SEPARATOR
+// --------------------------------------------------------------------------
+
+.slicknav_nav > li:not(:last-child)::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 0 24px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparentar($color-blanco, 0.92) 50%,
+    transparent 100%
+  );
+}
+
+// --------------------------------------------------------------------------
+// ! HAMBURGER BUTTON ENHANCEMENT
+// --------------------------------------------------------------------------
+
+.slicknav_btn {
+  padding: 10px;
+  border-radius: $radio-base;
+  transition: $transicion-base;
+
+  &:hover {
+    background: transparentar($color-primario, 0.92);
+  }
+
+  &.slicknav_collapsed::before,
+  &.slicknav_open::before {
+    color: $color-primario;
+    font-size: 1.4rem;
+    transition: $transicion-base;
+  }
+
+  &.slicknav_open::before {
+    color: $color-acento;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! RESPONSIVE VISIBILITY
+// --------------------------------------------------------------------------
+
+// Desktop: Show horizontal menu, hide hamburger
+@include desde(lg) {
+  .navbar-collapse1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    .nav.navbar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      li {
+        display: inline-block;
+
+        a {
+          color: $color-primario;
+          font-weight: $peso-medio;
+          font-size: 15px;
+          padding: 10px 16px;
+          transition: color 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+
+          &:hover {
+            color: $color-acento;
+          }
+        }
+
+        &.active a {
+          color: $color-acento;
+        }
+      }
+    }
+  }
+
+  // Hide hamburger and slicknav on desktop
+  #slicknav-mobile,
+  .slicknav_menu,
+  .slicknav_btn,
+  .slicknav_nav {
+    display: none;
+  }
+}
+
+// Tablet and Mobile: Show hamburger, hide horizontal menu
+@include hasta(lg) {
+  // Hide desktop horizontal menu
+  .navbar-collapse1 {
+    display: none;
+  }
+
+  // Show slicknav container
+  #slicknav-mobile {
+    display: block;
+  }
+
+  .slicknav_menu {
+    display: block;
+    background: transparent;
+    padding: 0;
+  }
+
+  .slicknav_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid transparentar($color-primario, 0.85);
+    border-radius: $radio-base;
+    cursor: pointer;
+    transition: $transicion-base;
+
+    &:hover,
+    &:focus {
+      background: transparentar($color-primario, 0.95);
+      border-color: $color-acento;
+    }
+  }
+
+  .slicknav_icon,
+  .slicknav_menutxt {
+    display: none;
+  }
+
+  .navbar-flex {
+    justify-content: space-between;
+  }
+
+  .navbar-header {
+    flex: 0 0 auto;
+
+    .navbar-brand img {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+}
+
+// Tablet (768px - 991px)
+@include entre(md, lg) {
+  .navbar-header .navbar-brand img {
+    max-width: 140px;
+  }
+
+  .slicknav_nav {
+    top: 80px;
+    max-width: 350px;
+    right: 15px;
+    left: auto;
+    border-radius: 12px;
+
+    a {
+      padding: 14px 24px;
+      font-size: 14px;
+    }
+  }
+}
+
+// Mobile (< 768px)
+@include hasta(md) {
+  .navbar-header .navbar-brand img {
+    max-width: 110px;
+  }
+
+  .slicknav_btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slicknav_nav {
+    top: 72px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    border-radius: 0 0 16px 16px;
+
+    a {
+      padding: 13px 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+// Small Mobile (< 480px)
+@media (max-width: 479.98px) {
+  .navbar-header .navbar-brand img {
+    max-width: 100px;
+  }
+
+  .slicknav_btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .slicknav_nav {
+    top: 68px;
+    max-height: 85vh;
+    border-radius: 0;
+
+    a {
+      padding: 12px 12px;
+      font-size: 13px;
+      margin: 2px 8px;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! HEADER STICKY ADJUSTMENTS
+// --------------------------------------------------------------------------
+
+.header_menu.fixed-top .slicknav_nav {
+  top: 65px;
+
+  @include hasta(md) {
+    top: 60px;
+  }
+
+  @media (max-width: 479.98px) {
+    top: 55px;
+  }
+}
+
+// Tour page specific adjustments
+.breadcrumb-egypt ~ .slicknav_nav,
+.breadcrumb-india ~ .slicknav_nav {
+  top: 75px;
+}

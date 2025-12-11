@@ -1,0 +1,150 @@
+// ==========================================================================
+// * FUNCIONES SCSS - NTC Travels & Dreams
+// * Descripción: Funciones de utilidad para cálculos y transformaciones
+// * Arquitectura: SCSS 7-1 Pattern
+// * Autor: NTC Development Team
+// ==========================================================================
+
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// ! CONVERSIÓN DE UNIDADES
+// --------------------------------------------------------------------------
+
+/// Convierte píxeles a rem (base 10px = 1rem)
+/// @param {Number} $px - Valor en píxeles
+/// @return {Number} - Valor en rem
+/// @example
+///   font-size: rem(24); // 2.4rem
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, 10) * 1rem;
+  } @else {
+    @warn "El valor debe ser sin unidades para convertir a rem.";
+    @return $px;
+  }
+}
+
+/// Convierte píxeles a em
+/// @param {Number} $px - Valor en píxeles
+/// @param {Number} $base [16] - Tamaño base de fuente
+/// @return {Number} - Valor en em
+@function em($px, $base: 16) {
+  @if math.is-unitless($px) {
+    @return math.div($px, $base) * 1em;
+  } @else {
+    @warn "El valor debe ser sin unidades para convertir a em.";
+    @return $px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// ! COLORES
+// --------------------------------------------------------------------------
+
+/// Aclara un color
+/// @param {Color} $color - Color base
+/// @param {Number} $porcentaje - Porcentaje a aclarar (0-100)
+/// @return {Color} - Color aclarado
+@function aclarar($color, $porcentaje) {
+  @return color.mix(white, $color, $porcentaje);
+}
+
+/// Oscurece un color
+/// @param {Color} $color - Color base
+/// @param {Number} $porcentaje - Porcentaje a oscurecer (0-100)
+/// @return {Color} - Color oscurecido
+@function oscurecer($color, $porcentaje) {
+  @return color.mix(black, $color, $porcentaje);
+}
+
+/// Obtiene un color con opacidad
+/// @param {Color} $color - Color base
+/// @param {Number} $opacidad - Opacidad (0-1)
+/// @return {Color} - Color con opacidad
+@function transparentar($color, $opacidad) {
+  @return rgba($color, $opacidad);
+}
+
+// --------------------------------------------------------------------------
+// ! ESPACIADO
+// --------------------------------------------------------------------------
+
+/// Obtiene un valor del sistema de espaciado
+/// @param {Number} $multiplicador - Multiplicador del espaciado base (8px)
+/// @return {Number} - Valor de espaciado en rem
+/// @example
+///   margin: espacio(2); // 1.6rem (16px)
+@function espacio($multiplicador) {
+  @return $multiplicador * 0.8rem;
+}
+
+// --------------------------------------------------------------------------
+// ! TIPOGRAFÍA
+// --------------------------------------------------------------------------
+
+/// Calcula el tamaño de fuente fluido
+/// @param {Number} $min - Tamaño mínimo en px
+/// @param {Number} $max - Tamaño máximo en px
+/// @param {Number} $viewport-min [320] - Viewport mínimo en px
+/// @param {Number} $viewport-max [1200] - Viewport máximo en px
+/// @return {String} - Valor clamp() para fuente fluida
+@function fuente-fluida($min, $max, $viewport-min: 320, $viewport-max: 1200) {
+  $min-rem: rem($min);
+  $max-rem: rem($max);
+
+  // Cálculo de la pendiente
+  $pendiente: math.div($max - $min, $viewport-max - $viewport-min);
+  $interseccion: $min - ($pendiente * $viewport-min);
+
+  @return clamp(#{$min-rem}, #{rem($interseccion)} + #{$pendiente * 100vw}, #{$max-rem});
+}
+
+// --------------------------------------------------------------------------
+// ! UTILIDADES
+// --------------------------------------------------------------------------
+
+/// Obtiene un valor de un mapa de forma segura
+/// @param {Map} $mapa - Mapa de valores
+/// @param {String} $clave - Clave a buscar
+/// @param {*} $defecto [null] - Valor por defecto si no existe
+/// @return {*} - Valor encontrado o defecto
+@function obtener($mapa, $clave, $defecto: null) {
+  @if map.has-key($mapa, $clave) {
+    @return map.get($mapa, $clave);
+  } @else {
+    @warn "La clave '#{$clave}' no existe en el mapa.";
+    @return $defecto;
+  }
+}
+
+/// Genera una sombra de texto legible
+/// @param {Color} $color - Color del texto
+/// @return {String} - Sombra de texto para legibilidad
+@function sombra-texto($color) {
+  $luminosidad: color.channel($color, 'lightness', $space: hsl);
+
+  @if $luminosidad > 50% {
+    @return 0 1px 2px rgba(0, 0, 0, 0.5);
+  } @else {
+    @return 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/// Calcula el contraste y devuelve color claro u oscuro
+/// @param {Color} $fondo - Color de fondo
+/// @param {Color} $claro [$color-blanco] - Color para fondos oscuros
+/// @param {Color} $oscuro [$color-neutro-900] - Color para fondos claros
+/// @return {Color} - Color con mejor contraste
+@function color-contraste($fondo, $claro: $color-blanco, $oscuro: $color-neutro-900) {
+  $luminosidad: color.channel($fondo, 'lightness', $space: hsl);
+
+  @if $luminosidad > 55% {
+    @return $oscuro;
+  } @else {
+    @return $claro;
+  }
+}
