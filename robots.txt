@@ -1,32 +1,11 @@
 # NTC Travels & Dreams - robots.txt
 # https://www.ntcluxurytravels.com
 
-# All crawlers
 User-agent: *
 Allow: /
-
-# Disallow development and private directories
-Disallow: /node_modules/
-Disallow: /scripts/
-Disallow: /scss/
-Disallow: /includes/
-Disallow: /.git/
-Disallow: /.vscode/
-Disallow: /dist/
 Disallow: /private/
 Disallow: /tmp/
+Disallow: /junk/
 
-# Allow CSS and JS for rendering
-Allow: /css/*.css
-Allow: /js/*.js
-Allow: /assets/
-
-# Allow images
-Allow: /images/
-Allow: /favicon/
-
-# Crawl delay (optional, for politeness)
-Crawl-delay: 1
-
-# Sitemap location
+# Sitemap
 Sitemap: https://www.ntcluxurytravels.com/sitemap.xml

@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
 * Project:        NTC Travels & Dreams
 * Description:    Custom Swiper Slider Initialization
-* Updated:        November 2025
+* Updated:        February 2026
 -------------------------------------------------------------------*/
 
 (function() {
